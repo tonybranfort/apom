@@ -1,0 +1,16 @@
+resultsFileName : 2015-12-08-windows_laptop_first_tests.json
+   q50     q95     max     m%       n    testName                                                                
+  0.030   0.285   2.982  44.000     100  match_k1to1_pWord_tWord_m50_v100to100                                      
+  0.024   0.034   8.296  50.000    1000  match_k1to1_pWord_tWord_m50_v1kto1k                                        
+  0.011   0.025  17.986  49.992  100000  match_k1to1_pWord_tWord_m50_v100kto100k                                    
+  0.042   0.101   0.835  44.000     100  matchSimple_k1to1_pWord_tWord_m50_v100to100                                
+  0.034   0.078   3.643  50.000    1000  matchSimple_k1to1_pWord_tWord_m50_v1kto1k                                  
+  0.032   0.066  21.048  49.992  100000  matchSimple_k1to1_pWord_tWord_m50_v100kto100k                              
+  0.021   0.034   0.158  47.000     100  match_k1to1_pString_tString_m50_v100to100                                  
+  0.022   0.052   0.787  51.100    1000  match_k1to1_pString_tString_m50_v1kto1k                                    
+  0.011   0.024  74.400  50.210  100000  match_k1to1_pString_tString_m50_v100kto100k                                
+  0.023   0.032   0.088  45.000     100  match_k1to1_pParagraph_tParagraph_m50_v100to100                            
+  0.020   0.033  10.488  47.800    1000  match_k1to1_pParagraph_tParagraph_m50_v1kto1k                              
+  0.029   0.101   0.476  53.000     100  reMatch_k1to1_pRandomMidStr_tWord_m50_v100to100                            
+  0.028   0.064   0.274  49.100    1000  reMatch_k1to1_pRandomMidStr_tWord_m50_v1kto1k                              
+  0.014   0.029  20.230  49.947  100000  reMatch_k1to1_pRandomMidStr_tWord_m50_v100kto100k                          

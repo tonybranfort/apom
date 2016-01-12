@@ -1,0 +1,29 @@
+{
+  "name": "apom",
+  "version": "1.0.0",
+  "description": "Asynchronous Partial Object Match for object comparisons and filters",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "test/test.js"
+  }, 
+  "repository" :
+    { "type" : "git"
+    , "url" : "https://github.com/tonybranfort/apom"
+    },
+  "dependencies": {
+    "async":"0.9.x"
+  },
+  "devDependencies": {
+    "mocha":"2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+  },
+  "keywords": [
+    "object",
+    "compare",
+    "regex"
+  ],
+  "author": "Tony Branfort",
+  "license": "MIT"
+}

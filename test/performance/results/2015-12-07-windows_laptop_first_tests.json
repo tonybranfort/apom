@@ -1,0 +1,1693 @@
+[
+ {
+  "id": 1449504702293,
+  "testName": "match_k1to1_pWord_tWord_m50_v100to100",
+  "date": "2015-12-07T16:11:42.293Z",
+  "testConfig": {
+   "testName": "match_k1to1_pWord_tWord_m50_v100to100",
+   "testGroup": "windows_laptop_first_tests",
+   "tObj": {
+    "fileName": "k1_word_v100.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v100_ditto_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": [
+    {
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false,
+     "regExpMatch": false
+    }
+   ]
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars3to10, 0.5)\\n      };  \\n    }\"",
+   "count": 100,
+   "sample": {
+    "prop1": "Pp8Wrw"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 100,
+   "sample": {
+    "prop1": "yTNe"
+   }
+  },
+  "env": {
+   "date": "2015-12-07T16:11:42.253Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  run-perf-tests.js",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 16039936,
+     "heapTotal": 9751808,
+     "heapUsed": 3602112
+    },
+    "uptime": 0.122
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "~2.2.5",
+    "should": "~7.0.2",
+    "jstat": "~1.1.5"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     9011133
+    ],
+    "totalMs": 9.011133
+   },
+   "perMatchMsStats": {
+    "q10": 0.014211000000000001,
+    "q25": 0.015001,
+    "q50": 0.019935,
+    "q75": 0.029212,
+    "q90": 0.08447859999999996,
+    "q95": 0.225416425,
+    "q99": 1.918122177500005,
+    "max": 2.745934,
+    "min": 0.013422,
+    "stdev": 0.27970518242808873,
+    "mean": 0.07103663999999998
+   },
+   "matchPercent": 48
+  }
+ },
+ {
+  "id": 1449504702313,
+  "testName": "match_k1to1_pWord_tWord_m50_v1kto1k",
+  "date": "2015-12-07T16:11:42.313Z",
+  "testConfig": {
+   "testName": "match_k1to1_pWord_tWord_m50_v1kto1k",
+   "testGroup": "windows_laptop_first_tests",
+   "tObj": {
+    "fileName": "k1_word_v1k.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v1k_ditto_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": [
+    {
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false,
+     "regExpMatch": false
+    }
+   ]
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars3to10, 0.5)\\n      };  \\n    }\"",
+   "count": 1000,
+   "sample": {
+    "prop1": "XTLT"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 1000,
+   "sample": {
+    "prop1": "XTLT"
+   }
+  },
+  "env": {
+   "date": "2015-12-07T16:11:42.253Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  run-perf-tests.js",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 16039936,
+     "heapTotal": 9751808,
+     "heapUsed": 3602112
+    },
+    "uptime": 0.122
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "~2.2.5",
+    "should": "~7.0.2",
+    "jstat": "~1.1.5"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     29462340
+    ],
+    "totalMs": 29.46234
+   },
+   "perMatchMsStats": {
+    "q10": 0.011053,
+    "q25": 0.011448,
+    "q50": 0.013027,
+    "q75": 0.020133,
+    "q90": 0.02629100000000001,
+    "q95": 0.03498032499999998,
+    "q99": 0.18033331749999845,
+    "max": 4.575636,
+    "min": 0.009869,
+    "stdev": 0.1538989362802002,
+    "mean": 0.026233622000000057
+   },
+   "matchPercent": 51.7
+  }
+ },
+ {
+  "id": 1449504702348,
+  "testName": "match_k1to1_pWord_tWord_m50_v100kto100k",
+  "date": "2015-12-07T16:11:42.348Z",
+  "testConfig": {
+   "testName": "match_k1to1_pWord_tWord_m50_v100kto100k",
+   "testGroup": "windows_laptop_first_tests",
+   "tObj": {
+    "fileName": "k1_word_v100k.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v100k_ditto_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": [
+    {
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false,
+     "regExpMatch": false
+    }
+   ]
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars3to10, 0.5)\\n      };  \\n    }\"",
+   "count": 100000,
+   "sample": {
+    "prop1": "2qiwADqLU"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 100000,
+   "sample": {
+    "prop1": "ylhSIh"
+   }
+  },
+  "env": {
+   "date": "2015-12-07T16:11:42.253Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  run-perf-tests.js",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 16039936,
+     "heapTotal": 9751808,
+     "heapUsed": 3602112
+    },
+    "uptime": 0.122
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "~2.2.5",
+    "should": "~7.0.2",
+    "jstat": "~1.1.5"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     1,
+     570762277
+    ],
+    "totalMs": 1570.762277
+   },
+   "perMatchMsStats": {
+    "q10": 0.009869,
+    "q25": 0.009869,
+    "q50": 0.010264,
+    "q75": 0.011053,
+    "q90": 0.012238,
+    "q95": 0.018159,
+    "q99": 0.03158,
+    "max": 9.054556,
+    "min": 0.009079,
+    "stdev": 0.08836954748828128,
+    "mean": 0.01341328137999277
+   },
+   "matchPercent": 50.192
+  }
+ },
+ {
+  "id": 1449504704095,
+  "testName": "matchSimple_k1to1_pWord_tWord_m50_v100to100",
+  "date": "2015-12-07T16:11:44.095Z",
+  "testConfig": {
+   "testName": "matchSimple_k1to1_pWord_tWord_m50_v100to100",
+   "testGroup": "windows_laptop_first_tests",
+   "tObj": {
+    "fileName": "k1_word_v100.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v100_ditto_m50.json"
+   },
+   "testFn": "testMatchSimple"
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars3to10, 0.5)\\n      };  \\n    }\"",
+   "count": 100,
+   "sample": {
+    "prop1": "Pp8Wrw"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 100,
+   "sample": {
+    "prop1": "yTNe"
+   }
+  },
+  "env": {
+   "date": "2015-12-07T16:11:42.253Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  run-perf-tests.js",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 16039936,
+     "heapTotal": 9751808,
+     "heapUsed": 3602112
+    },
+    "uptime": 0.122
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "~2.2.5",
+    "should": "~7.0.2",
+    "jstat": "~1.1.5"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     6204801
+    ],
+    "totalMs": 6.204801
+   },
+   "perMatchMsStats": {
+    "q10": 0.03237,
+    "q25": 0.03316,
+    "q50": 0.052108,
+    "q75": 0.054477,
+    "q90": 0.0731878,
+    "q95": 0.11863902499999998,
+    "q99": 0.471926745000001,
+    "max": 0.636744,
+    "min": 0.03158,
+    "stdev": 0.0642857426110829,
+    "mean": 0.05775304000000004
+   },
+   "matchPercent": 48
+  }
+ },
+ {
+  "id": 1449504704107,
+  "testName": "matchSimple_k1to1_pWord_tWord_m50_v1kto1k",
+  "date": "2015-12-07T16:11:44.107Z",
+  "testConfig": {
+   "testName": "matchSimple_k1to1_pWord_tWord_m50_v1kto1k",
+   "testGroup": "windows_laptop_first_tests",
+   "tObj": {
+    "fileName": "k1_word_v1k.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v1k_ditto_m50.json"
+   },
+   "testFn": "testMatchSimple"
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars3to10, 0.5)\\n      };  \\n    }\"",
+   "count": 1000,
+   "sample": {
+    "prop1": "XTLT"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 1000,
+   "sample": {
+    "prop1": "XTLT"
+   }
+  },
+  "env": {
+   "date": "2015-12-07T16:11:42.253Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  run-perf-tests.js",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 16039936,
+     "heapTotal": 9751808,
+     "heapUsed": 3602112
+    },
+    "uptime": 0.122
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "~2.2.5",
+    "should": "~7.0.2",
+    "jstat": "~1.1.5"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     55808858
+    ],
+    "totalMs": 55.808858
+   },
+   "perMatchMsStats": {
+    "q10": 0.028422,
+    "q25": 0.028817,
+    "q50": 0.031186,
+    "q75": 0.040092625,
+    "q90": 0.0665564,
+    "q95": 0.09610352499999993,
+    "q99": 0.28071375999999876,
+    "max": 5.343439,
+    "min": 0.027238,
+    "stdev": 0.18335344305593917,
+    "mean": 0.051402550000000075
+   },
+   "matchPercent": 51.7
+  }
+ },
+ {
+  "id": 1449504704167,
+  "testName": "matchSimple_k1to1_pWord_tWord_m50_v100kto100k",
+  "date": "2015-12-07T16:11:44.167Z",
+  "testConfig": {
+   "testName": "matchSimple_k1to1_pWord_tWord_m50_v100kto100k",
+   "testGroup": "windows_laptop_first_tests",
+   "tObj": {
+    "fileName": "k1_word_v100k.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v100k_ditto_m50.json"
+   },
+   "testFn": "testMatchSimple"
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars3to10, 0.5)\\n      };  \\n    }\"",
+   "count": 100000,
+   "sample": {
+    "prop1": "2qiwADqLU"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 100000,
+   "sample": {
+    "prop1": "ylhSIh"
+   }
+  },
+  "env": {
+   "date": "2015-12-07T16:11:42.253Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  run-perf-tests.js",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 16039936,
+     "heapTotal": 9751808,
+     "heapUsed": 3602112
+    },
+    "uptime": 0.122
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "~2.2.5",
+    "should": "~7.0.2",
+    "jstat": "~1.1.5"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     4,
+     54710643
+    ],
+    "totalMs": 4054.710643
+   },
+   "perMatchMsStats": {
+    "q10": 0.027633,
+    "q25": 0.028028000000000004,
+    "q50": 0.028423,
+    "q75": 0.030396,
+    "q90": 0.035923,
+    "q95": 0.048555,
+    "q99": 0.098689,
+    "max": 20.74175,
+    "min": 0.026843,
+    "stdev": 0.1906061656310936,
+    "mean": 0.03758824456000631
+   },
+   "matchPercent": 50.192
+  }
+ },
+ {
+  "id": 1449504708380,
+  "testName": "match_k1to1_pString_tString_m50_v100to100",
+  "date": "2015-12-07T16:11:48.380Z",
+  "testConfig": {
+   "testName": "match_k1to1_pString_tString_m50_v100to100",
+   "testGroup": "windows_laptop_first_tests",
+   "tObj": {
+    "fileName": "k1_string_v100.json"
+   },
+   "pObj": {
+    "fileName": "k1_string_v100_ditto_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": [
+    {
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false,
+     "regExpMatch": false
+    }
+   ]
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars30to150, 0.5)\\n      };  \\n    }\"",
+   "count": 100,
+   "sample": {
+    "prop1": "vPnTqe2JBKUF5I7Dkhd2YplGKqfViQzMmYydTqWUo3A9"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(30,150); \\n}\"}",
+   "count": 100,
+   "sample": {
+    "prop1": "uGNWNKMPwx9anOmlbRawGc4VDTfMwRPirsHDM4C79zZWkOpxqsPKsw92Pxk9OwNFvobRXljOWzlHuq"
+   }
+  },
+  "env": {
+   "date": "2015-12-07T16:11:42.253Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  run-perf-tests.js",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 16039936,
+     "heapTotal": 9751808,
+     "heapUsed": 3602112
+    },
+    "uptime": 0.122
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "~2.2.5",
+    "should": "~7.0.2",
+    "jstat": "~1.1.5"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     2169588
+    ],
+    "totalMs": 2.169588
+   },
+   "perMatchMsStats": {
+    "q10": 0.011053,
+    "q25": 0.011448,
+    "q50": 0.016777,
+    "q75": 0.0197375625,
+    "q90": 0.0209226,
+    "q95": 0.0215589375,
+    "q99": 0.10643449000000015,
+    "max": 0.129086,
+    "min": 0.010658,
+    "stdev": 0.013816118970315077,
+    "mean": 0.017835089999999987
+   },
+   "matchPercent": 47
+  }
+ },
+ {
+  "id": 1449504708386,
+  "testName": "match_k1to1_pString_tString_m50_v1kto1k",
+  "date": "2015-12-07T16:11:48.386Z",
+  "testConfig": {
+   "testName": "match_k1to1_pString_tString_m50_v1kto1k",
+   "testGroup": "windows_laptop_first_tests",
+   "tObj": {
+    "fileName": "k1_string_v1k.json"
+   },
+   "pObj": {
+    "fileName": "k1_string_v1k_ditto_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": [
+    {
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false,
+     "regExpMatch": false
+    }
+   ]
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars30to150, 0.5)\\n      };  \\n    }\"",
+   "count": 1000,
+   "sample": {
+    "prop1": "60iHlrB5u64KLghh64LHvdUXHFYRGSKfH55BwfmQcrmkGnrBj"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(30,150); \\n}\"}",
+   "count": 1000,
+   "sample": {
+    "prop1": "60iHlrB5u64KLghh64LHvdUXHFYRGSKfH55BwfmQcrmkGnrBj"
+   }
+  },
+  "env": {
+   "date": "2015-12-07T16:11:42.253Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  run-perf-tests.js",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 16039936,
+     "heapTotal": 9751808,
+     "heapUsed": 3602112
+    },
+    "uptime": 0.122
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "~2.2.5",
+    "should": "~7.0.2",
+    "jstat": "~1.1.5"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     26913390
+    ],
+    "totalMs": 26.91339
+   },
+   "perMatchMsStats": {
+    "q10": 0.009869,
+    "q25": 0.010264,
+    "q50": 0.011448,
+    "q75": 0.013027,
+    "q90": 0.018159,
+    "q95": 0.024081,
+    "q99": 0.08116006499999866,
+    "max": 10.067898,
+    "min": 0.009474,
+    "stdev": 0.3183062422819021,
+    "mean": 0.02447893000000008
+   },
+   "matchPercent": 51.5
+  }
+ },
+ {
+  "id": 1449504708420,
+  "testName": "match_k1to1_pString_tString_m50_v100kto100k",
+  "date": "2015-12-07T16:11:48.420Z",
+  "testConfig": {
+   "testName": "match_k1to1_pString_tString_m50_v100kto100k",
+   "testGroup": "windows_laptop_first_tests",
+   "tObj": {
+    "fileName": "k1_string_v100k.json"
+   },
+   "pObj": {
+    "fileName": "k1_string_v100k_ditto_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": [
+    {
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false,
+     "regExpMatch": false
+    }
+   ]
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars30to150, 0.5)\\n      };  \\n    }\"",
+   "count": 100000,
+   "sample": {
+    "prop1": "zcpyujVyrtVQcmw2jNOHvsQbaDaHVcSiR6ogzL2mAlRGKW0fChVVPqG6AYRuDTEQAoUBBjNkg5zcFGRWnT0yKA5mFedWZ5wCBJQIkRFXWhiRTfvHBQTvZGez"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(30,150); \\n}\"}",
+   "count": 100000,
+   "sample": {
+    "prop1": "nWQZWDINgfJF7WnuTFqmXrW9m4aBHBEnImMoq1R3bcAfBnLXj7WjUrvIxXK64Q4JzLbAFKTu0sI4IZyWKRuTWjBPUdNelqKXDK81HQbfrIinMNcm"
+   }
+  },
+  "env": {
+   "date": "2015-12-07T16:11:42.253Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  run-perf-tests.js",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 16039936,
+     "heapTotal": 9751808,
+     "heapUsed": 3602112
+    },
+    "uptime": 0.122
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "~2.2.5",
+    "should": "~7.0.2",
+    "jstat": "~1.1.5"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     2,
+     498973
+    ],
+    "totalMs": 2000.498973
+   },
+   "perMatchMsStats": {
+    "q10": 0.009869,
+    "q25": 0.010264,
+    "q50": 0.010659,
+    "q75": 0.011843,
+    "q90": 0.013422,
+    "q95": 0.020528,
+    "q99": 0.053293,
+    "max": 41.612584,
+    "min": 0.009474,
+    "stdev": 0.2307958733151997,
+    "mean": 0.017462233129987452
+   },
+   "matchPercent": 49.78
+  }
+ },
+ {
+  "id": 1449504710625,
+  "testName": "match_k1to1_pParagraph_tParagraph_m50_v100to100",
+  "date": "2015-12-07T16:11:50.625Z",
+  "testConfig": {
+   "testName": "match_k1to1_pParagraph_tParagraph_m50_v100to100",
+   "testGroup": "windows_laptop_first_tests",
+   "tObj": {
+    "fileName": "k1_paragraph_v100.json"
+   },
+   "pObj": {
+    "fileName": "k1_paragraph_v100_ditto_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": [
+    {
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false,
+     "regExpMatch": false
+    }
+   ]
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, getParagraph, 0.5)\\n      };  \\n    }\"",
+   "count": 100,
+   "sample": {
+    "prop1": "rNKm5 cGu NuS hkc7fSCLc T6w NORgXBH yBT2DDkV fP4A9ZD J6WVAP8 HTY2Xmg3 vTYay MEAtN172 nCN QcvrDIm dzV Ulmqq0IEb z3AzMGN d1Ve LZodi6wv 5CO dMLRJt vcBG EsIBTU 6ID ZMEdVh CVrj3W cs79t IatjPFa fZiC6 BUC pUGP4 SPIkw3EqJ pgrrvEN lWe60Nx7G TQl8REOZ 6BpkyVAtp 8bLx oExu OSQSHP 30tHw KFpI 4Aa3lEx bkAw xyP XwlAGmZ BdR 4wCP GMoRNti 62gD RDR dTe6bhX4Y 8onP 0CxuVDjW DWgRK RwQX8ZAOk Vr8E0r muojJUwB2 WinkMlD6g bFlwIKa rfYHONoe SeZRPHE0e h4UWbnzF mGAVOF uCF Xz9 GqDowWXMy 3fMlDfX iat f0r VmU SnR bpTGfEa nrOr FYsxUy18S ZCE fqouSQ hxkihNTB VJaSziJ8 RHi 8VIaJuJU 2ZB nC5W VU34Gb14W WsyO ICYQL MInFPU UR4uSXx bxkZQ1iS 0fX 93o9 XAJSEXo VIbgPsjeZ qJ7b9 mY1 YRbSik azqLn3kRv 79azgJkqv GIWg2LA 8PDj QYkSumNnD zElRuGkV 4LhWp3LN w3CBDe Rqmev11Qe L7b7Rhf 9II INMmc3yz 6Gthz MQA8VfNZ gHZi cbM k6RAyu5 cvteasv9 8iV 6DcpRaTN 4dXU3CBuk KJyzJU1I6 uiAchD10 yuic Z30g 6xOB k65E6 woXznrNz uPYefM G9VZ 4GLr QGp4qzmW XX23enSvk jBuHi81Uv WEoL8BL8S EHjDvFk g54ZYpSa dYOYxSG9 CzkHc pwMCeAHa evVJuH Pnn1 e5urmNOV5 pfexLG9U hdCHKccHc ahB j6SzYJ JzW0zOAQ r7r VGvjT i2AQqtgLw Q4b JL0M64mZ 0fG9a2I OER MHRbhO bzcdKlTe bYgnD2SIx kwQ dPf tjObyFR Fia7 L7tYeX buFEvs iMEv 6lVx rpT 2Qz S2R517b Ndy93 wiFo x1Ow2 IpxOauXc t6bFdK FaJHOM L7k o9iWBWny 0ztAL crCIS GqsNsNpcz yB20 95nLC2P2x A3WmiN oeEp o6X 9hQXf homxWOY1y mbQY71Q8i rRl xBmw6Uf MDylCT zTKGWX 7ZPLf IG83hwv G01AKnA Y9rzu rRBKArxr eVq5F THxs O29 ookBC "
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getParagraph(3,10,5,200);\\n}\"}",
+   "count": 100,
+   "sample": {
+    "prop1": "rNKm5 cGu NuS hkc7fSCLc T6w NORgXBH yBT2DDkV fP4A9ZD J6WVAP8 HTY2Xmg3 vTYay MEAtN172 nCN QcvrDIm dzV Ulmqq0IEb z3AzMGN d1Ve LZodi6wv 5CO dMLRJt vcBG EsIBTU 6ID ZMEdVh CVrj3W cs79t IatjPFa fZiC6 BUC pUGP4 SPIkw3EqJ pgrrvEN lWe60Nx7G TQl8REOZ 6BpkyVAtp 8bLx oExu OSQSHP 30tHw KFpI 4Aa3lEx bkAw xyP XwlAGmZ BdR 4wCP GMoRNti 62gD RDR dTe6bhX4Y 8onP 0CxuVDjW DWgRK RwQX8ZAOk Vr8E0r muojJUwB2 WinkMlD6g bFlwIKa rfYHONoe SeZRPHE0e h4UWbnzF mGAVOF uCF Xz9 GqDowWXMy 3fMlDfX iat f0r VmU SnR bpTGfEa nrOr FYsxUy18S ZCE fqouSQ hxkihNTB VJaSziJ8 RHi 8VIaJuJU 2ZB nC5W VU34Gb14W WsyO ICYQL MInFPU UR4uSXx bxkZQ1iS 0fX 93o9 XAJSEXo VIbgPsjeZ qJ7b9 mY1 YRbSik azqLn3kRv 79azgJkqv GIWg2LA 8PDj QYkSumNnD zElRuGkV 4LhWp3LN w3CBDe Rqmev11Qe L7b7Rhf 9II INMmc3yz 6Gthz MQA8VfNZ gHZi cbM k6RAyu5 cvteasv9 8iV 6DcpRaTN 4dXU3CBuk KJyzJU1I6 uiAchD10 yuic Z30g 6xOB k65E6 woXznrNz uPYefM G9VZ 4GLr QGp4qzmW XX23enSvk jBuHi81Uv WEoL8BL8S EHjDvFk g54ZYpSa dYOYxSG9 CzkHc pwMCeAHa evVJuH Pnn1 e5urmNOV5 pfexLG9U hdCHKccHc ahB j6SzYJ JzW0zOAQ r7r VGvjT i2AQqtgLw Q4b JL0M64mZ 0fG9a2I OER MHRbhO bzcdKlTe bYgnD2SIx kwQ dPf tjObyFR Fia7 L7tYeX buFEvs iMEv 6lVx rpT 2Qz S2R517b Ndy93 wiFo x1Ow2 IpxOauXc t6bFdK FaJHOM L7k o9iWBWny 0ztAL crCIS GqsNsNpcz yB20 95nLC2P2x A3WmiN oeEp o6X 9hQXf homxWOY1y mbQY71Q8i rRl xBmw6Uf MDylCT zTKGWX 7ZPLf IG83hwv G01AKnA Y9rzu rRBKArxr eVq5F THxs O29 ookBC "
+   }
+  },
+  "env": {
+   "date": "2015-12-07T16:11:42.253Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  run-perf-tests.js",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 16039936,
+     "heapTotal": 9751808,
+     "heapUsed": 3602112
+    },
+    "uptime": 0.122
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "~2.2.5",
+    "should": "~7.0.2",
+    "jstat": "~1.1.5"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     3540186
+    ],
+    "totalMs": 3.540186
+   },
+   "perMatchMsStats": {
+    "q10": 0.022264600000000002,
+    "q25": 0.023686,
+    "q50": 0.026449,
+    "q75": 0.028817,
+    "q90": 0.032765,
+    "q95": 0.0362542,
+    "q99": 0.06869309000000004,
+    "max": 0.075399,
+    "min": 0.018159,
+    "stdev": 0.007737760912169618,
+    "mean": 0.02765281
+   },
+   "matchPercent": 53
+  }
+ },
+ {
+  "id": 1449504710634,
+  "testName": "match_k1to1_pParagraph_tParagraph_m50_v1kto1k",
+  "date": "2015-12-07T16:11:50.634Z",
+  "testConfig": {
+   "testName": "match_k1to1_pParagraph_tParagraph_m50_v1kto1k",
+   "testGroup": "windows_laptop_first_tests",
+   "tObj": {
+    "fileName": "k1_paragraph_v1k.json"
+   },
+   "pObj": {
+    "fileName": "k1_paragraph_v1k_ditto_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": [
+    {
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false,
+     "regExpMatch": false
+    }
+   ]
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, getParagraph, 0.5)\\n      };  \\n    }\"",
+   "count": 1000,
+   "sample": {
+    "prop1": "Akv cWH7qT6 i6YmQahm LKTf gF6yyp0f DUqVgmO fjIj5Be 1Awr8F K6EOf hBy X3ws6qWRH 6gf h0lvyER X8iek NRn PmX2nyQC3 tyQ iwcN PTy OmV iO3QN lt1dWCQj HO1f9YJ ua5Z4 aJaM 7ZbB5FEx WDdY PJnDT b4AshCeN s6Z3DGRt2 4g9NRcCvl SrZnfA vlm9yxF KA0rp vhd 1Rfh0LO1l OpiIY q7P6 V8hvd8 8e3 PBiAF kDR lbuhUafu uGnkid8eF qofn RlB AUHAfn5Kg X10Z4Fy9 NAVZ5 13OVtqKI 0ukvpmy QcX U5ElbsSkR KZ1v rVIsFmR 2uf1lvgX pGSp26CSp v4Vv kZTRW wYZRoxK w8S clV 48tw ZK6cFN oY4 lksq AzJ6W FVSPAYjlr W8dCmF pEmQjY ZluvLZD nhW1 ITNcPnC7T LQP 641 kYjq IUBfu 3GQ 5hbdLwf h0NEtTm PCIL HIcyT 9C94QDZu2 j2SyXjo "
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getParagraph(3,10,5,200);\\n}\"}",
+   "count": 1000,
+   "sample": {
+    "prop1": "9xJqLs1 VgdHeJ YAvmx0e aClKILY dKwT9U kxodQo3Ld 28XybX EUceqnEBO vqzC6 L8l 4XGGbgW tc90 k58 Mca21 l1o72GC MFH0KQO4 NXH QXC4oPs dX8 o3CL4efi 9ys htHsyb VCWMP4f 6M8vt NVnjPK IcjAzCpU5 LT8cYN7mS TzGQKD0 2b2 TlR hCWLu1 YequBz tsQZnE tDD6zZ GOgha xU9p7e ASFgUUR 6mVDWUjR fjP UeFizn8w 7Ne0aj5r rgiVqM S39h tNDcGvoc Af6SO LVzIa Hmk5 2bZMBA DvMK6205 TYOLt lIab 0VsEjgtty zbRb En1QSpV8x w5hYKw1 j2l qJo RRez4qBXk htl6 nvjOOxqfW uvi I58A0O 3PXh aNCF 4oM0bX zCIktCQ pisNSXgO HQ0uieOQr tJEd t9pD6 ae97 GBww0Lw 6rSZVN IQ6L 0No rS1N3 YRjyu 6Qglf4oND yvoxZybt vQfeCHzw CCBtid M47 oeChF1l4 Zy3W85p qz9AN MwqguDlNz JZ6ydTUbs IFYEED7UP USv2g HAeFAOXIr TLoLOfpBX 3klUP Y9U8w Ro3u DCRj4BaJ n8Kku3Uea nb32mnu nvJTIuHN Tv5uow XnaokN MSjkDuiG jHx8jhurQ sxtN7W7bo R2qh1ae mOL5Dt PVmglnma OKttfibR 0PGGZjdX iTi327g rLx6bxTdZ IqonXe1QK S1FTFsP aho esa 4FxKmGR meAGHyy izgm jP9 DjE5 POXj vGvko J9VcGpb dmIP 1QVM HRabA6 bW2VDi Jn3DkGYn ATQ VvIO hZxzs5Hg a03 jFDmnoa QXD2ehrb 34gRCnjo Kzs NCU 4VZGR FACbMJ HqfRPRFC pRe8GIGU4 AJ8812BCd DUioGM10 mlg oVkkA8pF QMt njNfQ OTu Wq4u905U BPrcTa cDxC1UHl 3iuGg5I NnWs2 VCS8 cvJehe87 8xCyvTtW 3WS wM7 2ZM uH176nN 4RhE8O 8LMe8nM FDjzoV L4Ic3z 89urAFn K4wpdK Z1m eZeLk x7I oJt 6JiksAWk1 LNB v4LZ34GI9 zsrqjJp gtxTnG4y sYvggw K5Y41swlN xjpj Wxk0 FzXeeThNX "
+   }
+  },
+  "env": {
+   "date": "2015-12-07T16:11:42.253Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  run-perf-tests.js",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 16039936,
+     "heapTotal": 9751808,
+     "heapUsed": 3602112
+    },
+    "uptime": 0.122
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "~2.2.5",
+    "should": "~7.0.2",
+    "jstat": "~1.1.5"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     19871704
+    ],
+    "totalMs": 19.871704
+   },
+   "perMatchMsStats": {
+    "q10": 0.011843,
+    "q25": 0.012632,
+    "q50": 0.013422,
+    "q75": 0.015396,
+    "q90": 0.02234340000000001,
+    "q95": 0.026449,
+    "q99": 0.07065794499999886,
+    "max": 0.680562,
+    "min": 0.011053,
+    "stdev": 0.028412267479387916,
+    "mean": 0.017398153999999992
+   },
+   "matchPercent": 49.2
+  }
+ },
+ {
+  "id": 1449504710678,
+  "testName": "reMatch_k1to1_pRandomMidStr_tWord_m50_v100to100",
+  "date": "2015-12-07T16:11:50.678Z",
+  "testConfig": {
+   "testName": "reMatch_k1to1_pRandomMidStr_tWord_m50_v100to100",
+   "testGroup": "windows_laptop_first_tests",
+   "tObj": {
+    "fileName": "k1_word_v100.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v100_reMidStr_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": {
+    "prop1": {
+     "regExpMatch": true,
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false
+    }
+   }
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: \\n          rog.randomReplaceWith(\\n                randomMidStr(so.prop1), \\n                randomChars3to10(), \\n                0.5)\\n      };  \\n    }\"",
+   "count": 100,
+   "sample": {
+    "prop1": "yYd"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 100,
+   "sample": {
+    "prop1": "yTNe"
+   }
+  },
+  "env": {
+   "date": "2015-12-07T16:11:42.253Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  run-perf-tests.js",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 16039936,
+     "heapTotal": 9751808,
+     "heapUsed": 3602112
+    },
+    "uptime": 0.122
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "~2.2.5",
+    "should": "~7.0.2",
+    "jstat": "~1.1.5"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     4080215
+    ],
+    "totalMs": 4.080215
+   },
+   "perMatchMsStats": {
+    "q10": 0.017764,
+    "q25": 0.023685,
+    "q50": 0.027633,
+    "q75": 0.031186,
+    "q90": 0.037028399999999996,
+    "q95": 0.04766208749999999,
+    "q99": 0.25977201750000023,
+    "max": 0.3012,
+    "min": 0.015001,
+    "stdev": 0.033683630668376596,
+    "mean": 0.03279257999999998
+   },
+   "matchPercent": 56.00000000000001
+  }
+ },
+ {
+  "id": 1449504710690,
+  "testName": "reMatch_k1to1_pRandomMidStr_tWord_m50_v1kto1k",
+  "date": "2015-12-07T16:11:50.690Z",
+  "testConfig": {
+   "testName": "reMatch_k1to1_pRandomMidStr_tWord_m50_v1kto1k",
+   "testGroup": "windows_laptop_first_tests",
+   "tObj": {
+    "fileName": "k1_word_v1k.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v1k_reMidStr_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": {
+    "prop1": {
+     "regExpMatch": true,
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false
+    }
+   }
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: \\n          rog.randomReplaceWith(\\n                randomMidStr(so.prop1), \\n                randomChars3to10(), \\n                0.5)\\n      };  \\n    }\"",
+   "count": 1000,
+   "sample": {
+    "prop1": "hjF8"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 1000,
+   "sample": {
+    "prop1": "XTLT"
+   }
+  },
+  "env": {
+   "date": "2015-12-07T16:11:42.253Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  run-perf-tests.js",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 16039936,
+     "heapTotal": 9751808,
+     "heapUsed": 3602112
+    },
+    "uptime": 0.122
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "~2.2.5",
+    "should": "~7.0.2",
+    "jstat": "~1.1.5"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     23599005
+    ],
+    "totalMs": 23.599005
+   },
+   "perMatchMsStats": {
+    "q10": 0.014606,
+    "q25": 0.015001,
+    "q50": 0.015396,
+    "q75": 0.0205275625,
+    "q90": 0.031581,
+    "q95": 0.037502,
+    "q99": 0.07825815249999996,
+    "max": 0.237249,
+    "min": 0.013816,
+    "stdev": 0.01568369855597474,
+    "mean": 0.02053014600000004
+   },
+   "matchPercent": 47.9
+  }
+ },
+ {
+  "id": 1449504710721,
+  "testName": "reMatch_k1to1_pRandomMidStr_tWord_m50_v100kto100k",
+  "date": "2015-12-07T16:11:50.721Z",
+  "testConfig": {
+   "testName": "reMatch_k1to1_pRandomMidStr_tWord_m50_v100kto100k",
+   "testGroup": "windows_laptop_first_tests",
+   "tObj": {
+    "fileName": "k1_word_v100k.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v100k_reMidStr_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": {
+    "prop1": {
+     "regExpMatch": true,
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false
+    }
+   }
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: \\n          rog.randomReplaceWith(\\n                randomMidStr(so.prop1), \\n                randomChars3to10(), \\n                0.5)\\n      };  \\n    }\"",
+   "count": 100000,
+   "sample": {
+    "prop1": "VhGz"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 100000,
+   "sample": {
+    "prop1": "ylhSIh"
+   }
+  },
+  "env": {
+   "date": "2015-12-07T16:11:42.253Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  run-perf-tests.js",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 16039936,
+     "heapTotal": 9751808,
+     "heapUsed": 3602112
+    },
+    "uptime": 0.122
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "~2.2.5",
+    "should": "~7.0.2",
+    "jstat": "~1.1.5"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     2,
+     311502053
+    ],
+    "totalMs": 2311.502053
+   },
+   "perMatchMsStats": {
+    "q10": 0.013421,
+    "q25": 0.013816,
+    "q50": 0.014211,
+    "q75": 0.015001,
+    "q90": 0.016974,
+    "q95": 0.024475,
+    "q99": 0.038686,
+    "max": 15.508053,
+    "min": 0.012237,
+    "stdev": 0.22816613913208947,
+    "mean": 0.020827969399989238
+   },
+   "matchPercent": 50.248000000000005
+  }
+ }
+]

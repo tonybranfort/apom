@@ -1,0 +1,8353 @@
+[
+ {
+  "id": 1450291137831,
+  "testName": "regMatch_k1to1_pRegDotStar_tWord_m50_v100kto100k",
+  "date": "2015-12-16T18:38:57.831Z",
+  "testConfig": {
+   "testName": "regMatch_k1to1_pRegDotStar_tWord_m50_v100kto100k",
+   "tObj": {
+    "fileName": "k1_word_v100k.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v100k_regDotStar_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": {
+    "prop1": {
+     "regExpMatch": true,
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false
+    }
+   },
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 0
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: \\n          rog.randomReplaceWith(\\n                replaceRandomChars(\\n                    so.prop1,\\n                    '.*',\\n                    rog.getRandomInt(0,so.prop1.length)), \\n                randomChars3to10(), \\n                0.5)\\n      };  \\n    }\"",
+   "count": 100000,
+   "sample": {
+    "prop1": "cgXW.*Z"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 100000,
+   "sample": {
+    "prop1": "cgXWFZ"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 44761088,
+     "heapTotal": 32642048,
+     "heapUsed": 14840792
+    },
+    "uptime": 0.971
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     2,
+     920553513
+    ],
+    "totalMs": 2920.553513
+   },
+   "perMatchMsStats": {
+    "q10": 0.00829,
+    "q25": 0.009079,
+    "q50": 0.011053,
+    "q75": 0.021317,
+    "q90": 0.026054,
+    "q95": 0.035923,
+    "q99": 0.067503,
+    "max": 25.084853,
+    "min": 0.007105,
+    "stdev": 0.1162266494234373,
+    "mean": 0.01846829744998917
+   },
+   "matchPercent": 49.999
+  }
+ },
+ {
+  "id": 1450291140962,
+  "testName": "match_k1to1_pWord_tWord_m50_v1kto1k",
+  "date": "2015-12-16T18:39:00.962Z",
+  "testConfig": {
+   "testName": "match_k1to1_pWord_tWord_m50_v1kto1k",
+   "tObj": {
+    "fileName": "k1_word_v1k.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v1k_ditto_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": [
+    {
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false,
+     "regExpMatch": false
+    }
+   ],
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 1
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars3to10, 0.5)\\n      };  \\n    }\"",
+   "count": 1000,
+   "sample": {
+    "prop1": "0vKe"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 1000,
+   "sample": {
+    "prop1": "0vKe"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 176181248,
+     "heapTotal": 161676800,
+     "heapUsed": 122188336
+    },
+    "uptime": 4.104
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     17715524
+    ],
+    "totalMs": 17.715524
+   },
+   "perMatchMsStats": {
+    "q10": 0.005921,
+    "q25": 0.005922,
+    "q50": 0.00671,
+    "q75": 0.0071059999999999995,
+    "q90": 0.009079,
+    "q95": 0.013027,
+    "q99": 0.033405509999999985,
+    "max": 0.492263,
+    "min": 0.005526,
+    "stdev": 0.017385285778872998,
+    "mean": 0.00837555400000003
+   },
+   "matchPercent": 46.7
+  }
+ },
+ {
+  "id": 1450291140985,
+  "testName": "matchSimple_k1to100_m50_v100to100",
+  "date": "2015-12-16T18:39:00.985Z",
+  "testConfig": {
+   "testName": "matchSimple_k1to100_m50_v100to100",
+   "tObj": {
+    "fileName": "k100_randObj_v100.json"
+   },
+   "pObj": {
+    "fileName": "k100_randObj_v100_k1_m50.json"
+   },
+   "testFn": "testMatchSimple",
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 2
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    var key = rog.getRandomKey(so); \\n    var value = rog.randomReplaceWith(\\n        rog.getPropValue(so, key),\\n        rog.getRandomMakeDataFn()(),\\n        0.5\\n        );\\n    var obj = rog.makeObjectFromDotKeys(key, value); \\n    return obj;  \\n    }\"",
+   "count": 100,
+   "sample": {
+    "LPBDi": "65497-8527"
+   }
+  },
+  "tObj": {
+   "template": "\"function () {\\n    return fn(p1, p2, p3, p4); \\n  }\"",
+   "count": 100,
+   "sample": {
+    "SUixs": {
+     "1NLCa": "2015-09-25T15:16:58.020Z"
+    },
+    "CWvqwp": {
+     "IrXIXgU": "Moore, Borer and Schultz"
+    },
+    "ipyKxmp": {
+     "BCUlh": "Vandervort Shoal"
+    },
+    "bQRUWg": {
+     "GTgwVN": "2015-07-30T05:12:32.334Z"
+    },
+    "KXiiy": {
+     "GlAifGM": "North Jake bury"
+    },
+    "1XLCglxh": {
+     "YuFDYS": "Kertzmann"
+    },
+    "hgZEwBfI": "Assimilated discrete internet solution",
+    "PHbTJJj": {
+     "CFPMq": "Georgia",
+     "vwFe": {
+      "lYDZaa": "Ebert, Sipes and Monahan"
+     },
+     "b1sB": {
+      "wymJCZqy": "Ara"
+     },
+     "PTzTfD": {
+      "Lwwri": "Port Stephany fort"
+     },
+     "LKldjyD": {
+      "utzMJI": "Principal"
+     },
+     "iWVNfhRi": {
+      "ZcsRKn": "2015-12-07T08:29:57.370Z"
+     },
+     "nkOzf": {
+      "QNUN": "Kaylee Field"
+     },
+     "iOZgRC": {
+      "ibKsBdN": "-6.2350"
+     },
+     "stOZXwd1": {
+      "TBrNkTZ": "Corporate"
+     },
+     "frvWbeQT": "Lake Summer"
+    },
+    "zryTDJ": {
+     "HdneHJGK": "Cambridgeshire"
+    },
+    "qHeufqws": {
+     "JOcjJuI": "Future Usability Technician"
+    },
+    "STaHOU": {
+     "GgOw": "ron.info"
+    },
+    "AELi": {
+     "xQo1h": "Right-sized upward-trending Graphical User Interface"
+    },
+    "VIYFyS": {
+     "POmyCj": "STD"
+    },
+    "fZkzgvM": {
+     "JbTX": "13602473"
+    },
+    "mhcFkhC": {
+     "HGnZMSWm": "Internal Response Engineer"
+    },
+    "YJRix": {
+     "QeCTBfS": "Guido"
+    },
+    "GvPVkza": {
+     "UJGUiiE": "-3.8074"
+    },
+    "LPBDi": "2016-01-07T19:58:07.586Z",
+    "NyOD": {
+     "cGGSfFx": "Damaris"
+    },
+    "vq11WscU": {
+     "DlDvXjN": "drive"
+    },
+    "SVvSoZ": {
+     "HayInq": "33527060"
+    },
+    "nfcxb": {
+     "tPHMWlyt": "74333-3282"
+    },
+    "i1eSr": {
+     "wCHTlV": "https://braden.com"
+    },
+    "mKJuz": {
+     "1KERtLTP": "ден"
+    },
+    "kNlZ": "2016-05-12T14:48:10.432Z",
+    "IzIywPO": {
+     "bToRi": "ZAR"
+    },
+    "SUy1bwg": {
+     "OlvT": "71.2103"
+    },
+    "Ahfl": {
+     "ZlMsRV": "Sunday"
+    },
+    "sCwX": {
+     "mKmr": "Virtual disintermediate secured line"
+    },
+    "liZWv": {
+     "sTqK": "Monday"
+    },
+    "zVSdRxW": {
+     "HyuYHS": "Rutherford - Stark"
+    },
+    "ZeXh": {
+     "O1iJm": "Welch"
+    },
+    "RVTeeYa": {
+     "YnleBh": "Buckinghamshire"
+    },
+    "w1lAjD": {
+     "h1IO": "Human Creative Orchestrator"
+    },
+    "AqeTB": "Enid Lodge",
+    "xJCUYN": {
+     "BdebhOUx": "Malta"
+    },
+    "cETMcux": "#056168",
+    "VKwrMxA": {
+     "flhIoE": "(027) 511-9725"
+    },
+    "PPvqaph": {
+     "iuOuCGv": "64.208.154.51"
+    },
+    "tBTFD": {
+     "hkisX": "$"
+    },
+    "R1MHbMB": {
+     "GMsXLWI": "Rosalee_Brakus@yahoo.com"
+    },
+    "glaIHLvE": {
+     "ujoOuDa": "XPD"
+    },
+    "YYWuOaUa": {
+     "ibP1": "Arkansas"
+    },
+    "pKFjQWvj": {
+     "wTliDMm": "Amara.Osinski@yahoo.com",
+     "cicjvv": {
+      "cKujUPwH": "Jewell.Gutmann@hotmail.com"
+     },
+     "WgOhn": {
+      "OfzXnR": "Ebert LLC"
+     },
+     "TdIzh": "Kassulke Inc"
+    },
+    "TVJgWN": {
+     "MwnmNTXn": "Decentralized 3rd generation infrastructure"
+    },
+    "ozBi": {
+     "RePGa": "Cambridgeshire"
+    },
+    "pKYIWL": "Kattie Harbor",
+    "Utnl": {
+     "AieBsDB": "165.101.222.86"
+    },
+    "icNIE": "2016-06-14T07:28:39.353Z",
+    "VnumBkCp": {
+     "UIqC": "Polly View"
+    },
+    "rtUi": "Reactive hybrid throughput",
+    "viF1Ua": "Direct",
+    "VqadUM": {
+     "Mp1JytQ": "Padberg and Sons"
+    },
+    "JmhNrX": {
+     "CJpRS": "holistic extend functionalities"
+    },
+    "QqLLj": {
+     "niAnplaT": "Berkshire"
+    },
+    "VsZoK": {
+     "SZ1t": "Chief"
+    },
+    "CMKMa": {
+     "DImBC": "2016-07-04T10:50:22.521Z"
+    },
+    "TqXf": {
+     "KlIhKFj": "35310"
+    },
+    "xgYVMo": {
+     "TRuwu": "unleash"
+    },
+    "dZKlu": "Dynamic",
+    "1DzBv": {
+     "qeoMI": "North Karen burgh"
+    },
+    "lzvdmqD": {
+     "sKYcULI": "TTD"
+    },
+    "gtPWKn": {
+     "QNlLHvb": "Cornell Meadows"
+    },
+    "MKhA1L": {
+     "mxtH": "transparent synthesize communities"
+    },
+    "NXCg": {
+     "Hrsk": "Maryland"
+    },
+    "cGvqa": "919.802.5964 x639",
+    "TzEE": {
+     "gcVIx": "Senior"
+    },
+    "MlZfeYs": "Dulce ton",
+    "vJHges": {
+     "ENvU": "monetize"
+    },
+    "YdCdYnX": {
+     "HYlj": "http"
+    },
+    "pjAb": {
+     "jfqVLFpr": "innovative deploy interfaces"
+    },
+    "ZkQkMq": {
+     "dXxuwn": "Dynamic",
+     "lglLAvb": {
+      "xIjIaS": "662.32"
+     },
+     "BmFsGuj": {
+      "hynD": "Predovic"
+     },
+     "ADcBLOiA": {
+      "YwR1gtfi": "Lek"
+     },
+     "zcayAHji": {
+      "SUEqz": "#341316"
+     },
+     "zVNMrA": {
+      "bVPK": "empower"
+     },
+     "Ar1cVW": "#2d3248"
+    },
+    "PYkdCW": {
+     "yAifnId": "2015-10-25T06:57:57.717Z"
+    },
+    "LrGd": {
+     "emMtTee": "Blick"
+    },
+    "TokkifMg": {
+     "BBrzf": "Forward Group Strategist"
+    },
+    "lbkwSUbb": {
+     "LCJaPeQJ": "Pre-emptive executive adapter"
+    },
+    "iinFNG": {
+     "aphgvc": "https://katlynn.biz"
+    },
+    "WvmUZOR": {
+     "lbgd": "http://boris.com"
+    },
+    "IeVZlcCm": {
+     "awNJefF": "51.5501"
+    },
+    "rGyLWkhT": {
+     "IwKs": "Metrics",
+     "nchIURa": {
+      "UZvE": "Re-contextualized empowering moratorium"
+     },
+     "PwjEfz": "Augustine.Hane@hotmail.com"
+    }
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 176766976,
+     "heapTotal": 161676800,
+     "heapUsed": 130074672
+    },
+    "uptime": 4.126
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     8153317
+    ],
+    "totalMs": 8.153317
+   },
+   "perMatchMsStats": {
+    "q10": 0.030002,
+    "q25": 0.032937375000000005,
+    "q50": 0.040067500000000006,
+    "q75": 0.0495671875,
+    "q90": 0.09624199999999991,
+    "q95": 0.12508362499999998,
+    "q99": 0.2997825875000004,
+    "max": 0.364756,
+    "min": 0.026054,
+    "stdev": 0.04234296596833529,
+    "mean": 0.05185137999999998
+   },
+   "matchPercent": 55.00000000000001
+  }
+ },
+ {
+  "id": 1450291141734,
+  "testName": "regMatch_k1to1_pRegDot_tWord_m50_v100to100",
+  "date": "2015-12-16T18:39:01.734Z",
+  "testConfig": {
+   "testName": "regMatch_k1to1_pRegDot_tWord_m50_v100to100",
+   "tObj": {
+    "fileName": "k1_word_v100.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v100_regDot_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": {
+    "prop1": {
+     "regExpMatch": true,
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false
+    }
+   },
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 3
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: \\n          rog.randomReplaceWith(\\n                replaceRandomChars(so.prop1,'.',1), \\n                randomChars3to10(), \\n                0.5)\\n      };  \\n    }\"",
+   "count": 100,
+   "sample": {
+    "prop1": "ifwXCkz70"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 100,
+   "sample": {
+    "prop1": "njD"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 183537664,
+     "heapTotal": 168954112,
+     "heapUsed": 123730608
+    },
+    "uptime": 4.874
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     4784853
+    ],
+    "totalMs": 4.784853
+   },
+   "perMatchMsStats": {
+    "q10": 0.011448,
+    "q25": 0.016579437500000002,
+    "q50": 0.0240805,
+    "q75": 0.034171625,
+    "q90": 0.0431074,
+    "q95": 0.04675913749999999,
+    "q99": 0.39094101750000104,
+    "max": 0.557397,
+    "min": 0.00908,
+    "stdev": 0.054835273395054736,
+    "mean": 0.031075359999999996
+   },
+   "matchPercent": 51
+  }
+ },
+ {
+  "id": 1450291141742,
+  "testName": "match_k1to1_pWord_tWord_m50_v100to100",
+  "date": "2015-12-16T18:39:01.742Z",
+  "testConfig": {
+   "testName": "match_k1to1_pWord_tWord_m50_v100to100",
+   "tObj": {
+    "fileName": "k1_word_v100.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v100_ditto_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": [
+    {
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false,
+     "regExpMatch": false
+    }
+   ],
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 4
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars3to10, 0.5)\\n      };  \\n    }\"",
+   "count": 100,
+   "sample": {
+    "prop1": "QDHlf6Zcn4"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 100,
+   "sample": {
+    "prop1": "njD"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 183660544,
+     "heapTotal": 169986048,
+     "heapUsed": 125173888
+    },
+    "uptime": 4.882
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     2951601
+    ],
+    "totalMs": 2.951601
+   },
+   "perMatchMsStats": {
+    "q10": 0.0116056,
+    "q25": 0.012632,
+    "q50": 0.013422,
+    "q75": 0.014606,
+    "q90": 0.017211399999999995,
+    "q95": 0.022437199999999997,
+    "q99": 0.041880670000000016,
+    "max": 0.043818,
+    "min": 0.010264,
+    "stdev": 0.004653058954483598,
+    "mean": 0.014479689999999995
+   },
+   "matchPercent": 52
+  }
+ },
+ {
+  "id": 1450291141750,
+  "testName": "match_k1to1_pParagraph_tParagraph_m50_v100to100",
+  "date": "2015-12-16T18:39:01.750Z",
+  "testConfig": {
+   "testName": "match_k1to1_pParagraph_tParagraph_m50_v100to100",
+   "tObj": {
+    "fileName": "k1_paragraph_v100.json"
+   },
+   "pObj": {
+    "fileName": "k1_paragraph_v100_ditto_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": [
+    {
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false,
+     "regExpMatch": false
+    }
+   ],
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 5
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, getParagraph, 0.5)\\n      };  \\n    }\"",
+   "count": 100,
+   "sample": {
+    "prop1": "h8d 7EM7SoTX UZA W1T0A SsW NdPblY YL6e ZrmOyg xVW5 vQqI95N6b Rn2zi 9h0 WYI3FY4uS IIFDzF oNvKdt w5q Qbqbh1C3Yl kaj CKqLJ9yyXz 8Y1 12wBr h5f3JyJgR BR1M6K vxKDqg2 fl9jgN9 YO3 woxr qXMm7fJZf nnHuKE5lp TMp idZ1YBLpqb 1kelatu VYgE7HJ eqq3Sq TqRHEUh1 MVMZrC vdbIj19h3q c78xfWfb 7y1 5mjC5z wg811nxYmo PJE9WIykm nep04Vm5Z YcLw jKAoPxo 0y3II5v BiA9xrZlQ 8w6tMVHf 4aP 27a9QD2tn fwLfsX0qD bD FKsU2L wsbv CD5 iC2aUf 8DQ mhWpTn3n JbfMw Gdjd H65 TXbsPwE muxZxk qBhE0fV 9qtfOAcYix phGcYFxRj gbLapWK2G nCfdL AfSs4PW9 jmyN Gj4vUZSV5 3o8hP xcQp fHbt4q MQ5wtB Dq8g VjaMT jKPVLv zBRbixs4aV pjJYH3 DXv 8m3HcdVP6 KkoEqxBm tgw yO4 BCNNz5 knc59AkXVk 4K5GtBkuMm eheD3 HlZWeS 4Whq beG GxyE Bf2nBAK RNF fpicEJDv 8OYji 44Ie3FL9 yCKf10 8CoHm w5qp1BJuYb 56XSoCU wr0gU nTDc hVBq KD4aGovH jsF6 c3Knz C7Tk22jRO0 uAZoXtrusz Yvka5sWUj 1d1yMlV 8DoTV5 qjr zGC2 ilmO jPoQb oGUu WzxbVMf3L 2avYN 5fEEBzHlP 401uFQzuPB 5yIqUSoEf AXmr 84RJ87 eMZrtyJqo c4YUuqR8L nquSd VApk6Wo IXy G2NPVuhXx EjeU819OO nKgzV iXV8r YkGHyL 9buzln jk7eZIB NuEOVMsJYZ xuAW3mBBK U7kifhuAiw jXtpBkrS y8Gm 1uQdrsOPJa lVkZnX 8hyhXH76 csGgli BDib4fuk p4SeR QSnSXP dvv0D SD9ZgU3mPe HVlmvp "
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getParagraph(3,10,5,200);\\n}\"}",
+   "count": 100,
+   "sample": {
+    "prop1": "AaUsfcp oCIjWhCeKv itR DQeKe3k tfZI GJvZGRg2kA tqJWBfPR Eap hY5Yxltxv xzdXZL6792 qNDc MBk ZqrWDx 2nDpy VKmhvCrP NidaV8Wo yqEsk0FLcG 5YVz12rM Y38IZwg 7ZOpjY OSau7WOE8 X6x2 qnqlh4 hPF tTg 7XlNU7OqMn FLdlR Kgw44OHDKY JF2J6Z aHiz G9xf jDl kx1b4PyYyQ hPPQTQ HEwe8DPb 1piVortKc 0fXZv MajNQ7T SeW wj0IRm PcsSU 5KYDi "
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 183701504,
+     "heapTotal": 169986048,
+     "heapUsed": 126600152
+    },
+    "uptime": 4.89
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     4195480
+    ],
+    "totalMs": 4.19548
+   },
+   "perMatchMsStats": {
+    "q10": 0.006711,
+    "q25": 0.007278375,
+    "q50": 0.0110535,
+    "q75": 0.013816,
+    "q90": 0.019264399999999994,
+    "q95": 0.029147812499999995,
+    "q99": 0.1164862175000002,
+    "max": 0.148824,
+    "min": 0.006316,
+    "stdev": 0.015518873240705965,
+    "mean": 0.013500669999999998
+   },
+   "matchPercent": 47
+  }
+ },
+ {
+  "id": 1450291141760,
+  "testName": "match_k1to1_pWord_tWord_m50_v100kto100k",
+  "date": "2015-12-16T18:39:01.760Z",
+  "testConfig": {
+   "testName": "match_k1to1_pWord_tWord_m50_v100kto100k",
+   "tObj": {
+    "fileName": "k1_word_v100k.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v100k_ditto_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": [
+    {
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false,
+     "regExpMatch": false
+    }
+   ],
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 6
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars3to10, 0.5)\\n      };  \\n    }\"",
+   "count": 100000,
+   "sample": {
+    "prop1": "cgXWFZ"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 100000,
+   "sample": {
+    "prop1": "cgXWFZ"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 183951360,
+     "heapTotal": 169986048,
+     "heapUsed": 128392168
+    },
+    "uptime": 4.9
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     2,
+     2153402
+    ],
+    "totalMs": 2002.153402
+   },
+   "perMatchMsStats": {
+    "q10": 0.005921,
+    "q25": 0.006316,
+    "q50": 0.006711,
+    "q75": 0.0071059999999999995,
+    "q90": 0.011448,
+    "q95": 0.014606,
+    "q99": 0.034344,
+    "max": 41.783482,
+    "min": 0.005526,
+    "stdev": 0.17337302859751952,
+    "mean": 0.010520303439998081
+   },
+   "matchPercent": 49.96
+  }
+ },
+ {
+  "id": 1450291143928,
+  "testName": "match_k1to1_pString_tString_m50_v100to100",
+  "date": "2015-12-16T18:39:03.928Z",
+  "testConfig": {
+   "testName": "match_k1to1_pString_tString_m50_v100to100",
+   "tObj": {
+    "fileName": "k1_string_v100.json"
+   },
+   "pObj": {
+    "fileName": "k1_string_v100_ditto_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": [
+    {
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false,
+     "regExpMatch": false
+    }
+   ],
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 7
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars30to150, 0.5)\\n      };  \\n    }\"",
+   "count": 100,
+   "sample": {
+    "prop1": "Lor3A06Ob9jhcXyhHMwAj9lTo1j2lhH800qtEzgDtoj2ElfrRJ87BtJqL6XytSyrgCLj3kI1683bYe0mbDn8iydTG2Tu9lUNOG5eoy3fqUproySwPGU"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(30,150); \\n}\"}",
+   "count": 100,
+   "sample": {
+    "prop1": "my5nc6ZEAPp5HFdfgz8JqnikPMbGpbC4t5Nvuyw3XIYMyUsHCpgB8LaDq2DFfLdEamM7AMnI7dqzMbYWgsw8ScSpCifHm9p7MSKGHG737CSAP1J0o"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 212549632,
+     "heapTotal": 195730688,
+     "heapUsed": 148680544
+    },
+    "uptime": 7.068
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     2934626
+    ],
+    "totalMs": 2.934626
+   },
+   "perMatchMsStats": {
+    "q10": 0.011448,
+    "q25": 0.011843,
+    "q50": 0.012238,
+    "q75": 0.013817,
+    "q90": 0.018000999999999996,
+    "q95": 0.02695633749999999,
+    "q99": 0.0409058875,
+    "max": 0.041055,
+    "min": 0.010264,
+    "stdev": 0.005547499614276688,
+    "mean": 0.014258640000000003
+   },
+   "matchPercent": 52
+  }
+ },
+ {
+  "id": 1450291143944,
+  "testName": "match_k10to100_m50_v100to100",
+  "date": "2015-12-16T18:39:03.944Z",
+  "testConfig": {
+   "testName": "match_k10to100_m50_v100to100",
+   "tObj": {
+    "fileName": "k100_randObj_v100.json"
+   },
+   "pObj": {
+    "fileName": "k100_randObj_v100_k10_m50.json"
+   },
+   "testFn": "testMatch",
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 8
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    // make an object with 10 identical properties as source object\\n    // 50% of time, 1 of those properties will be different than source object\\n    var keys = rog.getRandomKey(so, 10);  // get 10 random keys\\n    var obj = rog.cloneObject(so, keys); \\n    if(rog.isRand(0.5)) {  // 50% of time, \\n      rog.replaceRandomProperties(obj,1);  // replace one property with random value\\n    }\\n    return obj;  \\n   }\"",
+   "count": 100,
+   "sample": {
+    "ozBi": {
+     "RePGa": "Cambridgeshire"
+    },
+    "rGyLWkhT": {
+     "nchIURa": {
+      "UZvE": "Re-contextualized empowering moratorium"
+     }
+    },
+    "VnumBkCp": {
+     "UIqC": "Polly View"
+    },
+    "AqeTB": "Enid Lodge",
+    "STaHOU": {
+     "GgOw": "ron.info"
+    },
+    "Ahfl": {
+     "ZlMsRV": "Sunday"
+    },
+    "PHbTJJj": {
+     "vwFe": {
+      "lYDZaa": "Ebert, Sipes and Monahan"
+     }
+    },
+    "pKYIWL": "Kattie Harbor",
+    "ipyKxmp": {
+     "BCUlh": "Vandervort Shoal"
+    },
+    "sCwX": {
+     "mKmr": "Virtual disintermediate secured line"
+    }
+   }
+  },
+  "tObj": {
+   "template": "\"function () {\\n    return fn(p1, p2, p3, p4); \\n  }\"",
+   "count": 100,
+   "sample": {
+    "SUixs": {
+     "1NLCa": "2015-09-25T15:16:58.020Z"
+    },
+    "CWvqwp": {
+     "IrXIXgU": "Moore, Borer and Schultz"
+    },
+    "ipyKxmp": {
+     "BCUlh": "Vandervort Shoal"
+    },
+    "bQRUWg": {
+     "GTgwVN": "2015-07-30T05:12:32.334Z"
+    },
+    "KXiiy": {
+     "GlAifGM": "North Jake bury"
+    },
+    "1XLCglxh": {
+     "YuFDYS": "Kertzmann"
+    },
+    "hgZEwBfI": "Assimilated discrete internet solution",
+    "PHbTJJj": {
+     "CFPMq": "Georgia",
+     "vwFe": {
+      "lYDZaa": "Ebert, Sipes and Monahan"
+     },
+     "b1sB": {
+      "wymJCZqy": "Ara"
+     },
+     "PTzTfD": {
+      "Lwwri": "Port Stephany fort"
+     },
+     "LKldjyD": {
+      "utzMJI": "Principal"
+     },
+     "iWVNfhRi": {
+      "ZcsRKn": "2015-12-07T08:29:57.370Z"
+     },
+     "nkOzf": {
+      "QNUN": "Kaylee Field"
+     },
+     "iOZgRC": {
+      "ibKsBdN": "-6.2350"
+     },
+     "stOZXwd1": {
+      "TBrNkTZ": "Corporate"
+     },
+     "frvWbeQT": "Lake Summer"
+    },
+    "zryTDJ": {
+     "HdneHJGK": "Cambridgeshire"
+    },
+    "qHeufqws": {
+     "JOcjJuI": "Future Usability Technician"
+    },
+    "STaHOU": {
+     "GgOw": "ron.info"
+    },
+    "AELi": {
+     "xQo1h": "Right-sized upward-trending Graphical User Interface"
+    },
+    "VIYFyS": {
+     "POmyCj": "STD"
+    },
+    "fZkzgvM": {
+     "JbTX": "13602473"
+    },
+    "mhcFkhC": {
+     "HGnZMSWm": "Internal Response Engineer"
+    },
+    "YJRix": {
+     "QeCTBfS": "Guido"
+    },
+    "GvPVkza": {
+     "UJGUiiE": "-3.8074"
+    },
+    "LPBDi": "2016-01-07T19:58:07.586Z",
+    "NyOD": {
+     "cGGSfFx": "Damaris"
+    },
+    "vq11WscU": {
+     "DlDvXjN": "drive"
+    },
+    "SVvSoZ": {
+     "HayInq": "33527060"
+    },
+    "nfcxb": {
+     "tPHMWlyt": "74333-3282"
+    },
+    "i1eSr": {
+     "wCHTlV": "https://braden.com"
+    },
+    "mKJuz": {
+     "1KERtLTP": "ден"
+    },
+    "kNlZ": "2016-05-12T14:48:10.432Z",
+    "IzIywPO": {
+     "bToRi": "ZAR"
+    },
+    "SUy1bwg": {
+     "OlvT": "71.2103"
+    },
+    "Ahfl": {
+     "ZlMsRV": "Sunday"
+    },
+    "sCwX": {
+     "mKmr": "Virtual disintermediate secured line"
+    },
+    "liZWv": {
+     "sTqK": "Monday"
+    },
+    "zVSdRxW": {
+     "HyuYHS": "Rutherford - Stark"
+    },
+    "ZeXh": {
+     "O1iJm": "Welch"
+    },
+    "RVTeeYa": {
+     "YnleBh": "Buckinghamshire"
+    },
+    "w1lAjD": {
+     "h1IO": "Human Creative Orchestrator"
+    },
+    "AqeTB": "Enid Lodge",
+    "xJCUYN": {
+     "BdebhOUx": "Malta"
+    },
+    "cETMcux": "#056168",
+    "VKwrMxA": {
+     "flhIoE": "(027) 511-9725"
+    },
+    "PPvqaph": {
+     "iuOuCGv": "64.208.154.51"
+    },
+    "tBTFD": {
+     "hkisX": "$"
+    },
+    "R1MHbMB": {
+     "GMsXLWI": "Rosalee_Brakus@yahoo.com"
+    },
+    "glaIHLvE": {
+     "ujoOuDa": "XPD"
+    },
+    "YYWuOaUa": {
+     "ibP1": "Arkansas"
+    },
+    "pKFjQWvj": {
+     "wTliDMm": "Amara.Osinski@yahoo.com",
+     "cicjvv": {
+      "cKujUPwH": "Jewell.Gutmann@hotmail.com"
+     },
+     "WgOhn": {
+      "OfzXnR": "Ebert LLC"
+     },
+     "TdIzh": "Kassulke Inc"
+    },
+    "TVJgWN": {
+     "MwnmNTXn": "Decentralized 3rd generation infrastructure"
+    },
+    "ozBi": {
+     "RePGa": "Cambridgeshire"
+    },
+    "pKYIWL": "Kattie Harbor",
+    "Utnl": {
+     "AieBsDB": "165.101.222.86"
+    },
+    "icNIE": "2016-06-14T07:28:39.353Z",
+    "VnumBkCp": {
+     "UIqC": "Polly View"
+    },
+    "rtUi": "Reactive hybrid throughput",
+    "viF1Ua": "Direct",
+    "VqadUM": {
+     "Mp1JytQ": "Padberg and Sons"
+    },
+    "JmhNrX": {
+     "CJpRS": "holistic extend functionalities"
+    },
+    "QqLLj": {
+     "niAnplaT": "Berkshire"
+    },
+    "VsZoK": {
+     "SZ1t": "Chief"
+    },
+    "CMKMa": {
+     "DImBC": "2016-07-04T10:50:22.521Z"
+    },
+    "TqXf": {
+     "KlIhKFj": "35310"
+    },
+    "xgYVMo": {
+     "TRuwu": "unleash"
+    },
+    "dZKlu": "Dynamic",
+    "1DzBv": {
+     "qeoMI": "North Karen burgh"
+    },
+    "lzvdmqD": {
+     "sKYcULI": "TTD"
+    },
+    "gtPWKn": {
+     "QNlLHvb": "Cornell Meadows"
+    },
+    "MKhA1L": {
+     "mxtH": "transparent synthesize communities"
+    },
+    "NXCg": {
+     "Hrsk": "Maryland"
+    },
+    "cGvqa": "919.802.5964 x639",
+    "TzEE": {
+     "gcVIx": "Senior"
+    },
+    "MlZfeYs": "Dulce ton",
+    "vJHges": {
+     "ENvU": "monetize"
+    },
+    "YdCdYnX": {
+     "HYlj": "http"
+    },
+    "pjAb": {
+     "jfqVLFpr": "innovative deploy interfaces"
+    },
+    "ZkQkMq": {
+     "dXxuwn": "Dynamic",
+     "lglLAvb": {
+      "xIjIaS": "662.32"
+     },
+     "BmFsGuj": {
+      "hynD": "Predovic"
+     },
+     "ADcBLOiA": {
+      "YwR1gtfi": "Lek"
+     },
+     "zcayAHji": {
+      "SUEqz": "#341316"
+     },
+     "zVNMrA": {
+      "bVPK": "empower"
+     },
+     "Ar1cVW": "#2d3248"
+    },
+    "PYkdCW": {
+     "yAifnId": "2015-10-25T06:57:57.717Z"
+    },
+    "LrGd": {
+     "emMtTee": "Blick"
+    },
+    "TokkifMg": {
+     "BBrzf": "Forward Group Strategist"
+    },
+    "lbkwSUbb": {
+     "LCJaPeQJ": "Pre-emptive executive adapter"
+    },
+    "iinFNG": {
+     "aphgvc": "https://katlynn.biz"
+    },
+    "WvmUZOR": {
+     "lbgd": "http://boris.com"
+    },
+    "IeVZlcCm": {
+     "awNJefF": "51.5501"
+    },
+    "rGyLWkhT": {
+     "IwKs": "Metrics",
+     "nchIURa": {
+      "UZvE": "Re-contextualized empowering moratorium"
+     },
+     "PwjEfz": "Augustine.Hane@hotmail.com"
+    }
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 212848640,
+     "heapTotal": 195730688,
+     "heapUsed": 134388320
+    },
+    "uptime": 7.084
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     42043233
+    ],
+    "totalMs": 42.043233
+   },
+   "perMatchMsStats": {
+    "q10": 0.081715,
+    "q25": 0.0925458125,
+    "q50": 0.10796649999999999,
+    "q75": 0.1342668125,
+    "q90": 0.20795839999999993,
+    "q95": 0.26287422499999985,
+    "q99": 0.5953791775000001,
+    "max": 0.62727,
+    "min": 0.00829,
+    "stdev": 0.0869417732715241,
+    "mean": 0.13100423
+   },
+   "matchPercent": 55.00000000000001
+  }
+ },
+ {
+  "id": 1450291144910,
+  "testName": "match_k100to100_m100_v100to100",
+  "date": "2015-12-16T18:39:04.910Z",
+  "testConfig": {
+   "testName": "match_k100to100_m100_v100to100",
+   "tObj": {
+    "fileName": "k100_randObj_v100.json"
+   },
+   "pObj": {
+    "fileName": "k100_randObj_v100_k100_m100.json"
+   },
+   "testFn": "testMatch",
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 9
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return rog.cloneObject(so); \\n   }\"",
+   "count": 100,
+   "sample": {
+    "rGyLWkhT": {
+     "PwjEfz": "Augustine.Hane@hotmail.com",
+     "nchIURa": {
+      "UZvE": "Re-contextualized empowering moratorium"
+     },
+     "IwKs": "Metrics"
+    },
+    "IeVZlcCm": {
+     "awNJefF": "51.5501"
+    },
+    "WvmUZOR": {
+     "lbgd": "http://boris.com"
+    },
+    "iinFNG": {
+     "aphgvc": "https://katlynn.biz"
+    },
+    "lbkwSUbb": {
+     "LCJaPeQJ": "Pre-emptive executive adapter"
+    },
+    "TokkifMg": {
+     "BBrzf": "Forward Group Strategist"
+    },
+    "LrGd": {
+     "emMtTee": "Blick"
+    },
+    "PYkdCW": {
+     "yAifnId": "2015-10-25T06:57:57.717Z"
+    },
+    "ZkQkMq": {
+     "Ar1cVW": "#2d3248",
+     "zVNMrA": {
+      "bVPK": "empower"
+     },
+     "zcayAHji": {
+      "SUEqz": "#341316"
+     },
+     "ADcBLOiA": {
+      "YwR1gtfi": "Lek"
+     },
+     "BmFsGuj": {
+      "hynD": "Predovic"
+     },
+     "lglLAvb": {
+      "xIjIaS": "662.32"
+     },
+     "dXxuwn": "Dynamic"
+    },
+    "pjAb": {
+     "jfqVLFpr": "innovative deploy interfaces"
+    },
+    "YdCdYnX": {
+     "HYlj": "http"
+    },
+    "vJHges": {
+     "ENvU": "monetize"
+    },
+    "MlZfeYs": "Dulce ton",
+    "TzEE": {
+     "gcVIx": "Senior"
+    },
+    "cGvqa": "919.802.5964 x639",
+    "NXCg": {
+     "Hrsk": "Maryland"
+    },
+    "MKhA1L": {
+     "mxtH": "transparent synthesize communities"
+    },
+    "gtPWKn": {
+     "QNlLHvb": "Cornell Meadows"
+    },
+    "lzvdmqD": {
+     "sKYcULI": "TTD"
+    },
+    "1DzBv": {
+     "qeoMI": "North Karen burgh"
+    },
+    "dZKlu": "Dynamic",
+    "xgYVMo": {
+     "TRuwu": "unleash"
+    },
+    "TqXf": {
+     "KlIhKFj": "35310"
+    },
+    "CMKMa": {
+     "DImBC": "2016-07-04T10:50:22.521Z"
+    },
+    "VsZoK": {
+     "SZ1t": "Chief"
+    },
+    "QqLLj": {
+     "niAnplaT": "Berkshire"
+    },
+    "JmhNrX": {
+     "CJpRS": "holistic extend functionalities"
+    },
+    "VqadUM": {
+     "Mp1JytQ": "Padberg and Sons"
+    },
+    "viF1Ua": "Direct",
+    "rtUi": "Reactive hybrid throughput",
+    "VnumBkCp": {
+     "UIqC": "Polly View"
+    },
+    "icNIE": "2016-06-14T07:28:39.353Z",
+    "Utnl": {
+     "AieBsDB": "165.101.222.86"
+    },
+    "pKYIWL": "Kattie Harbor",
+    "ozBi": {
+     "RePGa": "Cambridgeshire"
+    },
+    "TVJgWN": {
+     "MwnmNTXn": "Decentralized 3rd generation infrastructure"
+    },
+    "pKFjQWvj": {
+     "TdIzh": "Kassulke Inc",
+     "WgOhn": {
+      "OfzXnR": "Ebert LLC"
+     },
+     "cicjvv": {
+      "cKujUPwH": "Jewell.Gutmann@hotmail.com"
+     },
+     "wTliDMm": "Amara.Osinski@yahoo.com"
+    },
+    "YYWuOaUa": {
+     "ibP1": "Arkansas"
+    },
+    "glaIHLvE": {
+     "ujoOuDa": "XPD"
+    },
+    "R1MHbMB": {
+     "GMsXLWI": "Rosalee_Brakus@yahoo.com"
+    },
+    "tBTFD": {
+     "hkisX": "$"
+    },
+    "PPvqaph": {
+     "iuOuCGv": "64.208.154.51"
+    },
+    "VKwrMxA": {
+     "flhIoE": "(027) 511-9725"
+    },
+    "cETMcux": "#056168",
+    "xJCUYN": {
+     "BdebhOUx": "Malta"
+    },
+    "AqeTB": "Enid Lodge",
+    "w1lAjD": {
+     "h1IO": "Human Creative Orchestrator"
+    },
+    "RVTeeYa": {
+     "YnleBh": "Buckinghamshire"
+    },
+    "ZeXh": {
+     "O1iJm": "Welch"
+    },
+    "zVSdRxW": {
+     "HyuYHS": "Rutherford - Stark"
+    },
+    "liZWv": {
+     "sTqK": "Monday"
+    },
+    "sCwX": {
+     "mKmr": "Virtual disintermediate secured line"
+    },
+    "Ahfl": {
+     "ZlMsRV": "Sunday"
+    },
+    "SUy1bwg": {
+     "OlvT": "71.2103"
+    },
+    "IzIywPO": {
+     "bToRi": "ZAR"
+    },
+    "kNlZ": "2016-05-12T14:48:10.432Z",
+    "mKJuz": {
+     "1KERtLTP": "ден"
+    },
+    "i1eSr": {
+     "wCHTlV": "https://braden.com"
+    },
+    "nfcxb": {
+     "tPHMWlyt": "74333-3282"
+    },
+    "SVvSoZ": {
+     "HayInq": "33527060"
+    },
+    "vq11WscU": {
+     "DlDvXjN": "drive"
+    },
+    "NyOD": {
+     "cGGSfFx": "Damaris"
+    },
+    "LPBDi": "2016-01-07T19:58:07.586Z",
+    "GvPVkza": {
+     "UJGUiiE": "-3.8074"
+    },
+    "YJRix": {
+     "QeCTBfS": "Guido"
+    },
+    "mhcFkhC": {
+     "HGnZMSWm": "Internal Response Engineer"
+    },
+    "fZkzgvM": {
+     "JbTX": "13602473"
+    },
+    "VIYFyS": {
+     "POmyCj": "STD"
+    },
+    "AELi": {
+     "xQo1h": "Right-sized upward-trending Graphical User Interface"
+    },
+    "STaHOU": {
+     "GgOw": "ron.info"
+    },
+    "qHeufqws": {
+     "JOcjJuI": "Future Usability Technician"
+    },
+    "zryTDJ": {
+     "HdneHJGK": "Cambridgeshire"
+    },
+    "PHbTJJj": {
+     "frvWbeQT": "Lake Summer",
+     "stOZXwd1": {
+      "TBrNkTZ": "Corporate"
+     },
+     "iOZgRC": {
+      "ibKsBdN": "-6.2350"
+     },
+     "nkOzf": {
+      "QNUN": "Kaylee Field"
+     },
+     "iWVNfhRi": {
+      "ZcsRKn": "2015-12-07T08:29:57.370Z"
+     },
+     "LKldjyD": {
+      "utzMJI": "Principal"
+     },
+     "PTzTfD": {
+      "Lwwri": "Port Stephany fort"
+     },
+     "b1sB": {
+      "wymJCZqy": "Ara"
+     },
+     "vwFe": {
+      "lYDZaa": "Ebert, Sipes and Monahan"
+     },
+     "CFPMq": "Georgia"
+    },
+    "hgZEwBfI": "Assimilated discrete internet solution",
+    "1XLCglxh": {
+     "YuFDYS": "Kertzmann"
+    },
+    "KXiiy": {
+     "GlAifGM": "North Jake bury"
+    },
+    "bQRUWg": {
+     "GTgwVN": "2015-07-30T05:12:32.334Z"
+    },
+    "ipyKxmp": {
+     "BCUlh": "Vandervort Shoal"
+    },
+    "CWvqwp": {
+     "IrXIXgU": "Moore, Borer and Schultz"
+    },
+    "SUixs": {
+     "1NLCa": "2015-09-25T15:16:58.020Z"
+    }
+   }
+  },
+  "tObj": {
+   "template": "\"function () {\\n    return fn(p1, p2, p3, p4); \\n  }\"",
+   "count": 100,
+   "sample": {
+    "SUixs": {
+     "1NLCa": "2015-09-25T15:16:58.020Z"
+    },
+    "CWvqwp": {
+     "IrXIXgU": "Moore, Borer and Schultz"
+    },
+    "ipyKxmp": {
+     "BCUlh": "Vandervort Shoal"
+    },
+    "bQRUWg": {
+     "GTgwVN": "2015-07-30T05:12:32.334Z"
+    },
+    "KXiiy": {
+     "GlAifGM": "North Jake bury"
+    },
+    "1XLCglxh": {
+     "YuFDYS": "Kertzmann"
+    },
+    "hgZEwBfI": "Assimilated discrete internet solution",
+    "PHbTJJj": {
+     "CFPMq": "Georgia",
+     "vwFe": {
+      "lYDZaa": "Ebert, Sipes and Monahan"
+     },
+     "b1sB": {
+      "wymJCZqy": "Ara"
+     },
+     "PTzTfD": {
+      "Lwwri": "Port Stephany fort"
+     },
+     "LKldjyD": {
+      "utzMJI": "Principal"
+     },
+     "iWVNfhRi": {
+      "ZcsRKn": "2015-12-07T08:29:57.370Z"
+     },
+     "nkOzf": {
+      "QNUN": "Kaylee Field"
+     },
+     "iOZgRC": {
+      "ibKsBdN": "-6.2350"
+     },
+     "stOZXwd1": {
+      "TBrNkTZ": "Corporate"
+     },
+     "frvWbeQT": "Lake Summer"
+    },
+    "zryTDJ": {
+     "HdneHJGK": "Cambridgeshire"
+    },
+    "qHeufqws": {
+     "JOcjJuI": "Future Usability Technician"
+    },
+    "STaHOU": {
+     "GgOw": "ron.info"
+    },
+    "AELi": {
+     "xQo1h": "Right-sized upward-trending Graphical User Interface"
+    },
+    "VIYFyS": {
+     "POmyCj": "STD"
+    },
+    "fZkzgvM": {
+     "JbTX": "13602473"
+    },
+    "mhcFkhC": {
+     "HGnZMSWm": "Internal Response Engineer"
+    },
+    "YJRix": {
+     "QeCTBfS": "Guido"
+    },
+    "GvPVkza": {
+     "UJGUiiE": "-3.8074"
+    },
+    "LPBDi": "2016-01-07T19:58:07.586Z",
+    "NyOD": {
+     "cGGSfFx": "Damaris"
+    },
+    "vq11WscU": {
+     "DlDvXjN": "drive"
+    },
+    "SVvSoZ": {
+     "HayInq": "33527060"
+    },
+    "nfcxb": {
+     "tPHMWlyt": "74333-3282"
+    },
+    "i1eSr": {
+     "wCHTlV": "https://braden.com"
+    },
+    "mKJuz": {
+     "1KERtLTP": "ден"
+    },
+    "kNlZ": "2016-05-12T14:48:10.432Z",
+    "IzIywPO": {
+     "bToRi": "ZAR"
+    },
+    "SUy1bwg": {
+     "OlvT": "71.2103"
+    },
+    "Ahfl": {
+     "ZlMsRV": "Sunday"
+    },
+    "sCwX": {
+     "mKmr": "Virtual disintermediate secured line"
+    },
+    "liZWv": {
+     "sTqK": "Monday"
+    },
+    "zVSdRxW": {
+     "HyuYHS": "Rutherford - Stark"
+    },
+    "ZeXh": {
+     "O1iJm": "Welch"
+    },
+    "RVTeeYa": {
+     "YnleBh": "Buckinghamshire"
+    },
+    "w1lAjD": {
+     "h1IO": "Human Creative Orchestrator"
+    },
+    "AqeTB": "Enid Lodge",
+    "xJCUYN": {
+     "BdebhOUx": "Malta"
+    },
+    "cETMcux": "#056168",
+    "VKwrMxA": {
+     "flhIoE": "(027) 511-9725"
+    },
+    "PPvqaph": {
+     "iuOuCGv": "64.208.154.51"
+    },
+    "tBTFD": {
+     "hkisX": "$"
+    },
+    "R1MHbMB": {
+     "GMsXLWI": "Rosalee_Brakus@yahoo.com"
+    },
+    "glaIHLvE": {
+     "ujoOuDa": "XPD"
+    },
+    "YYWuOaUa": {
+     "ibP1": "Arkansas"
+    },
+    "pKFjQWvj": {
+     "wTliDMm": "Amara.Osinski@yahoo.com",
+     "cicjvv": {
+      "cKujUPwH": "Jewell.Gutmann@hotmail.com"
+     },
+     "WgOhn": {
+      "OfzXnR": "Ebert LLC"
+     },
+     "TdIzh": "Kassulke Inc"
+    },
+    "TVJgWN": {
+     "MwnmNTXn": "Decentralized 3rd generation infrastructure"
+    },
+    "ozBi": {
+     "RePGa": "Cambridgeshire"
+    },
+    "pKYIWL": "Kattie Harbor",
+    "Utnl": {
+     "AieBsDB": "165.101.222.86"
+    },
+    "icNIE": "2016-06-14T07:28:39.353Z",
+    "VnumBkCp": {
+     "UIqC": "Polly View"
+    },
+    "rtUi": "Reactive hybrid throughput",
+    "viF1Ua": "Direct",
+    "VqadUM": {
+     "Mp1JytQ": "Padberg and Sons"
+    },
+    "JmhNrX": {
+     "CJpRS": "holistic extend functionalities"
+    },
+    "QqLLj": {
+     "niAnplaT": "Berkshire"
+    },
+    "VsZoK": {
+     "SZ1t": "Chief"
+    },
+    "CMKMa": {
+     "DImBC": "2016-07-04T10:50:22.521Z"
+    },
+    "TqXf": {
+     "KlIhKFj": "35310"
+    },
+    "xgYVMo": {
+     "TRuwu": "unleash"
+    },
+    "dZKlu": "Dynamic",
+    "1DzBv": {
+     "qeoMI": "North Karen burgh"
+    },
+    "lzvdmqD": {
+     "sKYcULI": "TTD"
+    },
+    "gtPWKn": {
+     "QNlLHvb": "Cornell Meadows"
+    },
+    "MKhA1L": {
+     "mxtH": "transparent synthesize communities"
+    },
+    "NXCg": {
+     "Hrsk": "Maryland"
+    },
+    "cGvqa": "919.802.5964 x639",
+    "TzEE": {
+     "gcVIx": "Senior"
+    },
+    "MlZfeYs": "Dulce ton",
+    "vJHges": {
+     "ENvU": "monetize"
+    },
+    "YdCdYnX": {
+     "HYlj": "http"
+    },
+    "pjAb": {
+     "jfqVLFpr": "innovative deploy interfaces"
+    },
+    "ZkQkMq": {
+     "dXxuwn": "Dynamic",
+     "lglLAvb": {
+      "xIjIaS": "662.32"
+     },
+     "BmFsGuj": {
+      "hynD": "Predovic"
+     },
+     "ADcBLOiA": {
+      "YwR1gtfi": "Lek"
+     },
+     "zcayAHji": {
+      "SUEqz": "#341316"
+     },
+     "zVNMrA": {
+      "bVPK": "empower"
+     },
+     "Ar1cVW": "#2d3248"
+    },
+    "PYkdCW": {
+     "yAifnId": "2015-10-25T06:57:57.717Z"
+    },
+    "LrGd": {
+     "emMtTee": "Blick"
+    },
+    "TokkifMg": {
+     "BBrzf": "Forward Group Strategist"
+    },
+    "lbkwSUbb": {
+     "LCJaPeQJ": "Pre-emptive executive adapter"
+    },
+    "iinFNG": {
+     "aphgvc": "https://katlynn.biz"
+    },
+    "WvmUZOR": {
+     "lbgd": "http://boris.com"
+    },
+    "IeVZlcCm": {
+     "awNJefF": "51.5501"
+    },
+    "rGyLWkhT": {
+     "IwKs": "Metrics",
+     "nchIURa": {
+      "UZvE": "Re-contextualized empowering moratorium"
+     },
+     "PwjEfz": "Augustine.Hane@hotmail.com"
+    }
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 215900160,
+     "heapTotal": 198826496,
+     "heapUsed": 149146320
+    },
+    "uptime": 8.05
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     235388255
+    ],
+    "totalMs": 235.388255
+   },
+   "perMatchMsStats": {
+    "q10": 0.8177006,
+    "q25": 0.8578323750000001,
+    "q50": 0.9596555,
+    "q75": 1.3952696875,
+    "q90": 1.9283894,
+    "q95": 2.2096393124999993,
+    "q99": 9.832602230000003,
+    "max": 10.12513,
+    "min": 0.791093,
+    "stdev": 1.472123651669258,
+    "mean": 1.3585572199999998
+   },
+   "matchPercent": 100
+  }
+ },
+ {
+  "id": 1450291145438,
+  "testName": "regMatch_k1to1_pRegDotStar_tWord_m50_v1kto1k",
+  "date": "2015-12-16T18:39:05.438Z",
+  "testConfig": {
+   "testName": "regMatch_k1to1_pRegDotStar_tWord_m50_v1kto1k",
+   "tObj": {
+    "fileName": "k1_word_v1k.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v1k_regDotStar_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": {
+    "prop1": {
+     "regExpMatch": true,
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false
+    }
+   },
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 10
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: \\n          rog.randomReplaceWith(\\n                replaceRandomChars(\\n                    so.prop1,\\n                    '.*',\\n                    rog.getRandomInt(0,so.prop1.length)), \\n                randomChars3to10(), \\n                0.5)\\n      };  \\n    }\"",
+   "count": 1000,
+   "sample": {
+    "prop1": "0.*Ke"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 1000,
+   "sample": {
+    "prop1": "0vKe"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 224886784,
+     "heapTotal": 207081984,
+     "heapUsed": 163191688
+    },
+    "uptime": 8.578
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     40607500
+    ],
+    "totalMs": 40.6075
+   },
+   "perMatchMsStats": {
+    "q10": 0.00829,
+    "q25": 0.009474,
+    "q50": 0.012830000000000001,
+    "q75": 0.021317,
+    "q90": 0.02944900000000001,
+    "q95": 0.0398706125,
+    "q99": 0.07775985499999982,
+    "max": 10.68687,
+    "min": 0.0075,
+    "stdev": 0.3375121929273567,
+    "mean": 0.028499905999999995
+   },
+   "matchPercent": 51.2
+  }
+ },
+ {
+  "id": 1450291145488,
+  "testName": "match_k100to100_m100_v10kto10k",
+  "date": "2015-12-16T18:39:05.488Z",
+  "testConfig": {
+   "testName": "match_k100to100_m100_v10kto10k",
+   "tObj": {
+    "fileName": "k100_randObj_v10k.json"
+   },
+   "pObj": {
+    "fileName": "k100_randObj_v10k_k100_m100.json"
+   },
+   "testFn": "testMatch",
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 11
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return rog.cloneObject(so); \\n   }\"",
+   "count": 10000,
+   "sample": {
+    "uqhj": {
+     "klQTWbr": "Forward Communications Planner"
+    },
+    "pZdP": {
+     "RqbUBd1s": "Suite 113"
+    },
+    "dcZz": {
+     "lrZaW": "Legacy"
+    },
+    "jsXiPft": "United States Minor Outlying Islands",
+    "YabSqj": {
+     "CdYXdKPV": "Thursday"
+    },
+    "ILATqe": {
+     "1oVq": "Prohaska - Schowalter"
+    },
+    "hgxE": {
+     "KwFKjGh": "46.45"
+    },
+    "diSJ": {
+     "hultS": "Security"
+    },
+    "1hEu": {
+     "zJxTQhd": "Breana"
+    },
+    "JVel": {
+     "iNBqSk": "https://graham.biz"
+    },
+    "vSqeWf": {
+     "I1IeHod": "Tuesday"
+    },
+    "mNwb": {
+     "WPbxjVZI": "GYD"
+    },
+    "dqoXyoPn": {
+     "QpqFAM": "maximize"
+    },
+    "MZNiznM": "http://emmett.org",
+    "pwQE": {
+     "lCdVEsjk": "lei"
+    },
+    "jdLHPK": {
+     "IxfZOIW": "Amira"
+    },
+    "gEeOC": {
+     "RxGT": "320.478.0167"
+    },
+    "zKtOfnzZ": {
+     "UdcQlo": "2015-01-23T11:58:01.543Z"
+    },
+    "hVWvOdP": {
+     "gqbMbgun": "11.153.52.158"
+    },
+    "WoBF": {
+     "QNXTu": "Right-sized 5th generation help-desk"
+    },
+    "uPnYVtjO": {
+     "WYeGdE": "Willms Ford"
+    },
+    "SGgnUjr": {
+     "OHqm": "VonRueden - Berge"
+    },
+    "cvpepMlb": "rosella.org",
+    "YLA1j": {
+     "DvzqNg": "ден"
+    },
+    "nhaGPouO": {
+     "lNxMKz": "Suite 545"
+    },
+    "lzObhs": {
+     "KzPmmw": "http"
+    },
+    "kxisGOfs": {
+     "hgOTk": "THB"
+    },
+    "hXMACj": {
+     "IHpE": "2015-04-15T15:21:09.385Z",
+     "bLGHCO": "194.218.224.209"
+    },
+    "FTCE": {
+     "KGwPgfj": "North Braden"
+    },
+    "XlpwOG": {
+     "IWon": "New York"
+    },
+    "dobk": {
+     "Ymvf": "391.06"
+    },
+    "xtsxnN": {
+     "nfmu": "26244009"
+    },
+    "ksNFgIJT": {
+     "bnzIh": "oleta.org"
+    },
+    "yOCvrpm": {
+     "wsWITWf": "http://ocie.net"
+    },
+    "IkYwc": {
+     "PJObmcLs": "District"
+    },
+    "NrnMbtYf": {
+     "cKxCoQi": "Jacinto fort"
+    },
+    "VVjT": "http",
+    "yFDfrucP": {
+     "emBQx": "Upton"
+    },
+    "MrLoGaM": {
+     "MMBmuHb": "-16.7991"
+    },
+    "trPri": {
+     "KQspaJQ": "-64.3138"
+    },
+    "GJSwOd": {
+     "oSIoLSs": "Destin.Collier2@yahoo.com"
+    },
+    "BTMti": "Glover - Parker",
+    "ivxKa": {
+     "IPclcxjH": "back-end recontextualize channels"
+    },
+    "HlTjSAU": {
+     "iQ1wfD": "2015-10-02T08:05:04.716Z"
+    },
+    "oUaiJwjz": {
+     "EhMCc": "Maryland"
+    },
+    "1JMggyAc": {
+     "whUuP": "wilfredo.biz",
+     "HqImZ": {
+      "mstKs": "turn-key productize networks"
+     },
+     "IEuDc": {
+      "JzAW": "(357) 616-0191"
+     },
+     "f1yDtf": {
+      "uH1eOb": "Fundamental bottom-line software"
+     },
+     "VJUrnMz": {
+      "mdTJSucB": "2016-03-21T02:55:57.418Z"
+     },
+     "Xjct": {
+      "ynOr": "Zane Turnpike"
+     },
+     "tnWw": {
+      "ffZvuG": "http://carissa.name"
+     },
+     "GcUc": {
+      "fFgF1j": "#711648"
+     },
+     "OYGXeli": "user-centric mesh vortals"
+    },
+    "f1ByPZ": {
+     "oskIXRZJ": "Davis"
+    },
+    "WfkAx": "Investor",
+    "sVdctp": {
+     "Wvkz": "Suite 773"
+    },
+    "y1ObfC": {
+     "foslE": "Canada"
+    },
+    "curLu": {
+     "aADjLJ": "Medhurst Falls"
+    },
+    "zdCKBS": {
+     "SrEwNQtL": "Rebekah"
+    },
+    "eGLYRY": {
+     "zlay": "Wednesday"
+    },
+    "BSeKHnDS": {
+     "tAPFS": "$"
+    },
+    "ZlJnw": {
+     "KylfoEFG": "East Celestino"
+    },
+    "VrtKu": {
+     "dA1azeOK": "Maine"
+    },
+    "jafLBh": {
+     "Zynip": "Division"
+    },
+    "oe1ZwGqy": {
+     "dnqtJt": {
+      "msAe": "2015-03-27T05:23:28.018Z",
+      "1VZAF1Kc": {
+       "woHhU": "57679-1251"
+      },
+      "coJlKC": {
+       "ejLPopUt": "Human"
+      },
+      "jgYULK": {
+       "CHfz": "Friday"
+      },
+      "NUnkJ": {
+       "UwlnNJar": "28395"
+      },
+      "qUYGQQVG": {
+       "ZMdD": "S/."
+      },
+      "UdbSHy": "#356b25"
+     },
+     "lWDfb": {
+      "AwqEIdi": "443-800-2937 x15723"
+     },
+     "qFsOjs": "05647-0172"
+    },
+    "wqQNhxdR": {
+     "xvJzj": "Multi-lateral reciprocal system engine"
+    },
+    "HPuHcjU": {
+     "HCZcf": "Monday",
+     "uVghR": {
+      "NCjpgUL": "#50340e"
+     },
+     "WEhciYIh": {
+      "mOigO1": "2016-03-14T04:47:51.623Z"
+     },
+     "LPFdGzzg": "2015-11-13T06:50:57.286Z"
+    },
+    "SHIrCV": {
+     "cXSxmCeG": "Human Marketing Liason"
+    },
+    "zVueSQBR": {
+     "kWHUjmoJ": "07472",
+     "zdIGUkZ": {
+      "wqCj1t": "Quality-focused web-enabled middleware"
+     },
+     "WjinO": {
+      "dYotJ": "Senior"
+     },
+     "oUYSNwK": "Virgin Islands, British"
+    },
+    "myVxKJuQ": {
+     "QMEbVcCr": "incentivize"
+    },
+    "VPTacoV": {
+     "sosu": "Borders"
+    },
+    "woKx": {
+     "FMQv": "#07233a"
+    },
+    "cqUip": {
+     "BU1LJ": "Future Research Administrator"
+    },
+    "VayI": {
+     "eACbc": "2016-06-18T15:25:10.603Z"
+    },
+    "rZAoUDys": {
+     "cmDvsrl": "ден"
+    },
+    "kzSvXluT": {
+     "fWjQITj": {
+      "zKmFZjll": "XPT",
+      "iRCnaC": {
+       "Lc1lZxkB": "1-492-908-2999 x62190"
+      },
+      "BzoRsL": {
+       "GIBgLZCu": "Response"
+      },
+      "wqyj": "travon.biz"
+     },
+     "aVRx": {
+      "kdIoWmm": "Wyoming"
+     },
+     "YMqH": {
+      "ppNE": "77848220"
+     },
+     "1nCa": {
+      "NJxsO": "2015-06-13T11:01:36.938Z"
+     },
+     "XSCQnBU": "569.97"
+    },
+    "xryx": {
+     "ScDjZa": "Leonard.Zemlak71@gmail.com"
+    }
+   }
+  },
+  "tObj": {
+   "template": "\"function () {\\n    return fn(p1, p2, p3, p4); \\n  }\"",
+   "count": 10000,
+   "sample": {
+    "xryx": {
+     "ScDjZa": "Leonard.Zemlak71@gmail.com"
+    },
+    "kzSvXluT": {
+     "XSCQnBU": "569.97",
+     "1nCa": {
+      "NJxsO": "2015-06-13T11:01:36.938Z"
+     },
+     "YMqH": {
+      "ppNE": "77848220"
+     },
+     "aVRx": {
+      "kdIoWmm": "Wyoming"
+     },
+     "fWjQITj": {
+      "wqyj": "travon.biz",
+      "BzoRsL": {
+       "GIBgLZCu": "Response"
+      },
+      "iRCnaC": {
+       "Lc1lZxkB": "1-492-908-2999 x62190"
+      },
+      "zKmFZjll": "XPT"
+     }
+    },
+    "rZAoUDys": {
+     "cmDvsrl": "ден"
+    },
+    "VayI": {
+     "eACbc": "2016-06-18T15:25:10.603Z"
+    },
+    "cqUip": {
+     "BU1LJ": "Future Research Administrator"
+    },
+    "woKx": {
+     "FMQv": "#07233a"
+    },
+    "VPTacoV": {
+     "sosu": "Borders"
+    },
+    "myVxKJuQ": {
+     "QMEbVcCr": "incentivize"
+    },
+    "zVueSQBR": {
+     "oUYSNwK": "Virgin Islands, British",
+     "WjinO": {
+      "dYotJ": "Senior"
+     },
+     "zdIGUkZ": {
+      "wqCj1t": "Quality-focused web-enabled middleware"
+     },
+     "kWHUjmoJ": "07472"
+    },
+    "SHIrCV": {
+     "cXSxmCeG": "Human Marketing Liason"
+    },
+    "HPuHcjU": {
+     "LPFdGzzg": "2015-11-13T06:50:57.286Z",
+     "WEhciYIh": {
+      "mOigO1": "2016-03-14T04:47:51.623Z"
+     },
+     "uVghR": {
+      "NCjpgUL": "#50340e"
+     },
+     "HCZcf": "Monday"
+    },
+    "wqQNhxdR": {
+     "xvJzj": "Multi-lateral reciprocal system engine"
+    },
+    "oe1ZwGqy": {
+     "qFsOjs": "05647-0172",
+     "lWDfb": {
+      "AwqEIdi": "443-800-2937 x15723"
+     },
+     "dnqtJt": {
+      "UdbSHy": "#356b25",
+      "qUYGQQVG": {
+       "ZMdD": "S/."
+      },
+      "NUnkJ": {
+       "UwlnNJar": "28395"
+      },
+      "jgYULK": {
+       "CHfz": "Friday"
+      },
+      "coJlKC": {
+       "ejLPopUt": "Human"
+      },
+      "1VZAF1Kc": {
+       "woHhU": "57679-1251"
+      },
+      "msAe": "2015-03-27T05:23:28.018Z"
+     }
+    },
+    "jafLBh": {
+     "Zynip": "Division"
+    },
+    "VrtKu": {
+     "dA1azeOK": "Maine"
+    },
+    "ZlJnw": {
+     "KylfoEFG": "East Celestino"
+    },
+    "BSeKHnDS": {
+     "tAPFS": "$"
+    },
+    "eGLYRY": {
+     "zlay": "Wednesday"
+    },
+    "zdCKBS": {
+     "SrEwNQtL": "Rebekah"
+    },
+    "curLu": {
+     "aADjLJ": "Medhurst Falls"
+    },
+    "y1ObfC": {
+     "foslE": "Canada"
+    },
+    "sVdctp": {
+     "Wvkz": "Suite 773"
+    },
+    "WfkAx": "Investor",
+    "f1ByPZ": {
+     "oskIXRZJ": "Davis"
+    },
+    "1JMggyAc": {
+     "OYGXeli": "user-centric mesh vortals",
+     "GcUc": {
+      "fFgF1j": "#711648"
+     },
+     "tnWw": {
+      "ffZvuG": "http://carissa.name"
+     },
+     "Xjct": {
+      "ynOr": "Zane Turnpike"
+     },
+     "VJUrnMz": {
+      "mdTJSucB": "2016-03-21T02:55:57.418Z"
+     },
+     "f1yDtf": {
+      "uH1eOb": "Fundamental bottom-line software"
+     },
+     "IEuDc": {
+      "JzAW": "(357) 616-0191"
+     },
+     "HqImZ": {
+      "mstKs": "turn-key productize networks"
+     },
+     "whUuP": "wilfredo.biz"
+    },
+    "oUaiJwjz": {
+     "EhMCc": "Maryland"
+    },
+    "HlTjSAU": {
+     "iQ1wfD": "2015-10-02T08:05:04.716Z"
+    },
+    "ivxKa": {
+     "IPclcxjH": "back-end recontextualize channels"
+    },
+    "BTMti": "Glover - Parker",
+    "GJSwOd": {
+     "oSIoLSs": "Destin.Collier2@yahoo.com"
+    },
+    "trPri": {
+     "KQspaJQ": "-64.3138"
+    },
+    "MrLoGaM": {
+     "MMBmuHb": "-16.7991"
+    },
+    "yFDfrucP": {
+     "emBQx": "Upton"
+    },
+    "VVjT": "http",
+    "NrnMbtYf": {
+     "cKxCoQi": "Jacinto fort"
+    },
+    "IkYwc": {
+     "PJObmcLs": "District"
+    },
+    "yOCvrpm": {
+     "wsWITWf": "http://ocie.net"
+    },
+    "ksNFgIJT": {
+     "bnzIh": "oleta.org"
+    },
+    "xtsxnN": {
+     "nfmu": "26244009"
+    },
+    "dobk": {
+     "Ymvf": "391.06"
+    },
+    "XlpwOG": {
+     "IWon": "New York"
+    },
+    "FTCE": {
+     "KGwPgfj": "North Braden"
+    },
+    "hXMACj": {
+     "bLGHCO": "194.218.224.209",
+     "IHpE": "2015-04-15T15:21:09.385Z"
+    },
+    "kxisGOfs": {
+     "hgOTk": "THB"
+    },
+    "lzObhs": {
+     "KzPmmw": "http"
+    },
+    "nhaGPouO": {
+     "lNxMKz": "Suite 545"
+    },
+    "YLA1j": {
+     "DvzqNg": "ден"
+    },
+    "cvpepMlb": "rosella.org",
+    "SGgnUjr": {
+     "OHqm": "VonRueden - Berge"
+    },
+    "uPnYVtjO": {
+     "WYeGdE": "Willms Ford"
+    },
+    "WoBF": {
+     "QNXTu": "Right-sized 5th generation help-desk"
+    },
+    "hVWvOdP": {
+     "gqbMbgun": "11.153.52.158"
+    },
+    "zKtOfnzZ": {
+     "UdcQlo": "2015-01-23T11:58:01.543Z"
+    },
+    "gEeOC": {
+     "RxGT": "320.478.0167"
+    },
+    "jdLHPK": {
+     "IxfZOIW": "Amira"
+    },
+    "pwQE": {
+     "lCdVEsjk": "lei"
+    },
+    "MZNiznM": "http://emmett.org",
+    "dqoXyoPn": {
+     "QpqFAM": "maximize"
+    },
+    "mNwb": {
+     "WPbxjVZI": "GYD"
+    },
+    "vSqeWf": {
+     "I1IeHod": "Tuesday"
+    },
+    "JVel": {
+     "iNBqSk": "https://graham.biz"
+    },
+    "1hEu": {
+     "zJxTQhd": "Breana"
+    },
+    "diSJ": {
+     "hultS": "Security"
+    },
+    "hgxE": {
+     "KwFKjGh": "46.45"
+    },
+    "ILATqe": {
+     "1oVq": "Prohaska - Schowalter"
+    },
+    "YabSqj": {
+     "CdYXdKPV": "Thursday"
+    },
+    "jsXiPft": "United States Minor Outlying Islands",
+    "dcZz": {
+     "lrZaW": "Legacy"
+    },
+    "pZdP": {
+     "RqbUBd1s": "Suite 113"
+    },
+    "uqhj": {
+     "klQTWbr": "Forward Communications Planner"
+    }
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 225828864,
+     "heapTotal": 208113920,
+     "heapUsed": 158425960
+    },
+    "uptime": 8.629
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     30,
+     25950161
+    ],
+    "totalMs": 30025.950161
+   },
+   "perMatchMsStats": {
+    "q10": 0.874782,
+    "q25": 0.909126,
+    "q50": 0.995183,
+    "q75": 1.277829,
+    "q90": 1.714273,
+    "q95": 2.1145619374999995,
+    "q99": 18.517484834999923,
+    "max": 103.36799,
+    "min": 0.79741,
+    "stdev": 3.3031839493339072,
+    "mean": 1.5253958048999945
+   },
+   "matchPercent": 100
+  }
+ },
+ {
+  "id": 1450291366306,
+  "testName": "regMatch_k1to1_pRegDotStar_tWord_m50_v100to100",
+  "date": "2015-12-16T18:42:46.306Z",
+  "testConfig": {
+   "testName": "regMatch_k1to1_pRegDotStar_tWord_m50_v100to100",
+   "tObj": {
+    "fileName": "k1_word_v100.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v100_regDotStar_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": {
+    "prop1": {
+     "regExpMatch": true,
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false
+    }
+   },
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 12
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: \\n          rog.randomReplaceWith(\\n                replaceRandomChars(\\n                    so.prop1,\\n                    '.*',\\n                    rog.getRandomInt(0,so.prop1.length)), \\n                randomChars3to10(), \\n                0.5)\\n      };  \\n    }\"",
+   "count": 100,
+   "sample": {
+    "prop1": ".*jD"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 100,
+   "sample": {
+    "prop1": "njD"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1308442624,
+     "heapTotal": 1273800192,
+     "heapUsed": 927810768
+    },
+    "uptime": 229.445
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     5147636
+    ],
+    "totalMs": 5.147636
+   },
+   "perMatchMsStats": {
+    "q10": 0.0173694,
+    "q25": 0.0195158125,
+    "q50": 0.0260535,
+    "q75": 0.041449562499999995,
+    "q90": 0.049422999999999995,
+    "q95": 0.058409349999999985,
+    "q99": 0.09161699250000006,
+    "max": 0.101452,
+    "min": 0.013422,
+    "stdev": 0.015573997277317729,
+    "mean": 0.03186081
+   },
+   "matchPercent": 54
+  }
+ },
+ {
+  "id": 1450291366392,
+  "testName": "regMatch_k1to1_pRegMidStr_tWord_m50_v1kto1k",
+  "date": "2015-12-16T18:42:46.392Z",
+  "testConfig": {
+   "testName": "regMatch_k1to1_pRegMidStr_tWord_m50_v1kto1k",
+   "tObj": {
+    "fileName": "k1_word_v1k.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v1k_regMidStr_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": {
+    "prop1": {
+     "regExpMatch": true,
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false
+    }
+   },
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 13
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: \\n          rog.randomReplaceWith(\\n                randomMidStr(so.prop1), \\n                randomChars3to10(), \\n                0.5)\\n      };  \\n    }\"",
+   "count": 1000,
+   "sample": {
+    "prop1": "0gVSpWE5w"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 1000,
+   "sample": {
+    "prop1": "0vKe"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1308614656,
+     "heapTotal": 1273800192,
+     "heapUsed": 920700448
+    },
+    "uptime": 229.531
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     28523584
+    ],
+    "totalMs": 28.523584
+   },
+   "perMatchMsStats": {
+    "q10": 0.009474,
+    "q25": 0.009869,
+    "q50": 0.010658,
+    "q75": 0.018159,
+    "q90": 0.021712,
+    "q95": 0.026295937499999984,
+    "q99": 0.04830196749999985,
+    "max": 1.109663,
+    "min": 0.00829,
+    "stdev": 0.036143195708944593,
+    "mean": 0.01569907700000003
+   },
+   "matchPercent": 47.099999999999994
+  }
+ },
+ {
+  "id": 1450291366467,
+  "testName": "regMatch_k1to1_pRegMidStr_tWord_m50_v100kto100k",
+  "date": "2015-12-16T18:42:46.467Z",
+  "testConfig": {
+   "testName": "regMatch_k1to1_pRegMidStr_tWord_m50_v100kto100k",
+   "tObj": {
+    "fileName": "k1_word_v100k.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v100k_regMidStr_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": {
+    "prop1": {
+     "regExpMatch": true,
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false
+    }
+   },
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 14
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: \\n          rog.randomReplaceWith(\\n                randomMidStr(so.prop1), \\n                randomChars3to10(), \\n                0.5)\\n      };  \\n    }\"",
+   "count": 100000,
+   "sample": {
+    "prop1": "FZ"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 100000,
+   "sample": {
+    "prop1": "cgXWFZ"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1308487680,
+     "heapTotal": 1273800192,
+     "heapUsed": 917518848
+    },
+    "uptime": 229.606
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     4,
+     22438005
+    ],
+    "totalMs": 4022.438005
+   },
+   "perMatchMsStats": {
+    "q10": 0.008685,
+    "q25": 0.009474,
+    "q50": 0.009869,
+    "q75": 0.011053,
+    "q90": 0.018159,
+    "q95": 0.021317,
+    "q99": 0.050529000000000004,
+    "max": 50.571964,
+    "min": 0.007105,
+    "stdev": 0.6018191455857475,
+    "mean": 0.02215060166998868
+   },
+   "matchPercent": 49.858999999999995
+  }
+ },
+ {
+  "id": 1450291370679,
+  "testName": "match_k1to1_pString_tString_m50_v1kto1k",
+  "date": "2015-12-16T18:42:50.679Z",
+  "testConfig": {
+   "testName": "match_k1to1_pString_tString_m50_v1kto1k",
+   "tObj": {
+    "fileName": "k1_string_v1k.json"
+   },
+   "pObj": {
+    "fileName": "k1_string_v1k_ditto_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": [
+    {
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false,
+     "regExpMatch": false
+    }
+   ],
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 15
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars30to150, 0.5)\\n      };  \\n    }\"",
+   "count": 1000,
+   "sample": {
+    "prop1": "MGioLvt2QSro5fX5JzZOv9aGydfrZ57k4ej6Giyx8LF2SZdzNTaAJC1OhFcDm4iFzCihXWbgzctF8RCt3KxiFdgTzCxDd2dULNx9rsSaQYyuDFYjqWqPAqqnQ3hodn"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(30,150); \\n}\"}",
+   "count": 1000,
+   "sample": {
+    "prop1": "MGioLvt2QSro5fX5JzZOv9aGydfrZ57k4ej6Giyx8LF2SZdzNTaAJC1OhFcDm4iFzCihXWbgzctF8RCt3KxiFdgTzCxDd2dULNx9rsSaQYyuDFYjqWqPAqqnQ3hodn"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1322188800,
+     "heapTotal": 1287888384,
+     "heapUsed": 989237392
+    },
+    "uptime": 233.819
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     17341294
+    ],
+    "totalMs": 17.341294
+   },
+   "perMatchMsStats": {
+    "q10": 0.007105,
+    "q25": 0.0071059999999999995,
+    "q50": 0.0075,
+    "q75": 0.007895,
+    "q90": 0.010659,
+    "q95": 0.013816612499999999,
+    "q99": 0.03952019249999989,
+    "max": 0.198957,
+    "min": 0.006711,
+    "stdev": 0.010277612396898337,
+    "mean": 0.00906601100000007
+   },
+   "matchPercent": 50.6
+  }
+ },
+ {
+  "id": 1450291370705,
+  "testName": "matchSimple_k1to100_m50_v1kto1k",
+  "date": "2015-12-16T18:42:50.705Z",
+  "testConfig": {
+   "testName": "matchSimple_k1to100_m50_v1kto1k",
+   "tObj": {
+    "fileName": "k100_randObj_v1k.json"
+   },
+   "pObj": {
+    "fileName": "k100_randObj_v1k_k1_m50.json"
+   },
+   "testFn": "testMatchSimple",
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 16
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    var key = rog.getRandomKey(so); \\n    var value = rog.randomReplaceWith(\\n        rog.getPropValue(so, key),\\n        rog.getRandomMakeDataFn()(),\\n        0.5\\n        );\\n    var obj = rog.makeObjectFromDotKeys(key, value); \\n    return obj;  \\n    }\"",
+   "count": 1000,
+   "sample": {
+    "wvVgeyZm": {
+     "MEpkz": "Apt. 323"
+    }
+   }
+  },
+  "tObj": {
+   "template": "\"function () {\\n    return fn(p1, p2, p3, p4); \\n  }\"",
+   "count": 1000,
+   "sample": {
+    "TKjPBL": {
+     "LqMVht": "Jayme"
+    },
+    "emkQTTw": {
+     "om1IQZ": "jevon.net"
+    },
+    "w1YiBZr": {
+     "sDImIvx": "melyna.com"
+    },
+    "Qmbt": {
+     "WRqY": "Argentina"
+    },
+    "egnX": {
+     "qPCc": "255.244.201.154"
+    },
+    "mpaFv": {
+     "EVmPYdb": "Buckinghamshire"
+    },
+    "WwRnsGD": {
+     "ligv": "Ryan"
+    },
+    "eQEurL": {
+     "VacX": "New Jersey"
+    },
+    "BcWBDjLm": {
+     "M1ctD": "Considine Rapid"
+    },
+    "ljOfu": "New Mexico",
+    "zDnY": {
+     "xnSNuF": "#1c4318",
+     "Rdua": {
+      "fIkVyc": "Kiel23@hotmail.com"
+     },
+     "sxvTEpx": {
+      "anqNKjwg": "FKP"
+     },
+     "FCG1RycD": {
+      "KVuIvAar": "West, Kiehn and Schaden"
+     },
+     "eEPL": {
+      "tpldH": "syndicate"
+     },
+     "kjje1B": {
+      "lzSq": "turn-key utilize infrastructures"
+     },
+     "QUNmT": {
+      "IMDvO": "HRK"
+     },
+     "IMAQ": {
+      "lxTjUQH": "evelyn.biz"
+     },
+     "lBAFh": {
+      "UjH1vE": "Realigned regional throughput"
+     },
+     "SbiF": "plug-and-play syndicate partnerships"
+    },
+    "yfCQhhY": {
+     "OcDnolLK": "Buckinghamshire",
+     "lZRvsQY": {
+      "XyIMHIr": "ERN"
+     },
+     "RoVa": {
+      "MnJsPBn": "Regional Paradigm Specialist"
+     },
+     "zwHWbx": {
+      "wBTz": "Smith"
+     },
+     "gRyajA": {
+      "H1Hi": "Reilly mouth"
+     },
+     "ekrxOF": {
+      "TQvCyoD": "2015-09-23T12:34:25.647Z"
+     },
+     "qHBRpH": {
+      "oeMbz": "853.231.9185"
+     },
+     "dvCxuCwK": {
+      "E1WqQpTU": "Wuckert - Streich"
+     },
+     "HSsKJFMi": {
+      "BlfXwAxs": "unleash"
+     },
+     "HQfJsPc": "2016-12-01T19:42:18.745Z"
+    },
+    "nhAexNW": {
+     "mkHyg1B": "Reagan_Harvey31@gmail.com"
+    },
+    "dvoIvqEJ": {
+     "wJsxYxCI": "Monday"
+    },
+    "RcXXyOy": {
+     "jMsjFp": "Lake Hoyt"
+    },
+    "mlRWnPaJ": {
+     "A1CvKQU": "717.18"
+    },
+    "Zzmq": {
+     "KEHh": "Integration"
+    },
+    "UVquBE": {
+     "fiTMb": "186.75.216.191"
+    },
+    "ZaIcx": "Durgan, Murphy and Kautzer",
+    "OJFAQna": {
+     "jXmjemS": "http://krista.biz"
+    },
+    "WFuhpjyM": {
+     "jznn": "Laura Lodge"
+    },
+    "fybh": {
+     "mwLjTi": "kr"
+    },
+    "FBuA1oKF": {
+     "JZEx": "Monday"
+    },
+    "PbBMJUZ": {
+     "1BOSIm": "https://rozella.info"
+    },
+    "Udqh": {
+     "VGNzPJLV": "https://bradley.net"
+    },
+    "mToA": {
+     "iuFoWFln": "Bermuda"
+    },
+    "rAYCFR": {
+     "WqmbqTJ": "PHP"
+    },
+    "ssnS": {
+     "iBSMHUs": "ford.biz"
+    },
+    "wNVG": "Agustina_Kunze@yahoo.com",
+    "BZvMEcMC": {
+     "hIqxbSe": "52976-4848"
+    },
+    "wvVgeyZm": {
+     "MEpkz": "Apt. 323"
+    },
+    "dsDQsrw": {
+     "FT1B": "Bryon.Kuphal@hotmail.com"
+    },
+    "mvVVLlE": {
+     "xVwrCVYO": "Cormier, Ullrich and Turcotte"
+    },
+    "tdaZmO": {
+     "YlvY": "#260604"
+    },
+    "JiiRaP": {
+     "XijROmn": "Buckinghamshire"
+    },
+    "WecwR": {
+     "JyxU1yU": "Mobility"
+    },
+    "bcoY": {
+     "kNRB": "bernardo.name"
+    },
+    "cPqvI1": {
+     "EMQKQJN": "893.80"
+    },
+    "JNeCho": "€",
+    "uhKZsaeb": {
+     "UBkDK": "Bayer - Bauch"
+    },
+    "aDruqrwp": {
+     "gnKPk": "CZK"
+    },
+    "eZZMaOhn": {
+     "TJEuCPIL": "Dynamic"
+    },
+    "pzmJwHk": "French Guiana",
+    "SvcUQWH": {
+     "zgiNxr": "Port Moses town"
+    },
+    "baMbei": {
+     "IkYAhZIi": "Vicente_McCullough@yahoo.com"
+    },
+    "iqCTflPi": {
+     "iDDPRUx": "Pansy.Kiehn@yahoo.com"
+    },
+    "AkPEZTx": {
+     "mzeA": "49768"
+    },
+    "yLRG1o": {
+     "weaTVHh": "823-117-7038 x913"
+    },
+    "rikYT": {
+     "hEWD": "Borders"
+    },
+    "vrVQQEp": {
+     "oKFEc": "https"
+    },
+    "guVS1Wi": "Wednesday",
+    "1KVwMs": {
+     "mOjsOe": "S/."
+    },
+    "uhvrHC": {
+     "WAeJTx": "Stanton25@yahoo.com"
+    },
+    "mzXvV": {
+     "IrsOEJq": "2015-08-20T08:21:22.903Z"
+    },
+    "NaeG": {
+     "rfiYcI": "Apt. 286"
+    },
+    "NygvNMTS": "201.114.223.87",
+    "yZrsNK": "West, Littel and Keeling",
+    "dTBF": {
+     "FgWJVM1x": "porter.biz"
+    },
+    "hEptoG": "-76.9694",
+    "IlPLXp": {
+     "1XThGif": "лв"
+    },
+    "XqBq": {
+     "JjlsF1u": "Marshall Islands"
+    },
+    "WKQRJxq": {
+     "mOiVqVs": "doris.name"
+    },
+    "yTHC": {
+     "djmX1": "Sherman Parks"
+    },
+    "gjxcL": {
+     "pUUJ": "Ulises"
+    },
+    "CqmLjAd": {
+     "nUnocS": "237.08"
+    },
+    "yIHvo": {
+     "gJeew1ZJ": "Melany.Schowalter@gmail.com"
+    },
+    "XCIaLjkE": {
+     "KfiOHf": "Suite 700"
+    },
+    "fk1XjPQ1": {
+     "skkXjAJf": "72793-8105"
+    },
+    "iceby": "Thursday",
+    "rBUYL": {
+     "QZeamv": "#63475c"
+    },
+    "ZKvk": {
+     "EdttxpOE": "44945-7534"
+    },
+    "keYPMVHF": {
+     "kEfVkMW": "Howell"
+    },
+    "tObC": {
+     "nCQbaP": "orchestrate"
+    },
+    "iFxjM": {
+     "YTfTGjVV": "2016-02-05T09:29:49.411Z"
+    },
+    "jMsb": "North Dakota",
+    "mOFYsHfc": {
+     "Gjroqn": "judah.biz"
+    },
+    "yMrgHW": {
+     "lokkpM": "Tillman Mountain"
+    },
+    "tpIRfzya": {
+     "1XYxr": "Tuvalu"
+    },
+    "OmULD1qb": {
+     "LTYUrt": "collaborative syndicate users"
+    },
+    "pNMq": {
+     "rPeU": "2016-08-06T08:19:30.198Z"
+    },
+    "eaOcka": {
+     "IvBcRae": "Interactions",
+     "l1BJr": {
+      "kNZzWZP": "193.89.247.145"
+     }
+    }
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1322909696,
+     "heapTotal": 1288920320,
+     "heapUsed": 999702360
+    },
+    "uptime": 233.845
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     51441614
+    ],
+    "totalMs": 51.441614
+   },
+   "perMatchMsStats": {
+    "q10": 0.030791,
+    "q25": 0.033949,
+    "q50": 0.039871,
+    "q75": 0.051540625,
+    "q90": 0.064741,
+    "q95": 0.0884256125,
+    "q99": 0.17492181499999987,
+    "max": 0.658456,
+    "min": 0.02566,
+    "stdev": 0.03417972691276685,
+    "mean": 0.048340790999999994
+   },
+   "matchPercent": 48.699999999999996
+  }
+ },
+ {
+  "id": 1450291374148,
+  "testName": "match_k1to1_pString_tString_m50_v100kto100k",
+  "date": "2015-12-16T18:42:54.148Z",
+  "testConfig": {
+   "testName": "match_k1to1_pString_tString_m50_v100kto100k",
+   "tObj": {
+    "fileName": "k1_string_v100k.json"
+   },
+   "pObj": {
+    "fileName": "k1_string_v100k_ditto_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": [
+    {
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false,
+     "regExpMatch": false
+    }
+   ],
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 17
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars30to150, 0.5)\\n      };  \\n    }\"",
+   "count": 100000,
+   "sample": {
+    "prop1": "9WMIVmPr5eG2ejRTQGnY8JOVvL6vPVkeYOb61nqubBgJZyYj3vuAJmN0jmXDUUc4JuIvleHHH5Z2Oj7UKAGvezjcWKYSFb4GJUWzUt4GPe10IR8DZvRcEUfL6EmJjSckHYWtfjk"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(30,150); \\n}\"}",
+   "count": 100000,
+   "sample": {
+    "prop1": "9WMIVmPr5eG2ejRTQGnY8JOVvL6vPVkeYOb61nqubBgJZyYj3vuAJmN0jmXDUUc4JuIvleHHH5Z2Oj7UKAGvezjcWKYSFb4GJUWzUt4GPe10IR8DZvRcEUfL6EmJjSckHYWtfjk"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1372909568,
+     "heapTotal": 1333913600,
+     "heapUsed": 1049980856
+    },
+    "uptime": 237.288
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     3,
+     431648957
+    ],
+    "totalMs": 3431.648957
+   },
+   "perMatchMsStats": {
+    "q10": 0.007105,
+    "q25": 0.0071059999999999995,
+    "q50": 0.007501,
+    "q75": 0.00829,
+    "q90": 0.013421000000000002,
+    "q95": 0.01579,
+    "q99": 0.035923,
+    "max": 45.906722,
+    "min": 0.005921,
+    "stdev": 0.5602750805741681,
+    "mean": 0.017545423049998465
+   },
+   "matchPercent": 50.029999999999994
+  }
+ },
+ {
+  "id": 1450291377819,
+  "testName": "regMatch_k1to1_pRegPhone_tPhone_m50_v1kto1k",
+  "date": "2015-12-16T18:42:57.819Z",
+  "testConfig": {
+   "testName": "regMatch_k1to1_pRegPhone_tPhone_m50_v1kto1k",
+   "tObj": {
+    "fileName": "k1_phone_v1k.json"
+   },
+   "pObj": {
+    "fileName": "k1_phone_v1k_regPhone_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": {
+    "phone": {
+     "regExpMatch": true,
+     "name": "phone",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false
+    }
+   },
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 18
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {phone: rog.getPhoneRegEx().source};  \\n    }\"",
+   "count": 1000,
+   "sample": {
+    "phone": "^(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:\\(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\\s*\\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\\s*(?:[.-]\\s*)?([0-9]{4})(?:\\s*(?:#|x\\.?|ext\\.?|extension)\\s*(\\d+))?$"
+   }
+  },
+  "tObj": {
+   "template": "{\"phone\":\"function () {\\n    return fn(p1, p2, p3, p4); \\n  }\"}",
+   "count": 1000,
+   "sample": {
+    "phone": "1-615-833-3455 x097"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1406611456,
+     "heapTotal": 1367677696,
+     "heapUsed": 1155328696
+    },
+    "uptime": 240.959
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     27865523
+    ],
+    "totalMs": 27.865523
+   },
+   "perMatchMsStats": {
+    "q10": 0.011053,
+    "q25": 0.011448,
+    "q50": 0.011842,
+    "q75": 0.013422,
+    "q90": 0.022896,
+    "q95": 0.02708493749999998,
+    "q99": 0.06996877499999996,
+    "max": 0.231723,
+    "min": 0.010264,
+    "stdev": 0.013550366682385401,
+    "mean": 0.015652929999999985
+   },
+   "matchPercent": 50.8
+  }
+ },
+ {
+  "id": 1450291377901,
+  "testName": "matchSimple_k1to1_pWord_tWord_m50_v100kto100k",
+  "date": "2015-12-16T18:42:57.901Z",
+  "testConfig": {
+   "testName": "matchSimple_k1to1_pWord_tWord_m50_v100kto100k",
+   "tObj": {
+    "fileName": "k1_word_v100k.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v100k_ditto_m50.json"
+   },
+   "testFn": "testMatchSimple",
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 19
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars3to10, 0.5)\\n      };  \\n    }\"",
+   "count": 100000,
+   "sample": {
+    "prop1": "cgXWFZ"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 100000,
+   "sample": {
+    "prop1": "cgXWFZ"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1407356928,
+     "heapTotal": 1368709632,
+     "heapUsed": 1152372168
+    },
+    "uptime": 241.041
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     4,
+     84822292
+    ],
+    "totalMs": 4084.822292
+   },
+   "perMatchMsStats": {
+    "q10": 0.022896,
+    "q25": 0.024081,
+    "q50": 0.025264,
+    "q75": 0.027238,
+    "q90": 0.044213,
+    "q95": 0.05329199999999999,
+    "q99": 0.11724300000000001,
+    "max": 33.017106,
+    "min": 0.021317,
+    "stdev": 0.31679819387614994,
+    "mean": 0.03814981161000472
+   },
+   "matchPercent": 49.961
+  }
+ },
+ {
+  "id": 1450291382587,
+  "testName": "matchSimple_k1to1_pWord_tWord_m50_v1kto1k",
+  "date": "2015-12-16T18:43:02.587Z",
+  "testConfig": {
+   "testName": "matchSimple_k1to1_pWord_tWord_m50_v1kto1k",
+   "tObj": {
+    "fileName": "k1_word_v1k.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v1k_ditto_m50.json"
+   },
+   "testFn": "testMatchSimple",
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 20
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars3to10, 0.5)\\n      };  \\n    }\"",
+   "count": 1000,
+   "sample": {
+    "prop1": "0vKe"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 1000,
+   "sample": {
+    "prop1": "0vKe"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 617033728,
+     "heapTotal": 592877568,
+     "heapUsed": 166390152
+    },
+    "uptime": 245.727
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     35402625
+    ],
+    "totalMs": 35.402625
+   },
+   "perMatchMsStats": {
+    "q10": 0.02408,
+    "q25": 0.024475,
+    "q50": 0.02487,
+    "q75": 0.0292125625,
+    "q90": 0.048002400000000015,
+    "q95": 0.05195532499999998,
+    "q99": 0.13760559749999965,
+    "max": 0.395942,
+    "min": 0.023685,
+    "stdev": 0.021676230612163092,
+    "mean": 0.03253351799999994
+   },
+   "matchPercent": 46.7
+  }
+ },
+ {
+  "id": 1450291382634,
+  "testName": "matchSimple_k1to100_m50_v10kto10k",
+  "date": "2015-12-16T18:43:02.634Z",
+  "testConfig": {
+   "testName": "matchSimple_k1to100_m50_v10kto10k",
+   "tObj": {
+    "fileName": "k100_randObj_v10k.json"
+   },
+   "pObj": {
+    "fileName": "k100_randObj_v10k_k1_m50.json"
+   },
+   "testFn": "testMatchSimple",
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 21
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    var key = rog.getRandomKey(so); \\n    var value = rog.randomReplaceWith(\\n        rog.getPropValue(so, key),\\n        rog.getRandomMakeDataFn()(),\\n        0.5\\n        );\\n    var obj = rog.makeObjectFromDotKeys(key, value); \\n    return obj;  \\n    }\"",
+   "count": 10000,
+   "sample": {
+    "1JMggyAc": {
+     "IEuDc": {
+      "JzAW": "(357) 616-0191"
+     }
+    }
+   }
+  },
+  "tObj": {
+   "template": "\"function () {\\n    return fn(p1, p2, p3, p4); \\n  }\"",
+   "count": 10000,
+   "sample": {
+    "xryx": {
+     "ScDjZa": "Leonard.Zemlak71@gmail.com"
+    },
+    "kzSvXluT": {
+     "XSCQnBU": "569.97",
+     "1nCa": {
+      "NJxsO": "2015-06-13T11:01:36.938Z"
+     },
+     "YMqH": {
+      "ppNE": "77848220"
+     },
+     "aVRx": {
+      "kdIoWmm": "Wyoming"
+     },
+     "fWjQITj": {
+      "wqyj": "travon.biz",
+      "BzoRsL": {
+       "GIBgLZCu": "Response"
+      },
+      "iRCnaC": {
+       "Lc1lZxkB": "1-492-908-2999 x62190"
+      },
+      "zKmFZjll": "XPT"
+     }
+    },
+    "rZAoUDys": {
+     "cmDvsrl": "ден"
+    },
+    "VayI": {
+     "eACbc": "2016-06-18T15:25:10.603Z"
+    },
+    "cqUip": {
+     "BU1LJ": "Future Research Administrator"
+    },
+    "woKx": {
+     "FMQv": "#07233a"
+    },
+    "VPTacoV": {
+     "sosu": "Borders"
+    },
+    "myVxKJuQ": {
+     "QMEbVcCr": "incentivize"
+    },
+    "zVueSQBR": {
+     "oUYSNwK": "Virgin Islands, British",
+     "WjinO": {
+      "dYotJ": "Senior"
+     },
+     "zdIGUkZ": {
+      "wqCj1t": "Quality-focused web-enabled middleware"
+     },
+     "kWHUjmoJ": "07472"
+    },
+    "SHIrCV": {
+     "cXSxmCeG": "Human Marketing Liason"
+    },
+    "HPuHcjU": {
+     "LPFdGzzg": "2015-11-13T06:50:57.286Z",
+     "WEhciYIh": {
+      "mOigO1": "2016-03-14T04:47:51.623Z"
+     },
+     "uVghR": {
+      "NCjpgUL": "#50340e"
+     },
+     "HCZcf": "Monday"
+    },
+    "wqQNhxdR": {
+     "xvJzj": "Multi-lateral reciprocal system engine"
+    },
+    "oe1ZwGqy": {
+     "qFsOjs": "05647-0172",
+     "lWDfb": {
+      "AwqEIdi": "443-800-2937 x15723"
+     },
+     "dnqtJt": {
+      "UdbSHy": "#356b25",
+      "qUYGQQVG": {
+       "ZMdD": "S/."
+      },
+      "NUnkJ": {
+       "UwlnNJar": "28395"
+      },
+      "jgYULK": {
+       "CHfz": "Friday"
+      },
+      "coJlKC": {
+       "ejLPopUt": "Human"
+      },
+      "1VZAF1Kc": {
+       "woHhU": "57679-1251"
+      },
+      "msAe": "2015-03-27T05:23:28.018Z"
+     }
+    },
+    "jafLBh": {
+     "Zynip": "Division"
+    },
+    "VrtKu": {
+     "dA1azeOK": "Maine"
+    },
+    "ZlJnw": {
+     "KylfoEFG": "East Celestino"
+    },
+    "BSeKHnDS": {
+     "tAPFS": "$"
+    },
+    "eGLYRY": {
+     "zlay": "Wednesday"
+    },
+    "zdCKBS": {
+     "SrEwNQtL": "Rebekah"
+    },
+    "curLu": {
+     "aADjLJ": "Medhurst Falls"
+    },
+    "y1ObfC": {
+     "foslE": "Canada"
+    },
+    "sVdctp": {
+     "Wvkz": "Suite 773"
+    },
+    "WfkAx": "Investor",
+    "f1ByPZ": {
+     "oskIXRZJ": "Davis"
+    },
+    "1JMggyAc": {
+     "OYGXeli": "user-centric mesh vortals",
+     "GcUc": {
+      "fFgF1j": "#711648"
+     },
+     "tnWw": {
+      "ffZvuG": "http://carissa.name"
+     },
+     "Xjct": {
+      "ynOr": "Zane Turnpike"
+     },
+     "VJUrnMz": {
+      "mdTJSucB": "2016-03-21T02:55:57.418Z"
+     },
+     "f1yDtf": {
+      "uH1eOb": "Fundamental bottom-line software"
+     },
+     "IEuDc": {
+      "JzAW": "(357) 616-0191"
+     },
+     "HqImZ": {
+      "mstKs": "turn-key productize networks"
+     },
+     "whUuP": "wilfredo.biz"
+    },
+    "oUaiJwjz": {
+     "EhMCc": "Maryland"
+    },
+    "HlTjSAU": {
+     "iQ1wfD": "2015-10-02T08:05:04.716Z"
+    },
+    "ivxKa": {
+     "IPclcxjH": "back-end recontextualize channels"
+    },
+    "BTMti": "Glover - Parker",
+    "GJSwOd": {
+     "oSIoLSs": "Destin.Collier2@yahoo.com"
+    },
+    "trPri": {
+     "KQspaJQ": "-64.3138"
+    },
+    "MrLoGaM": {
+     "MMBmuHb": "-16.7991"
+    },
+    "yFDfrucP": {
+     "emBQx": "Upton"
+    },
+    "VVjT": "http",
+    "NrnMbtYf": {
+     "cKxCoQi": "Jacinto fort"
+    },
+    "IkYwc": {
+     "PJObmcLs": "District"
+    },
+    "yOCvrpm": {
+     "wsWITWf": "http://ocie.net"
+    },
+    "ksNFgIJT": {
+     "bnzIh": "oleta.org"
+    },
+    "xtsxnN": {
+     "nfmu": "26244009"
+    },
+    "dobk": {
+     "Ymvf": "391.06"
+    },
+    "XlpwOG": {
+     "IWon": "New York"
+    },
+    "FTCE": {
+     "KGwPgfj": "North Braden"
+    },
+    "hXMACj": {
+     "bLGHCO": "194.218.224.209",
+     "IHpE": "2015-04-15T15:21:09.385Z"
+    },
+    "kxisGOfs": {
+     "hgOTk": "THB"
+    },
+    "lzObhs": {
+     "KzPmmw": "http"
+    },
+    "nhaGPouO": {
+     "lNxMKz": "Suite 545"
+    },
+    "YLA1j": {
+     "DvzqNg": "ден"
+    },
+    "cvpepMlb": "rosella.org",
+    "SGgnUjr": {
+     "OHqm": "VonRueden - Berge"
+    },
+    "uPnYVtjO": {
+     "WYeGdE": "Willms Ford"
+    },
+    "WoBF": {
+     "QNXTu": "Right-sized 5th generation help-desk"
+    },
+    "hVWvOdP": {
+     "gqbMbgun": "11.153.52.158"
+    },
+    "zKtOfnzZ": {
+     "UdcQlo": "2015-01-23T11:58:01.543Z"
+    },
+    "gEeOC": {
+     "RxGT": "320.478.0167"
+    },
+    "jdLHPK": {
+     "IxfZOIW": "Amira"
+    },
+    "pwQE": {
+     "lCdVEsjk": "lei"
+    },
+    "MZNiznM": "http://emmett.org",
+    "dqoXyoPn": {
+     "QpqFAM": "maximize"
+    },
+    "mNwb": {
+     "WPbxjVZI": "GYD"
+    },
+    "vSqeWf": {
+     "I1IeHod": "Tuesday"
+    },
+    "JVel": {
+     "iNBqSk": "https://graham.biz"
+    },
+    "1hEu": {
+     "zJxTQhd": "Breana"
+    },
+    "diSJ": {
+     "hultS": "Security"
+    },
+    "hgxE": {
+     "KwFKjGh": "46.45"
+    },
+    "ILATqe": {
+     "1oVq": "Prohaska - Schowalter"
+    },
+    "YabSqj": {
+     "CdYXdKPV": "Thursday"
+    },
+    "jsXiPft": "United States Minor Outlying Islands",
+    "dcZz": {
+     "lrZaW": "Legacy"
+    },
+    "pZdP": {
+     "RqbUBd1s": "Suite 113"
+    },
+    "uqhj": {
+     "klQTWbr": "Forward Communications Planner"
+    }
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 617340928,
+     "heapTotal": 592877568,
+     "heapUsed": 179927312
+    },
+    "uptime": 245.774
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     615370981
+    ],
+    "totalMs": 615.370981
+   },
+   "perMatchMsStats": {
+    "q10": 0.029607,
+    "q25": 0.032765,
+    "q50": 0.04066,
+    "q75": 0.054082,
+    "q90": 0.078162,
+    "q95": 0.10327332499999972,
+    "q99": 0.22288926499999978,
+    "max": 12.360641,
+    "min": 0.02408,
+    "stdev": 0.24853025694552403,
+    "mean": 0.057440107199999466
+   },
+   "matchPercent": 50.1
+  }
+ },
+ {
+  "id": 1450291559799,
+  "testName": "match_k10to100_m50_v10kto10k",
+  "date": "2015-12-16T18:45:59.799Z",
+  "testConfig": {
+   "testName": "match_k10to100_m50_v10kto10k",
+   "tObj": {
+    "fileName": "k100_randObj_v10k.json"
+   },
+   "pObj": {
+    "fileName": "k100_randObj_v10k_k10_m50.json"
+   },
+   "testFn": "testMatch",
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 22
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    var keys = rog.getRandomKey(so, 10);  // get 10 random keys\\n    var obj = rog.cloneObject(so, keys); \\n    if(rog.isRand(0.5)) {  // 50% of time, \\n      rog.replaceRandomProperties(obj,1);  // replace one property with random value\\n    }\\n    return obj;  \\n   }\"",
+   "count": 10000,
+   "sample": {
+    "ksNFgIJT": {
+     "bnzIh": "oleta.org"
+    },
+    "oUaiJwjz": {
+     "EhMCc": "Maryland"
+    },
+    "pZdP": {
+     "RqbUBd1s": "Suite 113"
+    },
+    "1JMggyAc": {
+     "VJUrnMz": {
+      "mdTJSucB": "2016-03-21T02:55:57.418Z"
+     },
+     "Xjct": {
+      "ynOr": "Zane Turnpike"
+     }
+    },
+    "hXMACj": {
+     "bLGHCO": "194.218.224.209"
+    },
+    "YabSqj": {
+     "CdYXdKPV": "Thursday"
+    },
+    "oe1ZwGqy": {
+     "dnqtJt": {
+      "coJlKC": {
+       "ejLPopUt": "Human"
+      }
+     }
+    },
+    "zdCKBS": {
+     "SrEwNQtL": "Rebekah"
+    },
+    "zVueSQBR": {
+     "oUYSNwK": "Virgin Islands, British"
+    }
+   }
+  },
+  "tObj": {
+   "template": "\"function () {\\n    return fn(p1, p2, p3, p4); \\n  }\"",
+   "count": 10000,
+   "sample": {
+    "xryx": {
+     "ScDjZa": "Leonard.Zemlak71@gmail.com"
+    },
+    "kzSvXluT": {
+     "XSCQnBU": "569.97",
+     "1nCa": {
+      "NJxsO": "2015-06-13T11:01:36.938Z"
+     },
+     "YMqH": {
+      "ppNE": "77848220"
+     },
+     "aVRx": {
+      "kdIoWmm": "Wyoming"
+     },
+     "fWjQITj": {
+      "wqyj": "travon.biz",
+      "BzoRsL": {
+       "GIBgLZCu": "Response"
+      },
+      "iRCnaC": {
+       "Lc1lZxkB": "1-492-908-2999 x62190"
+      },
+      "zKmFZjll": "XPT"
+     }
+    },
+    "rZAoUDys": {
+     "cmDvsrl": "ден"
+    },
+    "VayI": {
+     "eACbc": "2016-06-18T15:25:10.603Z"
+    },
+    "cqUip": {
+     "BU1LJ": "Future Research Administrator"
+    },
+    "woKx": {
+     "FMQv": "#07233a"
+    },
+    "VPTacoV": {
+     "sosu": "Borders"
+    },
+    "myVxKJuQ": {
+     "QMEbVcCr": "incentivize"
+    },
+    "zVueSQBR": {
+     "oUYSNwK": "Virgin Islands, British",
+     "WjinO": {
+      "dYotJ": "Senior"
+     },
+     "zdIGUkZ": {
+      "wqCj1t": "Quality-focused web-enabled middleware"
+     },
+     "kWHUjmoJ": "07472"
+    },
+    "SHIrCV": {
+     "cXSxmCeG": "Human Marketing Liason"
+    },
+    "HPuHcjU": {
+     "LPFdGzzg": "2015-11-13T06:50:57.286Z",
+     "WEhciYIh": {
+      "mOigO1": "2016-03-14T04:47:51.623Z"
+     },
+     "uVghR": {
+      "NCjpgUL": "#50340e"
+     },
+     "HCZcf": "Monday"
+    },
+    "wqQNhxdR": {
+     "xvJzj": "Multi-lateral reciprocal system engine"
+    },
+    "oe1ZwGqy": {
+     "qFsOjs": "05647-0172",
+     "lWDfb": {
+      "AwqEIdi": "443-800-2937 x15723"
+     },
+     "dnqtJt": {
+      "UdbSHy": "#356b25",
+      "qUYGQQVG": {
+       "ZMdD": "S/."
+      },
+      "NUnkJ": {
+       "UwlnNJar": "28395"
+      },
+      "jgYULK": {
+       "CHfz": "Friday"
+      },
+      "coJlKC": {
+       "ejLPopUt": "Human"
+      },
+      "1VZAF1Kc": {
+       "woHhU": "57679-1251"
+      },
+      "msAe": "2015-03-27T05:23:28.018Z"
+     }
+    },
+    "jafLBh": {
+     "Zynip": "Division"
+    },
+    "VrtKu": {
+     "dA1azeOK": "Maine"
+    },
+    "ZlJnw": {
+     "KylfoEFG": "East Celestino"
+    },
+    "BSeKHnDS": {
+     "tAPFS": "$"
+    },
+    "eGLYRY": {
+     "zlay": "Wednesday"
+    },
+    "zdCKBS": {
+     "SrEwNQtL": "Rebekah"
+    },
+    "curLu": {
+     "aADjLJ": "Medhurst Falls"
+    },
+    "y1ObfC": {
+     "foslE": "Canada"
+    },
+    "sVdctp": {
+     "Wvkz": "Suite 773"
+    },
+    "WfkAx": "Investor",
+    "f1ByPZ": {
+     "oskIXRZJ": "Davis"
+    },
+    "1JMggyAc": {
+     "OYGXeli": "user-centric mesh vortals",
+     "GcUc": {
+      "fFgF1j": "#711648"
+     },
+     "tnWw": {
+      "ffZvuG": "http://carissa.name"
+     },
+     "Xjct": {
+      "ynOr": "Zane Turnpike"
+     },
+     "VJUrnMz": {
+      "mdTJSucB": "2016-03-21T02:55:57.418Z"
+     },
+     "f1yDtf": {
+      "uH1eOb": "Fundamental bottom-line software"
+     },
+     "IEuDc": {
+      "JzAW": "(357) 616-0191"
+     },
+     "HqImZ": {
+      "mstKs": "turn-key productize networks"
+     },
+     "whUuP": "wilfredo.biz"
+    },
+    "oUaiJwjz": {
+     "EhMCc": "Maryland"
+    },
+    "HlTjSAU": {
+     "iQ1wfD": "2015-10-02T08:05:04.716Z"
+    },
+    "ivxKa": {
+     "IPclcxjH": "back-end recontextualize channels"
+    },
+    "BTMti": "Glover - Parker",
+    "GJSwOd": {
+     "oSIoLSs": "Destin.Collier2@yahoo.com"
+    },
+    "trPri": {
+     "KQspaJQ": "-64.3138"
+    },
+    "MrLoGaM": {
+     "MMBmuHb": "-16.7991"
+    },
+    "yFDfrucP": {
+     "emBQx": "Upton"
+    },
+    "VVjT": "http",
+    "NrnMbtYf": {
+     "cKxCoQi": "Jacinto fort"
+    },
+    "IkYwc": {
+     "PJObmcLs": "District"
+    },
+    "yOCvrpm": {
+     "wsWITWf": "http://ocie.net"
+    },
+    "ksNFgIJT": {
+     "bnzIh": "oleta.org"
+    },
+    "xtsxnN": {
+     "nfmu": "26244009"
+    },
+    "dobk": {
+     "Ymvf": "391.06"
+    },
+    "XlpwOG": {
+     "IWon": "New York"
+    },
+    "FTCE": {
+     "KGwPgfj": "North Braden"
+    },
+    "hXMACj": {
+     "bLGHCO": "194.218.224.209",
+     "IHpE": "2015-04-15T15:21:09.385Z"
+    },
+    "kxisGOfs": {
+     "hgOTk": "THB"
+    },
+    "lzObhs": {
+     "KzPmmw": "http"
+    },
+    "nhaGPouO": {
+     "lNxMKz": "Suite 545"
+    },
+    "YLA1j": {
+     "DvzqNg": "ден"
+    },
+    "cvpepMlb": "rosella.org",
+    "SGgnUjr": {
+     "OHqm": "VonRueden - Berge"
+    },
+    "uPnYVtjO": {
+     "WYeGdE": "Willms Ford"
+    },
+    "WoBF": {
+     "QNXTu": "Right-sized 5th generation help-desk"
+    },
+    "hVWvOdP": {
+     "gqbMbgun": "11.153.52.158"
+    },
+    "zKtOfnzZ": {
+     "UdcQlo": "2015-01-23T11:58:01.543Z"
+    },
+    "gEeOC": {
+     "RxGT": "320.478.0167"
+    },
+    "jdLHPK": {
+     "IxfZOIW": "Amira"
+    },
+    "pwQE": {
+     "lCdVEsjk": "lei"
+    },
+    "MZNiznM": "http://emmett.org",
+    "dqoXyoPn": {
+     "QpqFAM": "maximize"
+    },
+    "mNwb": {
+     "WPbxjVZI": "GYD"
+    },
+    "vSqeWf": {
+     "I1IeHod": "Tuesday"
+    },
+    "JVel": {
+     "iNBqSk": "https://graham.biz"
+    },
+    "1hEu": {
+     "zJxTQhd": "Breana"
+    },
+    "diSJ": {
+     "hultS": "Security"
+    },
+    "hgxE": {
+     "KwFKjGh": "46.45"
+    },
+    "ILATqe": {
+     "1oVq": "Prohaska - Schowalter"
+    },
+    "YabSqj": {
+     "CdYXdKPV": "Thursday"
+    },
+    "jsXiPft": "United States Minor Outlying Islands",
+    "dcZz": {
+     "lrZaW": "Legacy"
+    },
+    "pZdP": {
+     "RqbUBd1s": "Suite 113"
+    },
+    "uqhj": {
+     "klQTWbr": "Forward Communications Planner"
+    }
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1159225344,
+     "heapTotal": 1094233600,
+     "heapUsed": 737339624
+    },
+    "uptime": 422.939
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     4,
+     207954202
+    ],
+    "totalMs": 4207.954202
+   },
+   "perMatchMsStats": {
+    "q10": 0.027633000000000005,
+    "q25": 0.094347,
+    "q50": 0.105795,
+    "q75": 0.130665,
+    "q90": 0.21159,
+    "q95": 0.2803662624999994,
+    "q99": 0.7700228874999997,
+    "max": 14.620626,
+    "min": 0.0075,
+    "stdev": 0.45417391033465604,
+    "mean": 0.15454180599999373
+   },
+   "matchPercent": 49.6
+  }
+ },
+ {
+  "id": 1450291571553,
+  "testName": "regMatch_k1to1_pRegDot_tWord_m50_v100kto100k",
+  "date": "2015-12-16T18:46:11.553Z",
+  "testConfig": {
+   "testName": "regMatch_k1to1_pRegDot_tWord_m50_v100kto100k",
+   "tObj": {
+    "fileName": "k1_word_v100k.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v100k_regDot_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": {
+    "prop1": {
+     "regExpMatch": true,
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false
+    }
+   },
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 23
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: \\n          rog.randomReplaceWith(\\n                replaceRandomChars(so.prop1,'.',1), \\n                randomChars3to10(), \\n                0.5)\\n      };  \\n    }\"",
+   "count": 100000,
+   "sample": {
+    "prop1": "cgXW.Z"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 100000,
+   "sample": {
+    "prop1": "cgXWFZ"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1291001856,
+     "heapTotal": 1219433984,
+     "heapUsed": 616080648
+    },
+    "uptime": 434.693
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     4,
+     19163888
+    ],
+    "totalMs": 4019.163888
+   },
+   "perMatchMsStats": {
+    "q10": 0.011053,
+    "q25": 0.013027,
+    "q50": 0.022501,
+    "q75": 0.026448,
+    "q90": 0.034739,
+    "q95": 0.045002,
+    "q99": 0.085662,
+    "max": 25.542771,
+    "min": 0.009474,
+    "stdev": 0.2033271266358178,
+    "mean": 0.026455722239996277
+   },
+   "matchPercent": 42.425000000000004
+  }
+ },
+ {
+  "id": 1450291576083,
+  "testName": "matchSimple_k1to1_pWord_tWord_m50_v100to100",
+  "date": "2015-12-16T18:46:16.083Z",
+  "testConfig": {
+   "testName": "matchSimple_k1to1_pWord_tWord_m50_v100to100",
+   "tObj": {
+    "fileName": "k1_word_v100.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v100_ditto_m50.json"
+   },
+   "testFn": "testMatchSimple",
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 24
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, randomChars3to10, 0.5)\\n      };  \\n    }\"",
+   "count": 100,
+   "sample": {
+    "prop1": "QDHlf6Zcn4"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 100,
+   "sample": {
+    "prop1": "njD"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1360138240,
+     "heapTotal": 1285036288,
+     "heapUsed": 760018408
+    },
+    "uptime": 439.223
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     3496366
+    ],
+    "totalMs": 3.496366
+   },
+   "perMatchMsStats": {
+    "q10": 0.027633,
+    "q25": 0.028028000000000004,
+    "q50": 0.029212,
+    "q75": 0.0303965625,
+    "q90": 0.036948999999999996,
+    "q95": 0.04389222499999998,
+    "q99": 0.12659805000000024,
+    "max": 0.166983,
+    "min": 0.024869,
+    "stdev": 0.014660870975409338,
+    "mean": 0.03217668
+   },
+   "matchPercent": 52
+  }
+ },
+ {
+  "id": 1450291576104,
+  "testName": "match_k1to100_m50_v1kto1k",
+  "date": "2015-12-16T18:46:16.104Z",
+  "testConfig": {
+   "testName": "match_k1to100_m50_v1kto1k",
+   "tObj": {
+    "fileName": "k100_randObj_v1k.json"
+   },
+   "pObj": {
+    "fileName": "k100_randObj_v1k_k1_m50.json"
+   },
+   "testFn": "testMatch",
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 25
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    var key = rog.getRandomKey(so); \\n    var value = rog.randomReplaceWith(\\n        rog.getPropValue(so, key),\\n        rog.getRandomMakeDataFn()(),\\n        0.5\\n        );\\n    var obj = rog.makeObjectFromDotKeys(key, value); \\n    return obj;  \\n    }\"",
+   "count": 1000,
+   "sample": {
+    "wvVgeyZm": {
+     "MEpkz": "Apt. 323"
+    }
+   }
+  },
+  "tObj": {
+   "template": "\"function () {\\n    return fn(p1, p2, p3, p4); \\n  }\"",
+   "count": 1000,
+   "sample": {
+    "TKjPBL": {
+     "LqMVht": "Jayme"
+    },
+    "emkQTTw": {
+     "om1IQZ": "jevon.net"
+    },
+    "w1YiBZr": {
+     "sDImIvx": "melyna.com"
+    },
+    "Qmbt": {
+     "WRqY": "Argentina"
+    },
+    "egnX": {
+     "qPCc": "255.244.201.154"
+    },
+    "mpaFv": {
+     "EVmPYdb": "Buckinghamshire"
+    },
+    "WwRnsGD": {
+     "ligv": "Ryan"
+    },
+    "eQEurL": {
+     "VacX": "New Jersey"
+    },
+    "BcWBDjLm": {
+     "M1ctD": "Considine Rapid"
+    },
+    "ljOfu": "New Mexico",
+    "zDnY": {
+     "xnSNuF": "#1c4318",
+     "Rdua": {
+      "fIkVyc": "Kiel23@hotmail.com"
+     },
+     "sxvTEpx": {
+      "anqNKjwg": "FKP"
+     },
+     "FCG1RycD": {
+      "KVuIvAar": "West, Kiehn and Schaden"
+     },
+     "eEPL": {
+      "tpldH": "syndicate"
+     },
+     "kjje1B": {
+      "lzSq": "turn-key utilize infrastructures"
+     },
+     "QUNmT": {
+      "IMDvO": "HRK"
+     },
+     "IMAQ": {
+      "lxTjUQH": "evelyn.biz"
+     },
+     "lBAFh": {
+      "UjH1vE": "Realigned regional throughput"
+     },
+     "SbiF": "plug-and-play syndicate partnerships"
+    },
+    "yfCQhhY": {
+     "OcDnolLK": "Buckinghamshire",
+     "lZRvsQY": {
+      "XyIMHIr": "ERN"
+     },
+     "RoVa": {
+      "MnJsPBn": "Regional Paradigm Specialist"
+     },
+     "zwHWbx": {
+      "wBTz": "Smith"
+     },
+     "gRyajA": {
+      "H1Hi": "Reilly mouth"
+     },
+     "ekrxOF": {
+      "TQvCyoD": "2015-09-23T12:34:25.647Z"
+     },
+     "qHBRpH": {
+      "oeMbz": "853.231.9185"
+     },
+     "dvCxuCwK": {
+      "E1WqQpTU": "Wuckert - Streich"
+     },
+     "HSsKJFMi": {
+      "BlfXwAxs": "unleash"
+     },
+     "HQfJsPc": "2016-12-01T19:42:18.745Z"
+    },
+    "nhAexNW": {
+     "mkHyg1B": "Reagan_Harvey31@gmail.com"
+    },
+    "dvoIvqEJ": {
+     "wJsxYxCI": "Monday"
+    },
+    "RcXXyOy": {
+     "jMsjFp": "Lake Hoyt"
+    },
+    "mlRWnPaJ": {
+     "A1CvKQU": "717.18"
+    },
+    "Zzmq": {
+     "KEHh": "Integration"
+    },
+    "UVquBE": {
+     "fiTMb": "186.75.216.191"
+    },
+    "ZaIcx": "Durgan, Murphy and Kautzer",
+    "OJFAQna": {
+     "jXmjemS": "http://krista.biz"
+    },
+    "WFuhpjyM": {
+     "jznn": "Laura Lodge"
+    },
+    "fybh": {
+     "mwLjTi": "kr"
+    },
+    "FBuA1oKF": {
+     "JZEx": "Monday"
+    },
+    "PbBMJUZ": {
+     "1BOSIm": "https://rozella.info"
+    },
+    "Udqh": {
+     "VGNzPJLV": "https://bradley.net"
+    },
+    "mToA": {
+     "iuFoWFln": "Bermuda"
+    },
+    "rAYCFR": {
+     "WqmbqTJ": "PHP"
+    },
+    "ssnS": {
+     "iBSMHUs": "ford.biz"
+    },
+    "wNVG": "Agustina_Kunze@yahoo.com",
+    "BZvMEcMC": {
+     "hIqxbSe": "52976-4848"
+    },
+    "wvVgeyZm": {
+     "MEpkz": "Apt. 323"
+    },
+    "dsDQsrw": {
+     "FT1B": "Bryon.Kuphal@hotmail.com"
+    },
+    "mvVVLlE": {
+     "xVwrCVYO": "Cormier, Ullrich and Turcotte"
+    },
+    "tdaZmO": {
+     "YlvY": "#260604"
+    },
+    "JiiRaP": {
+     "XijROmn": "Buckinghamshire"
+    },
+    "WecwR": {
+     "JyxU1yU": "Mobility"
+    },
+    "bcoY": {
+     "kNRB": "bernardo.name"
+    },
+    "cPqvI1": {
+     "EMQKQJN": "893.80"
+    },
+    "JNeCho": "€",
+    "uhKZsaeb": {
+     "UBkDK": "Bayer - Bauch"
+    },
+    "aDruqrwp": {
+     "gnKPk": "CZK"
+    },
+    "eZZMaOhn": {
+     "TJEuCPIL": "Dynamic"
+    },
+    "pzmJwHk": "French Guiana",
+    "SvcUQWH": {
+     "zgiNxr": "Port Moses town"
+    },
+    "baMbei": {
+     "IkYAhZIi": "Vicente_McCullough@yahoo.com"
+    },
+    "iqCTflPi": {
+     "iDDPRUx": "Pansy.Kiehn@yahoo.com"
+    },
+    "AkPEZTx": {
+     "mzeA": "49768"
+    },
+    "yLRG1o": {
+     "weaTVHh": "823-117-7038 x913"
+    },
+    "rikYT": {
+     "hEWD": "Borders"
+    },
+    "vrVQQEp": {
+     "oKFEc": "https"
+    },
+    "guVS1Wi": "Wednesday",
+    "1KVwMs": {
+     "mOjsOe": "S/."
+    },
+    "uhvrHC": {
+     "WAeJTx": "Stanton25@yahoo.com"
+    },
+    "mzXvV": {
+     "IrsOEJq": "2015-08-20T08:21:22.903Z"
+    },
+    "NaeG": {
+     "rfiYcI": "Apt. 286"
+    },
+    "NygvNMTS": "201.114.223.87",
+    "yZrsNK": "West, Littel and Keeling",
+    "dTBF": {
+     "FgWJVM1x": "porter.biz"
+    },
+    "hEptoG": "-76.9694",
+    "IlPLXp": {
+     "1XThGif": "лв"
+    },
+    "XqBq": {
+     "JjlsF1u": "Marshall Islands"
+    },
+    "WKQRJxq": {
+     "mOiVqVs": "doris.name"
+    },
+    "yTHC": {
+     "djmX1": "Sherman Parks"
+    },
+    "gjxcL": {
+     "pUUJ": "Ulises"
+    },
+    "CqmLjAd": {
+     "nUnocS": "237.08"
+    },
+    "yIHvo": {
+     "gJeew1ZJ": "Melany.Schowalter@gmail.com"
+    },
+    "XCIaLjkE": {
+     "KfiOHf": "Suite 700"
+    },
+    "fk1XjPQ1": {
+     "skkXjAJf": "72793-8105"
+    },
+    "iceby": "Thursday",
+    "rBUYL": {
+     "QZeamv": "#63475c"
+    },
+    "ZKvk": {
+     "EdttxpOE": "44945-7534"
+    },
+    "keYPMVHF": {
+     "kEfVkMW": "Howell"
+    },
+    "tObC": {
+     "nCQbaP": "orchestrate"
+    },
+    "iFxjM": {
+     "YTfTGjVV": "2016-02-05T09:29:49.411Z"
+    },
+    "jMsb": "North Dakota",
+    "mOFYsHfc": {
+     "Gjroqn": "judah.biz"
+    },
+    "yMrgHW": {
+     "lokkpM": "Tillman Mountain"
+    },
+    "tpIRfzya": {
+     "1XYxr": "Tuvalu"
+    },
+    "OmULD1qb": {
+     "LTYUrt": "collaborative syndicate users"
+    },
+    "pNMq": {
+     "rPeU": "2016-08-06T08:19:30.198Z"
+    },
+    "eaOcka": {
+     "IvBcRae": "Interactions",
+     "l1BJr": {
+      "kNZzWZP": "193.89.247.145"
+     }
+    }
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1360445440,
+     "heapTotal": 1285036288,
+     "heapUsed": 765811752
+    },
+    "uptime": 439.244
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     50711313
+    ],
+    "totalMs": 50.711313
+   },
+   "perMatchMsStats": {
+    "q10": 0.010263,
+    "q25": 0.010658,
+    "q50": 0.011448,
+    "q75": 0.013817,
+    "q90": 0.017764,
+    "q95": 0.0252646125,
+    "q99": 0.04917997499999964,
+    "max": 0.547529,
+    "min": 0.0075,
+    "stdev": 0.019557946215077223,
+    "mean": 0.014251511999999982
+   },
+   "matchPercent": 49.1
+  }
+ },
+ {
+  "id": 1450291576560,
+  "testName": "match_k100to100_m100_v1kto1k",
+  "date": "2015-12-16T18:46:16.560Z",
+  "testConfig": {
+   "testName": "match_k100to100_m100_v1kto1k",
+   "tObj": {
+    "fileName": "k100_randObj_v1k.json"
+   },
+   "pObj": {
+    "fileName": "k100_randObj_v1k_k100_m100.json"
+   },
+   "testFn": "testMatch",
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 26
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return rog.cloneObject(so); \\n   }\"",
+   "count": 1000,
+   "sample": {
+    "eaOcka": {
+     "l1BJr": {
+      "kNZzWZP": "193.89.247.145"
+     },
+     "IvBcRae": "Interactions"
+    },
+    "pNMq": {
+     "rPeU": "2016-08-06T08:19:30.198Z"
+    },
+    "OmULD1qb": {
+     "LTYUrt": "collaborative syndicate users"
+    },
+    "tpIRfzya": {
+     "1XYxr": "Tuvalu"
+    },
+    "yMrgHW": {
+     "lokkpM": "Tillman Mountain"
+    },
+    "mOFYsHfc": {
+     "Gjroqn": "judah.biz"
+    },
+    "jMsb": "North Dakota",
+    "iFxjM": {
+     "YTfTGjVV": "2016-02-05T09:29:49.411Z"
+    },
+    "tObC": {
+     "nCQbaP": "orchestrate"
+    },
+    "keYPMVHF": {
+     "kEfVkMW": "Howell"
+    },
+    "ZKvk": {
+     "EdttxpOE": "44945-7534"
+    },
+    "rBUYL": {
+     "QZeamv": "#63475c"
+    },
+    "iceby": "Thursday",
+    "fk1XjPQ1": {
+     "skkXjAJf": "72793-8105"
+    },
+    "XCIaLjkE": {
+     "KfiOHf": "Suite 700"
+    },
+    "yIHvo": {
+     "gJeew1ZJ": "Melany.Schowalter@gmail.com"
+    },
+    "CqmLjAd": {
+     "nUnocS": "237.08"
+    },
+    "gjxcL": {
+     "pUUJ": "Ulises"
+    },
+    "yTHC": {
+     "djmX1": "Sherman Parks"
+    },
+    "WKQRJxq": {
+     "mOiVqVs": "doris.name"
+    },
+    "XqBq": {
+     "JjlsF1u": "Marshall Islands"
+    },
+    "IlPLXp": {
+     "1XThGif": "лв"
+    },
+    "hEptoG": "-76.9694",
+    "dTBF": {
+     "FgWJVM1x": "porter.biz"
+    },
+    "yZrsNK": "West, Littel and Keeling",
+    "NygvNMTS": "201.114.223.87",
+    "NaeG": {
+     "rfiYcI": "Apt. 286"
+    },
+    "mzXvV": {
+     "IrsOEJq": "2015-08-20T08:21:22.903Z"
+    },
+    "uhvrHC": {
+     "WAeJTx": "Stanton25@yahoo.com"
+    },
+    "1KVwMs": {
+     "mOjsOe": "S/."
+    },
+    "guVS1Wi": "Wednesday",
+    "vrVQQEp": {
+     "oKFEc": "https"
+    },
+    "rikYT": {
+     "hEWD": "Borders"
+    },
+    "yLRG1o": {
+     "weaTVHh": "823-117-7038 x913"
+    },
+    "AkPEZTx": {
+     "mzeA": "49768"
+    },
+    "iqCTflPi": {
+     "iDDPRUx": "Pansy.Kiehn@yahoo.com"
+    },
+    "baMbei": {
+     "IkYAhZIi": "Vicente_McCullough@yahoo.com"
+    },
+    "SvcUQWH": {
+     "zgiNxr": "Port Moses town"
+    },
+    "pzmJwHk": "French Guiana",
+    "eZZMaOhn": {
+     "TJEuCPIL": "Dynamic"
+    },
+    "aDruqrwp": {
+     "gnKPk": "CZK"
+    },
+    "uhKZsaeb": {
+     "UBkDK": "Bayer - Bauch"
+    },
+    "JNeCho": "€",
+    "cPqvI1": {
+     "EMQKQJN": "893.80"
+    },
+    "bcoY": {
+     "kNRB": "bernardo.name"
+    },
+    "WecwR": {
+     "JyxU1yU": "Mobility"
+    },
+    "JiiRaP": {
+     "XijROmn": "Buckinghamshire"
+    },
+    "tdaZmO": {
+     "YlvY": "#260604"
+    },
+    "mvVVLlE": {
+     "xVwrCVYO": "Cormier, Ullrich and Turcotte"
+    },
+    "dsDQsrw": {
+     "FT1B": "Bryon.Kuphal@hotmail.com"
+    },
+    "wvVgeyZm": {
+     "MEpkz": "Apt. 323"
+    },
+    "BZvMEcMC": {
+     "hIqxbSe": "52976-4848"
+    },
+    "wNVG": "Agustina_Kunze@yahoo.com",
+    "ssnS": {
+     "iBSMHUs": "ford.biz"
+    },
+    "rAYCFR": {
+     "WqmbqTJ": "PHP"
+    },
+    "mToA": {
+     "iuFoWFln": "Bermuda"
+    },
+    "Udqh": {
+     "VGNzPJLV": "https://bradley.net"
+    },
+    "PbBMJUZ": {
+     "1BOSIm": "https://rozella.info"
+    },
+    "FBuA1oKF": {
+     "JZEx": "Monday"
+    },
+    "fybh": {
+     "mwLjTi": "kr"
+    },
+    "WFuhpjyM": {
+     "jznn": "Laura Lodge"
+    },
+    "OJFAQna": {
+     "jXmjemS": "http://krista.biz"
+    },
+    "ZaIcx": "Durgan, Murphy and Kautzer",
+    "UVquBE": {
+     "fiTMb": "186.75.216.191"
+    },
+    "Zzmq": {
+     "KEHh": "Integration"
+    },
+    "mlRWnPaJ": {
+     "A1CvKQU": "717.18"
+    },
+    "RcXXyOy": {
+     "jMsjFp": "Lake Hoyt"
+    },
+    "dvoIvqEJ": {
+     "wJsxYxCI": "Monday"
+    },
+    "nhAexNW": {
+     "mkHyg1B": "Reagan_Harvey31@gmail.com"
+    },
+    "yfCQhhY": {
+     "HQfJsPc": "2016-12-01T19:42:18.745Z",
+     "HSsKJFMi": {
+      "BlfXwAxs": "unleash"
+     },
+     "dvCxuCwK": {
+      "E1WqQpTU": "Wuckert - Streich"
+     },
+     "qHBRpH": {
+      "oeMbz": "853.231.9185"
+     },
+     "ekrxOF": {
+      "TQvCyoD": "2015-09-23T12:34:25.647Z"
+     },
+     "gRyajA": {
+      "H1Hi": "Reilly mouth"
+     },
+     "zwHWbx": {
+      "wBTz": "Smith"
+     },
+     "RoVa": {
+      "MnJsPBn": "Regional Paradigm Specialist"
+     },
+     "lZRvsQY": {
+      "XyIMHIr": "ERN"
+     },
+     "OcDnolLK": "Buckinghamshire"
+    },
+    "zDnY": {
+     "SbiF": "plug-and-play syndicate partnerships",
+     "lBAFh": {
+      "UjH1vE": "Realigned regional throughput"
+     },
+     "IMAQ": {
+      "lxTjUQH": "evelyn.biz"
+     },
+     "QUNmT": {
+      "IMDvO": "HRK"
+     },
+     "kjje1B": {
+      "lzSq": "turn-key utilize infrastructures"
+     },
+     "eEPL": {
+      "tpldH": "syndicate"
+     },
+     "FCG1RycD": {
+      "KVuIvAar": "West, Kiehn and Schaden"
+     },
+     "sxvTEpx": {
+      "anqNKjwg": "FKP"
+     },
+     "Rdua": {
+      "fIkVyc": "Kiel23@hotmail.com"
+     },
+     "xnSNuF": "#1c4318"
+    },
+    "ljOfu": "New Mexico",
+    "BcWBDjLm": {
+     "M1ctD": "Considine Rapid"
+    },
+    "eQEurL": {
+     "VacX": "New Jersey"
+    },
+    "WwRnsGD": {
+     "ligv": "Ryan"
+    },
+    "mpaFv": {
+     "EVmPYdb": "Buckinghamshire"
+    },
+    "egnX": {
+     "qPCc": "255.244.201.154"
+    },
+    "Qmbt": {
+     "WRqY": "Argentina"
+    },
+    "w1YiBZr": {
+     "sDImIvx": "melyna.com"
+    },
+    "emkQTTw": {
+     "om1IQZ": "jevon.net"
+    },
+    "TKjPBL": {
+     "LqMVht": "Jayme"
+    }
+   }
+  },
+  "tObj": {
+   "template": "\"function () {\\n    return fn(p1, p2, p3, p4); \\n  }\"",
+   "count": 1000,
+   "sample": {
+    "TKjPBL": {
+     "LqMVht": "Jayme"
+    },
+    "emkQTTw": {
+     "om1IQZ": "jevon.net"
+    },
+    "w1YiBZr": {
+     "sDImIvx": "melyna.com"
+    },
+    "Qmbt": {
+     "WRqY": "Argentina"
+    },
+    "egnX": {
+     "qPCc": "255.244.201.154"
+    },
+    "mpaFv": {
+     "EVmPYdb": "Buckinghamshire"
+    },
+    "WwRnsGD": {
+     "ligv": "Ryan"
+    },
+    "eQEurL": {
+     "VacX": "New Jersey"
+    },
+    "BcWBDjLm": {
+     "M1ctD": "Considine Rapid"
+    },
+    "ljOfu": "New Mexico",
+    "zDnY": {
+     "xnSNuF": "#1c4318",
+     "Rdua": {
+      "fIkVyc": "Kiel23@hotmail.com"
+     },
+     "sxvTEpx": {
+      "anqNKjwg": "FKP"
+     },
+     "FCG1RycD": {
+      "KVuIvAar": "West, Kiehn and Schaden"
+     },
+     "eEPL": {
+      "tpldH": "syndicate"
+     },
+     "kjje1B": {
+      "lzSq": "turn-key utilize infrastructures"
+     },
+     "QUNmT": {
+      "IMDvO": "HRK"
+     },
+     "IMAQ": {
+      "lxTjUQH": "evelyn.biz"
+     },
+     "lBAFh": {
+      "UjH1vE": "Realigned regional throughput"
+     },
+     "SbiF": "plug-and-play syndicate partnerships"
+    },
+    "yfCQhhY": {
+     "OcDnolLK": "Buckinghamshire",
+     "lZRvsQY": {
+      "XyIMHIr": "ERN"
+     },
+     "RoVa": {
+      "MnJsPBn": "Regional Paradigm Specialist"
+     },
+     "zwHWbx": {
+      "wBTz": "Smith"
+     },
+     "gRyajA": {
+      "H1Hi": "Reilly mouth"
+     },
+     "ekrxOF": {
+      "TQvCyoD": "2015-09-23T12:34:25.647Z"
+     },
+     "qHBRpH": {
+      "oeMbz": "853.231.9185"
+     },
+     "dvCxuCwK": {
+      "E1WqQpTU": "Wuckert - Streich"
+     },
+     "HSsKJFMi": {
+      "BlfXwAxs": "unleash"
+     },
+     "HQfJsPc": "2016-12-01T19:42:18.745Z"
+    },
+    "nhAexNW": {
+     "mkHyg1B": "Reagan_Harvey31@gmail.com"
+    },
+    "dvoIvqEJ": {
+     "wJsxYxCI": "Monday"
+    },
+    "RcXXyOy": {
+     "jMsjFp": "Lake Hoyt"
+    },
+    "mlRWnPaJ": {
+     "A1CvKQU": "717.18"
+    },
+    "Zzmq": {
+     "KEHh": "Integration"
+    },
+    "UVquBE": {
+     "fiTMb": "186.75.216.191"
+    },
+    "ZaIcx": "Durgan, Murphy and Kautzer",
+    "OJFAQna": {
+     "jXmjemS": "http://krista.biz"
+    },
+    "WFuhpjyM": {
+     "jznn": "Laura Lodge"
+    },
+    "fybh": {
+     "mwLjTi": "kr"
+    },
+    "FBuA1oKF": {
+     "JZEx": "Monday"
+    },
+    "PbBMJUZ": {
+     "1BOSIm": "https://rozella.info"
+    },
+    "Udqh": {
+     "VGNzPJLV": "https://bradley.net"
+    },
+    "mToA": {
+     "iuFoWFln": "Bermuda"
+    },
+    "rAYCFR": {
+     "WqmbqTJ": "PHP"
+    },
+    "ssnS": {
+     "iBSMHUs": "ford.biz"
+    },
+    "wNVG": "Agustina_Kunze@yahoo.com",
+    "BZvMEcMC": {
+     "hIqxbSe": "52976-4848"
+    },
+    "wvVgeyZm": {
+     "MEpkz": "Apt. 323"
+    },
+    "dsDQsrw": {
+     "FT1B": "Bryon.Kuphal@hotmail.com"
+    },
+    "mvVVLlE": {
+     "xVwrCVYO": "Cormier, Ullrich and Turcotte"
+    },
+    "tdaZmO": {
+     "YlvY": "#260604"
+    },
+    "JiiRaP": {
+     "XijROmn": "Buckinghamshire"
+    },
+    "WecwR": {
+     "JyxU1yU": "Mobility"
+    },
+    "bcoY": {
+     "kNRB": "bernardo.name"
+    },
+    "cPqvI1": {
+     "EMQKQJN": "893.80"
+    },
+    "JNeCho": "€",
+    "uhKZsaeb": {
+     "UBkDK": "Bayer - Bauch"
+    },
+    "aDruqrwp": {
+     "gnKPk": "CZK"
+    },
+    "eZZMaOhn": {
+     "TJEuCPIL": "Dynamic"
+    },
+    "pzmJwHk": "French Guiana",
+    "SvcUQWH": {
+     "zgiNxr": "Port Moses town"
+    },
+    "baMbei": {
+     "IkYAhZIi": "Vicente_McCullough@yahoo.com"
+    },
+    "iqCTflPi": {
+     "iDDPRUx": "Pansy.Kiehn@yahoo.com"
+    },
+    "AkPEZTx": {
+     "mzeA": "49768"
+    },
+    "yLRG1o": {
+     "weaTVHh": "823-117-7038 x913"
+    },
+    "rikYT": {
+     "hEWD": "Borders"
+    },
+    "vrVQQEp": {
+     "oKFEc": "https"
+    },
+    "guVS1Wi": "Wednesday",
+    "1KVwMs": {
+     "mOjsOe": "S/."
+    },
+    "uhvrHC": {
+     "WAeJTx": "Stanton25@yahoo.com"
+    },
+    "mzXvV": {
+     "IrsOEJq": "2015-08-20T08:21:22.903Z"
+    },
+    "NaeG": {
+     "rfiYcI": "Apt. 286"
+    },
+    "NygvNMTS": "201.114.223.87",
+    "yZrsNK": "West, Littel and Keeling",
+    "dTBF": {
+     "FgWJVM1x": "porter.biz"
+    },
+    "hEptoG": "-76.9694",
+    "IlPLXp": {
+     "1XThGif": "лв"
+    },
+    "XqBq": {
+     "JjlsF1u": "Marshall Islands"
+    },
+    "WKQRJxq": {
+     "mOiVqVs": "doris.name"
+    },
+    "yTHC": {
+     "djmX1": "Sherman Parks"
+    },
+    "gjxcL": {
+     "pUUJ": "Ulises"
+    },
+    "CqmLjAd": {
+     "nUnocS": "237.08"
+    },
+    "yIHvo": {
+     "gJeew1ZJ": "Melany.Schowalter@gmail.com"
+    },
+    "XCIaLjkE": {
+     "KfiOHf": "Suite 700"
+    },
+    "fk1XjPQ1": {
+     "skkXjAJf": "72793-8105"
+    },
+    "iceby": "Thursday",
+    "rBUYL": {
+     "QZeamv": "#63475c"
+    },
+    "ZKvk": {
+     "EdttxpOE": "44945-7534"
+    },
+    "keYPMVHF": {
+     "kEfVkMW": "Howell"
+    },
+    "tObC": {
+     "nCQbaP": "orchestrate"
+    },
+    "iFxjM": {
+     "YTfTGjVV": "2016-02-05T09:29:49.411Z"
+    },
+    "jMsb": "North Dakota",
+    "mOFYsHfc": {
+     "Gjroqn": "judah.biz"
+    },
+    "yMrgHW": {
+     "lokkpM": "Tillman Mountain"
+    },
+    "tpIRfzya": {
+     "1XYxr": "Tuvalu"
+    },
+    "OmULD1qb": {
+     "LTYUrt": "collaborative syndicate users"
+    },
+    "pNMq": {
+     "rPeU": "2016-08-06T08:19:30.198Z"
+    },
+    "eaOcka": {
+     "IvBcRae": "Interactions",
+     "l1BJr": {
+      "kNZzWZP": "193.89.247.145"
+     }
+    }
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1380175872,
+     "heapTotal": 1302167296,
+     "heapUsed": 817408328
+    },
+    "uptime": 439.699
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     3,
+     406484757
+    ],
+    "totalMs": 3406.484757
+   },
+   "perMatchMsStats": {
+    "q10": 0.9186,
+    "q25": 0.961012375,
+    "q50": 1.076503,
+    "q75": 1.43662075,
+    "q90": 1.9926560000000004,
+    "q95": 2.439733937499998,
+    "q99": 15.282950422499976,
+    "max": 353.346476,
+    "min": 0.843201,
+    "stdev": 11.540015131135942,
+    "mean": 1.9755787309999995
+   },
+   "matchPercent": 100
+  }
+ },
+ {
+  "id": 1450291580763,
+  "testName": "match_k1to100_m50_v10kto10k",
+  "date": "2015-12-16T18:46:20.763Z",
+  "testConfig": {
+   "testName": "match_k1to100_m50_v10kto10k",
+   "tObj": {
+    "fileName": "k100_randObj_v10k.json"
+   },
+   "pObj": {
+    "fileName": "k100_randObj_v10k_k1_m50.json"
+   },
+   "testFn": "testMatch",
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 27
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    var key = rog.getRandomKey(so); \\n    var value = rog.randomReplaceWith(\\n        rog.getPropValue(so, key),\\n        rog.getRandomMakeDataFn()(),\\n        0.5\\n        );\\n    var obj = rog.makeObjectFromDotKeys(key, value); \\n    return obj;  \\n    }\"",
+   "count": 10000,
+   "sample": {
+    "1JMggyAc": {
+     "IEuDc": {
+      "JzAW": "(357) 616-0191"
+     }
+    }
+   }
+  },
+  "tObj": {
+   "template": "\"function () {\\n    return fn(p1, p2, p3, p4); \\n  }\"",
+   "count": 10000,
+   "sample": {
+    "xryx": {
+     "ScDjZa": "Leonard.Zemlak71@gmail.com"
+    },
+    "kzSvXluT": {
+     "XSCQnBU": "569.97",
+     "1nCa": {
+      "NJxsO": "2015-06-13T11:01:36.938Z"
+     },
+     "YMqH": {
+      "ppNE": "77848220"
+     },
+     "aVRx": {
+      "kdIoWmm": "Wyoming"
+     },
+     "fWjQITj": {
+      "wqyj": "travon.biz",
+      "BzoRsL": {
+       "GIBgLZCu": "Response"
+      },
+      "iRCnaC": {
+       "Lc1lZxkB": "1-492-908-2999 x62190"
+      },
+      "zKmFZjll": "XPT"
+     }
+    },
+    "rZAoUDys": {
+     "cmDvsrl": "ден"
+    },
+    "VayI": {
+     "eACbc": "2016-06-18T15:25:10.603Z"
+    },
+    "cqUip": {
+     "BU1LJ": "Future Research Administrator"
+    },
+    "woKx": {
+     "FMQv": "#07233a"
+    },
+    "VPTacoV": {
+     "sosu": "Borders"
+    },
+    "myVxKJuQ": {
+     "QMEbVcCr": "incentivize"
+    },
+    "zVueSQBR": {
+     "oUYSNwK": "Virgin Islands, British",
+     "WjinO": {
+      "dYotJ": "Senior"
+     },
+     "zdIGUkZ": {
+      "wqCj1t": "Quality-focused web-enabled middleware"
+     },
+     "kWHUjmoJ": "07472"
+    },
+    "SHIrCV": {
+     "cXSxmCeG": "Human Marketing Liason"
+    },
+    "HPuHcjU": {
+     "LPFdGzzg": "2015-11-13T06:50:57.286Z",
+     "WEhciYIh": {
+      "mOigO1": "2016-03-14T04:47:51.623Z"
+     },
+     "uVghR": {
+      "NCjpgUL": "#50340e"
+     },
+     "HCZcf": "Monday"
+    },
+    "wqQNhxdR": {
+     "xvJzj": "Multi-lateral reciprocal system engine"
+    },
+    "oe1ZwGqy": {
+     "qFsOjs": "05647-0172",
+     "lWDfb": {
+      "AwqEIdi": "443-800-2937 x15723"
+     },
+     "dnqtJt": {
+      "UdbSHy": "#356b25",
+      "qUYGQQVG": {
+       "ZMdD": "S/."
+      },
+      "NUnkJ": {
+       "UwlnNJar": "28395"
+      },
+      "jgYULK": {
+       "CHfz": "Friday"
+      },
+      "coJlKC": {
+       "ejLPopUt": "Human"
+      },
+      "1VZAF1Kc": {
+       "woHhU": "57679-1251"
+      },
+      "msAe": "2015-03-27T05:23:28.018Z"
+     }
+    },
+    "jafLBh": {
+     "Zynip": "Division"
+    },
+    "VrtKu": {
+     "dA1azeOK": "Maine"
+    },
+    "ZlJnw": {
+     "KylfoEFG": "East Celestino"
+    },
+    "BSeKHnDS": {
+     "tAPFS": "$"
+    },
+    "eGLYRY": {
+     "zlay": "Wednesday"
+    },
+    "zdCKBS": {
+     "SrEwNQtL": "Rebekah"
+    },
+    "curLu": {
+     "aADjLJ": "Medhurst Falls"
+    },
+    "y1ObfC": {
+     "foslE": "Canada"
+    },
+    "sVdctp": {
+     "Wvkz": "Suite 773"
+    },
+    "WfkAx": "Investor",
+    "f1ByPZ": {
+     "oskIXRZJ": "Davis"
+    },
+    "1JMggyAc": {
+     "OYGXeli": "user-centric mesh vortals",
+     "GcUc": {
+      "fFgF1j": "#711648"
+     },
+     "tnWw": {
+      "ffZvuG": "http://carissa.name"
+     },
+     "Xjct": {
+      "ynOr": "Zane Turnpike"
+     },
+     "VJUrnMz": {
+      "mdTJSucB": "2016-03-21T02:55:57.418Z"
+     },
+     "f1yDtf": {
+      "uH1eOb": "Fundamental bottom-line software"
+     },
+     "IEuDc": {
+      "JzAW": "(357) 616-0191"
+     },
+     "HqImZ": {
+      "mstKs": "turn-key productize networks"
+     },
+     "whUuP": "wilfredo.biz"
+    },
+    "oUaiJwjz": {
+     "EhMCc": "Maryland"
+    },
+    "HlTjSAU": {
+     "iQ1wfD": "2015-10-02T08:05:04.716Z"
+    },
+    "ivxKa": {
+     "IPclcxjH": "back-end recontextualize channels"
+    },
+    "BTMti": "Glover - Parker",
+    "GJSwOd": {
+     "oSIoLSs": "Destin.Collier2@yahoo.com"
+    },
+    "trPri": {
+     "KQspaJQ": "-64.3138"
+    },
+    "MrLoGaM": {
+     "MMBmuHb": "-16.7991"
+    },
+    "yFDfrucP": {
+     "emBQx": "Upton"
+    },
+    "VVjT": "http",
+    "NrnMbtYf": {
+     "cKxCoQi": "Jacinto fort"
+    },
+    "IkYwc": {
+     "PJObmcLs": "District"
+    },
+    "yOCvrpm": {
+     "wsWITWf": "http://ocie.net"
+    },
+    "ksNFgIJT": {
+     "bnzIh": "oleta.org"
+    },
+    "xtsxnN": {
+     "nfmu": "26244009"
+    },
+    "dobk": {
+     "Ymvf": "391.06"
+    },
+    "XlpwOG": {
+     "IWon": "New York"
+    },
+    "FTCE": {
+     "KGwPgfj": "North Braden"
+    },
+    "hXMACj": {
+     "bLGHCO": "194.218.224.209",
+     "IHpE": "2015-04-15T15:21:09.385Z"
+    },
+    "kxisGOfs": {
+     "hgOTk": "THB"
+    },
+    "lzObhs": {
+     "KzPmmw": "http"
+    },
+    "nhaGPouO": {
+     "lNxMKz": "Suite 545"
+    },
+    "YLA1j": {
+     "DvzqNg": "ден"
+    },
+    "cvpepMlb": "rosella.org",
+    "SGgnUjr": {
+     "OHqm": "VonRueden - Berge"
+    },
+    "uPnYVtjO": {
+     "WYeGdE": "Willms Ford"
+    },
+    "WoBF": {
+     "QNXTu": "Right-sized 5th generation help-desk"
+    },
+    "hVWvOdP": {
+     "gqbMbgun": "11.153.52.158"
+    },
+    "zKtOfnzZ": {
+     "UdcQlo": "2015-01-23T11:58:01.543Z"
+    },
+    "gEeOC": {
+     "RxGT": "320.478.0167"
+    },
+    "jdLHPK": {
+     "IxfZOIW": "Amira"
+    },
+    "pwQE": {
+     "lCdVEsjk": "lei"
+    },
+    "MZNiznM": "http://emmett.org",
+    "dqoXyoPn": {
+     "QpqFAM": "maximize"
+    },
+    "mNwb": {
+     "WPbxjVZI": "GYD"
+    },
+    "vSqeWf": {
+     "I1IeHod": "Tuesday"
+    },
+    "JVel": {
+     "iNBqSk": "https://graham.biz"
+    },
+    "1hEu": {
+     "zJxTQhd": "Breana"
+    },
+    "diSJ": {
+     "hultS": "Security"
+    },
+    "hgxE": {
+     "KwFKjGh": "46.45"
+    },
+    "ILATqe": {
+     "1oVq": "Prohaska - Schowalter"
+    },
+    "YabSqj": {
+     "CdYXdKPV": "Thursday"
+    },
+    "jsXiPft": "United States Minor Outlying Islands",
+    "dcZz": {
+     "lrZaW": "Legacy"
+    },
+    "pZdP": {
+     "RqbUBd1s": "Suite 113"
+    },
+    "uqhj": {
+     "klQTWbr": "Forward Communications Planner"
+    }
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 772567040,
+     "heapTotal": 746189312,
+     "heapUsed": 246725816
+    },
+    "uptime": 443.903
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     363804781
+    ],
+    "totalMs": 363.804781
+   },
+   "perMatchMsStats": {
+    "q10": 0.010264,
+    "q25": 0.011053,
+    "q50": 0.012237,
+    "q75": 0.014606,
+    "q90": 0.022501,
+    "q95": 0.027633000000000005,
+    "q99": 0.059607999999999994,
+    "max": 7.403674,
+    "min": 0.0075,
+    "stdev": 0.12724053934746152,
+    "mean": 0.0177638871000002
+   },
+   "matchPercent": 50.27
+  }
+ },
+ {
+  "id": 1450291732046,
+  "testName": "regMatch_k1to1_pRegMidStr_tWord_m50_v100to100",
+  "date": "2015-12-16T18:48:52.046Z",
+  "testConfig": {
+   "testName": "regMatch_k1to1_pRegMidStr_tWord_m50_v100to100",
+   "tObj": {
+    "fileName": "k1_word_v100.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v100_regMidStr_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": {
+    "prop1": {
+     "regExpMatch": true,
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false
+    }
+   },
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 28
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: \\n          rog.randomReplaceWith(\\n                randomMidStr(so.prop1), \\n                randomChars3to10(), \\n                0.5)\\n      };  \\n    }\"",
+   "count": 100,
+   "sample": {
+    "prop1": "1Y06dt"
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 100,
+   "sample": {
+    "prop1": "njD"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1219833856,
+     "heapTotal": 1152876288,
+     "heapUsed": 482427800
+    },
+    "uptime": 595.186
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     4167848
+    ],
+    "totalMs": 4.167848
+   },
+   "perMatchMsStats": {
+    "q10": 0.011842,
+    "q25": 0.0166048125,
+    "q50": 0.020527,
+    "q75": 0.022501,
+    "q90": 0.030791799999999977,
+    "q95": 0.040442137499999996,
+    "q99": 0.13936389250000014,
+    "max": 0.159482,
+    "min": 0.010659,
+    "stdev": 0.017991443689998863,
+    "mean": 0.022840640000000002
+   },
+   "matchPercent": 55.00000000000001
+  }
+ },
+ {
+  "id": 1450291732069,
+  "testName": "match_k1to1_pParagraph_tParagraph_m50_v1kto1k",
+  "date": "2015-12-16T18:48:52.069Z",
+  "testConfig": {
+   "testName": "match_k1to1_pParagraph_tParagraph_m50_v1kto1k",
+   "tObj": {
+    "fileName": "k1_paragraph_v1k.json"
+   },
+   "pObj": {
+    "fileName": "k1_paragraph_v1k_ditto_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": [
+    {
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false,
+     "regExpMatch": false
+    }
+   ],
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 29
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: rog.randomReplaceWith(so.prop1, getParagraph, 0.5)\\n      };  \\n    }\"",
+   "count": 1000,
+   "sample": {
+    "prop1": "KbfITJ RiF1jzS lp3 ALDK2IlfSk keZNgHS1H q3Kk Urtrg9r hRt83q4 rRi ujre T0MMl7RHo p94h ejMpdR 6Zrm R0HxGQ2 ZPKH cnrh 5on eCj2uOfAM VMCcMn At0Av I4Go9 J513ONdlWv URrWeVnI7 hVL9MIY cZZ7N B0Ar06 pfKm TeJg f8d l2z ZcuOgGo3 vmSDCgoA5 JS0mCB4xm NPkUh e6isq38NM hDDbh TshSzOeTH NWsX Wxc0 G7Je IMn0TbMcVS YClwHlW4v ENUKY4EM uOYfeP3cm HVQ8aVw fVwpq TgY2nfs4y 6vOw1gtzPj jlbWzKU TzDEf nNNOYOq PKjwV3Dw a8 liMqDt1vzk VuGz ow5XkDbVl 8XcBpU4 2KOPejpjM bLLE 7SjFE9l0 LddPNU 7fCko XDXduOMM BPQtAlrico RHL7G9RKdN ew167DVXN W1M0U2 dfvsOFS "
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getParagraph(3,10,5,200);\\n}\"}",
+   "count": 1000,
+   "sample": {
+    "prop1": "KbfITJ RiF1jzS lp3 ALDK2IlfSk keZNgHS1H q3Kk Urtrg9r hRt83q4 rRi ujre T0MMl7RHo p94h ejMpdR 6Zrm R0HxGQ2 ZPKH cnrh 5on eCj2uOfAM VMCcMn At0Av I4Go9 J513ONdlWv URrWeVnI7 hVL9MIY cZZ7N B0Ar06 pfKm TeJg f8d l2z ZcuOgGo3 vmSDCgoA5 JS0mCB4xm NPkUh e6isq38NM hDDbh TshSzOeTH NWsX Wxc0 G7Je IMn0TbMcVS YClwHlW4v ENUKY4EM uOYfeP3cm HVQ8aVw fVwpq TgY2nfs4y 6vOw1gtzPj jlbWzKU TzDEf nNNOYOq PKjwV3Dw a8 liMqDt1vzk VuGz ow5XkDbVl 8XcBpU4 2KOPejpjM bLLE 7SjFE9l0 LddPNU 7fCko XDXduOMM BPQtAlrico RHL7G9RKdN ew167DVXN W1M0U2 dfvsOFS "
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1220026368,
+     "heapTotal": 1152876288,
+     "heapUsed": 489424192
+    },
+    "uptime": 595.209
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     35268407
+    ],
+    "totalMs": 35.268407
+   },
+   "perMatchMsStats": {
+    "q10": 0.00829,
+    "q25": 0.009474,
+    "q50": 0.015001,
+    "q75": 0.01737,
+    "q90": 0.020922,
+    "q95": 0.028817,
+    "q99": 0.06182788749999998,
+    "max": 1.387966,
+    "min": 0.0075,
+    "stdev": 0.0447726711399241,
+    "mean": 0.016762203000000055
+   },
+   "matchPercent": 47.599999999999994
+  }
+ },
+ {
+  "id": 1450291732141,
+  "testName": "regMatch_k1to1_pRegPhone_tPhone_m50_v100kto100k",
+  "date": "2015-12-16T18:48:52.141Z",
+  "testConfig": {
+   "testName": "regMatch_k1to1_pRegPhone_tPhone_m50_v100kto100k",
+   "tObj": {
+    "fileName": "k1_phone_v100k.json"
+   },
+   "pObj": {
+    "fileName": "k1_phone_v100k_regPhone_m50.json"
+   },
+   "testFn": "testMatchSimple",
+   "props": {
+    "phone": {
+     "regExpMatch": true
+    }
+   },
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 30
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {phone: rog.getPhoneRegEx().source};  \\n    }\"",
+   "count": 100000,
+   "sample": {
+    "phone": "^(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:\\(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\\s*\\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\\s*(?:[.-]\\s*)?([0-9]{4})(?:\\s*(?:#|x\\.?|ext\\.?|extension)\\s*(\\d+))?$"
+   }
+  },
+  "tObj": {
+   "template": "{\"phone\":\"function () {\\n    return fn(p1, p2, p3, p4); \\n  }\"}",
+   "count": 100000,
+   "sample": {
+    "phone": "1-704-927-3804 x179"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1220640768,
+     "heapTotal": 1152876288,
+     "heapUsed": 492482496
+    },
+    "uptime": 595.281
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     5,
+     776683818
+    ],
+    "totalMs": 5776.6838179999995
+   },
+   "perMatchMsStats": {
+    "q10": 0.026843,
+    "q25": 0.027633,
+    "q50": 0.029607,
+    "q75": 0.044608,
+    "q90": 0.070267,
+    "q95": 0.101847,
+    "q99": 0.278699,
+    "max": 80.433775,
+    "min": 0.02408,
+    "stdev": 0.35309184737608523,
+    "mean": 0.053437486460008246
+   },
+   "matchPercent": 47.894999999999996
+  }
+ },
+ {
+  "id": 1450291738495,
+  "testName": "regMatch_k1to1_pRegDot_tWord_m50_v1kto1k",
+  "date": "2015-12-16T18:48:58.495Z",
+  "testConfig": {
+   "testName": "regMatch_k1to1_pRegDot_tWord_m50_v1kto1k",
+   "tObj": {
+    "fileName": "k1_word_v1k.json"
+   },
+   "pObj": {
+    "fileName": "k1_word_v1k_regDot_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": {
+    "prop1": {
+     "regExpMatch": true,
+     "name": "prop1",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false
+    }
+   },
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 31
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {\\n        prop1: \\n          rog.randomReplaceWith(\\n                replaceRandomChars(so.prop1,'.',1), \\n                randomChars3to10(), \\n                0.5)\\n      };  \\n    }\"",
+   "count": 1000,
+   "sample": {
+    "prop1": "0vK."
+   }
+  },
+  "tObj": {
+   "template": "{\"prop1\":\"function () {\\n  return rog.getRandomChars(3,10); \\n}\"}",
+   "count": 1000,
+   "sample": {
+    "prop1": "0vKe"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1313628160,
+     "heapTotal": 1244730624,
+     "heapUsed": 723941104
+    },
+    "uptime": 601.635
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     57795628
+    ],
+    "totalMs": 57.795628
+   },
+   "perMatchMsStats": {
+    "q10": 0.012632,
+    "q25": 0.015001,
+    "q50": 0.027041,
+    "q75": 0.03237,
+    "q90": 0.056450600000000004,
+    "q95": 0.07982987499999997,
+    "q99": 0.15239700249999938,
+    "max": 0.428707,
+    "min": 0.011447,
+    "stdev": 0.028823058747508103,
+    "mean": 0.03236023599999998
+   },
+   "matchPercent": 43.7
+  }
+ },
+ {
+  "id": 1450291738579,
+  "testName": "regMatch_k1to1_pRegPhone_tPhone_m50_v100to100",
+  "date": "2015-12-16T18:48:58.579Z",
+  "testConfig": {
+   "testName": "regMatch_k1to1_pRegPhone_tPhone_m50_v100to100",
+   "tObj": {
+    "fileName": "k1_phone_v100.json"
+   },
+   "pObj": {
+    "fileName": "k1_phone_v100_regPhone_m50.json"
+   },
+   "testFn": "testMatch",
+   "props": {
+    "phone": {
+     "regExpMatch": true,
+     "name": "phone",
+     "propMatchFn": null,
+     "variablesEndStr": null,
+     "variablesStartStr": "~",
+     "variablesAllowed": false,
+     "matchIfTObjPropMissing": false,
+     "matchIfPObjPropMissing": false,
+     "regExpAnchorEnd": false,
+     "regExpAnchorStart": false,
+     "regExpIgnoreCase": false
+    }
+   },
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 32
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    return {phone: rog.getPhoneRegEx().source};  \\n    }\"",
+   "count": 100,
+   "sample": {
+    "phone": "^(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:\\(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\\s*\\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\\s*(?:[.-]\\s*)?([0-9]{4})(?:\\s*(?:#|x\\.?|ext\\.?|extension)\\s*(\\d+))?$"
+   }
+  },
+  "tObj": {
+   "template": "{\"phone\":\"function () {\\n    return fn(p1, p2, p3, p4); \\n  }\"}",
+   "count": 100,
+   "sample": {
+    "phone": "(961) 633-5425"
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1314525184,
+     "heapTotal": 1246794496,
+     "heapUsed": 724236984
+    },
+    "uptime": 601.719
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     7237480
+    ],
+    "totalMs": 7.23748
+   },
+   "perMatchMsStats": {
+    "q10": 0.021711,
+    "q25": 0.024080437500000003,
+    "q50": 0.025265,
+    "q75": 0.0361451875,
+    "q90": 0.05842439999999999,
+    "q95": 0.12487109999999983,
+    "q99": 0.2535230075,
+    "max": 0.255013,
+    "min": 0.012237,
+    "stdev": 0.0415040293538001,
+    "mean": 0.03947182999999999
+   },
+   "matchPercent": 40
+  }
+ },
+ {
+  "id": 1450291738620,
+  "testName": "match_k10to100_m50_v1kto1k",
+  "date": "2015-12-16T18:48:58.620Z",
+  "testConfig": {
+   "testName": "match_k10to100_m50_v1kto1k",
+   "tObj": {
+    "fileName": "k100_randObj_v1k.json"
+   },
+   "pObj": {
+    "fileName": "k100_randObj_v1k_k10_m50.json"
+   },
+   "testFn": "testMatch",
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 33
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    var keys = rog.getRandomKey(so, 10);  // get 10 random keys\\n    var obj = rog.cloneObject(so, keys); \\n    if(rog.isRand(0.5)) {  // 50% of time, \\n      rog.replaceRandomProperties(obj,1);  // replace one property with random value\\n    }\\n    return obj;  \\n   }\"",
+   "count": 1000,
+   "sample": {
+    "SvcUQWH": {
+     "zgiNxr": "Port Moses town"
+    },
+    "baMbei": {
+     "IkYAhZIi": "Vicente_McCullough@yahoo.com"
+    },
+    "mToA": {
+     "iuFoWFln": "Bermuda"
+    },
+    "Qmbt": {
+     "WRqY": "Argentina"
+    },
+    "AkPEZTx": {
+     "mzeA": "49768"
+    },
+    "iceby": "Thursday",
+    "1KVwMs": {
+     "mOjsOe": "S/."
+    },
+    "ZKvk": {
+     "EdttxpOE": "44945-7534"
+    },
+    "yZrsNK": "West, Littel and Keeling",
+    "Udqh": {
+     "VGNzPJLV": "https://bradley.net"
+    }
+   }
+  },
+  "tObj": {
+   "template": "\"function () {\\n    return fn(p1, p2, p3, p4); \\n  }\"",
+   "count": 1000,
+   "sample": {
+    "TKjPBL": {
+     "LqMVht": "Jayme"
+    },
+    "emkQTTw": {
+     "om1IQZ": "jevon.net"
+    },
+    "w1YiBZr": {
+     "sDImIvx": "melyna.com"
+    },
+    "Qmbt": {
+     "WRqY": "Argentina"
+    },
+    "egnX": {
+     "qPCc": "255.244.201.154"
+    },
+    "mpaFv": {
+     "EVmPYdb": "Buckinghamshire"
+    },
+    "WwRnsGD": {
+     "ligv": "Ryan"
+    },
+    "eQEurL": {
+     "VacX": "New Jersey"
+    },
+    "BcWBDjLm": {
+     "M1ctD": "Considine Rapid"
+    },
+    "ljOfu": "New Mexico",
+    "zDnY": {
+     "xnSNuF": "#1c4318",
+     "Rdua": {
+      "fIkVyc": "Kiel23@hotmail.com"
+     },
+     "sxvTEpx": {
+      "anqNKjwg": "FKP"
+     },
+     "FCG1RycD": {
+      "KVuIvAar": "West, Kiehn and Schaden"
+     },
+     "eEPL": {
+      "tpldH": "syndicate"
+     },
+     "kjje1B": {
+      "lzSq": "turn-key utilize infrastructures"
+     },
+     "QUNmT": {
+      "IMDvO": "HRK"
+     },
+     "IMAQ": {
+      "lxTjUQH": "evelyn.biz"
+     },
+     "lBAFh": {
+      "UjH1vE": "Realigned regional throughput"
+     },
+     "SbiF": "plug-and-play syndicate partnerships"
+    },
+    "yfCQhhY": {
+     "OcDnolLK": "Buckinghamshire",
+     "lZRvsQY": {
+      "XyIMHIr": "ERN"
+     },
+     "RoVa": {
+      "MnJsPBn": "Regional Paradigm Specialist"
+     },
+     "zwHWbx": {
+      "wBTz": "Smith"
+     },
+     "gRyajA": {
+      "H1Hi": "Reilly mouth"
+     },
+     "ekrxOF": {
+      "TQvCyoD": "2015-09-23T12:34:25.647Z"
+     },
+     "qHBRpH": {
+      "oeMbz": "853.231.9185"
+     },
+     "dvCxuCwK": {
+      "E1WqQpTU": "Wuckert - Streich"
+     },
+     "HSsKJFMi": {
+      "BlfXwAxs": "unleash"
+     },
+     "HQfJsPc": "2016-12-01T19:42:18.745Z"
+    },
+    "nhAexNW": {
+     "mkHyg1B": "Reagan_Harvey31@gmail.com"
+    },
+    "dvoIvqEJ": {
+     "wJsxYxCI": "Monday"
+    },
+    "RcXXyOy": {
+     "jMsjFp": "Lake Hoyt"
+    },
+    "mlRWnPaJ": {
+     "A1CvKQU": "717.18"
+    },
+    "Zzmq": {
+     "KEHh": "Integration"
+    },
+    "UVquBE": {
+     "fiTMb": "186.75.216.191"
+    },
+    "ZaIcx": "Durgan, Murphy and Kautzer",
+    "OJFAQna": {
+     "jXmjemS": "http://krista.biz"
+    },
+    "WFuhpjyM": {
+     "jznn": "Laura Lodge"
+    },
+    "fybh": {
+     "mwLjTi": "kr"
+    },
+    "FBuA1oKF": {
+     "JZEx": "Monday"
+    },
+    "PbBMJUZ": {
+     "1BOSIm": "https://rozella.info"
+    },
+    "Udqh": {
+     "VGNzPJLV": "https://bradley.net"
+    },
+    "mToA": {
+     "iuFoWFln": "Bermuda"
+    },
+    "rAYCFR": {
+     "WqmbqTJ": "PHP"
+    },
+    "ssnS": {
+     "iBSMHUs": "ford.biz"
+    },
+    "wNVG": "Agustina_Kunze@yahoo.com",
+    "BZvMEcMC": {
+     "hIqxbSe": "52976-4848"
+    },
+    "wvVgeyZm": {
+     "MEpkz": "Apt. 323"
+    },
+    "dsDQsrw": {
+     "FT1B": "Bryon.Kuphal@hotmail.com"
+    },
+    "mvVVLlE": {
+     "xVwrCVYO": "Cormier, Ullrich and Turcotte"
+    },
+    "tdaZmO": {
+     "YlvY": "#260604"
+    },
+    "JiiRaP": {
+     "XijROmn": "Buckinghamshire"
+    },
+    "WecwR": {
+     "JyxU1yU": "Mobility"
+    },
+    "bcoY": {
+     "kNRB": "bernardo.name"
+    },
+    "cPqvI1": {
+     "EMQKQJN": "893.80"
+    },
+    "JNeCho": "€",
+    "uhKZsaeb": {
+     "UBkDK": "Bayer - Bauch"
+    },
+    "aDruqrwp": {
+     "gnKPk": "CZK"
+    },
+    "eZZMaOhn": {
+     "TJEuCPIL": "Dynamic"
+    },
+    "pzmJwHk": "French Guiana",
+    "SvcUQWH": {
+     "zgiNxr": "Port Moses town"
+    },
+    "baMbei": {
+     "IkYAhZIi": "Vicente_McCullough@yahoo.com"
+    },
+    "iqCTflPi": {
+     "iDDPRUx": "Pansy.Kiehn@yahoo.com"
+    },
+    "AkPEZTx": {
+     "mzeA": "49768"
+    },
+    "yLRG1o": {
+     "weaTVHh": "823-117-7038 x913"
+    },
+    "rikYT": {
+     "hEWD": "Borders"
+    },
+    "vrVQQEp": {
+     "oKFEc": "https"
+    },
+    "guVS1Wi": "Wednesday",
+    "1KVwMs": {
+     "mOjsOe": "S/."
+    },
+    "uhvrHC": {
+     "WAeJTx": "Stanton25@yahoo.com"
+    },
+    "mzXvV": {
+     "IrsOEJq": "2015-08-20T08:21:22.903Z"
+    },
+    "NaeG": {
+     "rfiYcI": "Apt. 286"
+    },
+    "NygvNMTS": "201.114.223.87",
+    "yZrsNK": "West, Littel and Keeling",
+    "dTBF": {
+     "FgWJVM1x": "porter.biz"
+    },
+    "hEptoG": "-76.9694",
+    "IlPLXp": {
+     "1XThGif": "лв"
+    },
+    "XqBq": {
+     "JjlsF1u": "Marshall Islands"
+    },
+    "WKQRJxq": {
+     "mOiVqVs": "doris.name"
+    },
+    "yTHC": {
+     "djmX1": "Sherman Parks"
+    },
+    "gjxcL": {
+     "pUUJ": "Ulises"
+    },
+    "CqmLjAd": {
+     "nUnocS": "237.08"
+    },
+    "yIHvo": {
+     "gJeew1ZJ": "Melany.Schowalter@gmail.com"
+    },
+    "XCIaLjkE": {
+     "KfiOHf": "Suite 700"
+    },
+    "fk1XjPQ1": {
+     "skkXjAJf": "72793-8105"
+    },
+    "iceby": "Thursday",
+    "rBUYL": {
+     "QZeamv": "#63475c"
+    },
+    "ZKvk": {
+     "EdttxpOE": "44945-7534"
+    },
+    "keYPMVHF": {
+     "kEfVkMW": "Howell"
+    },
+    "tObC": {
+     "nCQbaP": "orchestrate"
+    },
+    "iFxjM": {
+     "YTfTGjVV": "2016-02-05T09:29:49.411Z"
+    },
+    "jMsb": "North Dakota",
+    "mOFYsHfc": {
+     "Gjroqn": "judah.biz"
+    },
+    "yMrgHW": {
+     "lokkpM": "Tillman Mountain"
+    },
+    "tpIRfzya": {
+     "1XYxr": "Tuvalu"
+    },
+    "OmULD1qb": {
+     "LTYUrt": "collaborative syndicate users"
+    },
+    "pNMq": {
+     "rPeU": "2016-08-06T08:19:30.198Z"
+    },
+    "eaOcka": {
+     "IvBcRae": "Interactions",
+     "l1BJr": {
+      "kNZzWZP": "193.89.247.145"
+     }
+    }
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1315508224,
+     "heapTotal": 1246794496,
+     "heapUsed": 731622216
+    },
+    "uptime": 601.76
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     411325272
+    ],
+    "totalMs": 411.325272
+   },
+   "perMatchMsStats": {
+    "q10": 0.016737600000000002,
+    "q25": 0.100269,
+    "q50": 0.107769,
+    "q75": 0.11724300000000001,
+    "q90": 0.176062,
+    "q95": 0.25431287499999994,
+    "q99": 0.4725612924999997,
+    "max": 8.723742,
+    "min": 0.00829,
+    "stdev": 0.2846724696710597,
+    "mean": 0.12744108299999998
+   },
+   "matchPercent": 49.4
+  }
+ },
+ {
+  "id": 1450291739574,
+  "testName": "match_k1to100_m50_v100to100",
+  "date": "2015-12-16T18:48:59.574Z",
+  "testConfig": {
+   "testName": "match_k1to100_m50_v100to100",
+   "tObj": {
+    "fileName": "k100_randObj_v100.json"
+   },
+   "pObj": {
+    "fileName": "k100_randObj_v100_k1_m50.json"
+   },
+   "testFn": "testMatch",
+   "testGroupName": "2015-12-16_win32_v1.0.0_node-v0.12.3_all_1450291137802",
+   "testSeq": 34
+  },
+  "pObj": {
+   "template": "\"function (so) {\\n    var key = rog.getRandomKey(so); \\n    var value = rog.randomReplaceWith(\\n        rog.getPropValue(so, key),\\n        rog.getRandomMakeDataFn()(),\\n        0.5\\n        );\\n    var obj = rog.makeObjectFromDotKeys(key, value); \\n    return obj;  \\n    }\"",
+   "count": 100,
+   "sample": {
+    "LPBDi": "65497-8527"
+   }
+  },
+  "tObj": {
+   "template": "\"function () {\\n    return fn(p1, p2, p3, p4); \\n  }\"",
+   "count": 100,
+   "sample": {
+    "SUixs": {
+     "1NLCa": "2015-09-25T15:16:58.020Z"
+    },
+    "CWvqwp": {
+     "IrXIXgU": "Moore, Borer and Schultz"
+    },
+    "ipyKxmp": {
+     "BCUlh": "Vandervort Shoal"
+    },
+    "bQRUWg": {
+     "GTgwVN": "2015-07-30T05:12:32.334Z"
+    },
+    "KXiiy": {
+     "GlAifGM": "North Jake bury"
+    },
+    "1XLCglxh": {
+     "YuFDYS": "Kertzmann"
+    },
+    "hgZEwBfI": "Assimilated discrete internet solution",
+    "PHbTJJj": {
+     "CFPMq": "Georgia",
+     "vwFe": {
+      "lYDZaa": "Ebert, Sipes and Monahan"
+     },
+     "b1sB": {
+      "wymJCZqy": "Ara"
+     },
+     "PTzTfD": {
+      "Lwwri": "Port Stephany fort"
+     },
+     "LKldjyD": {
+      "utzMJI": "Principal"
+     },
+     "iWVNfhRi": {
+      "ZcsRKn": "2015-12-07T08:29:57.370Z"
+     },
+     "nkOzf": {
+      "QNUN": "Kaylee Field"
+     },
+     "iOZgRC": {
+      "ibKsBdN": "-6.2350"
+     },
+     "stOZXwd1": {
+      "TBrNkTZ": "Corporate"
+     },
+     "frvWbeQT": "Lake Summer"
+    },
+    "zryTDJ": {
+     "HdneHJGK": "Cambridgeshire"
+    },
+    "qHeufqws": {
+     "JOcjJuI": "Future Usability Technician"
+    },
+    "STaHOU": {
+     "GgOw": "ron.info"
+    },
+    "AELi": {
+     "xQo1h": "Right-sized upward-trending Graphical User Interface"
+    },
+    "VIYFyS": {
+     "POmyCj": "STD"
+    },
+    "fZkzgvM": {
+     "JbTX": "13602473"
+    },
+    "mhcFkhC": {
+     "HGnZMSWm": "Internal Response Engineer"
+    },
+    "YJRix": {
+     "QeCTBfS": "Guido"
+    },
+    "GvPVkza": {
+     "UJGUiiE": "-3.8074"
+    },
+    "LPBDi": "2016-01-07T19:58:07.586Z",
+    "NyOD": {
+     "cGGSfFx": "Damaris"
+    },
+    "vq11WscU": {
+     "DlDvXjN": "drive"
+    },
+    "SVvSoZ": {
+     "HayInq": "33527060"
+    },
+    "nfcxb": {
+     "tPHMWlyt": "74333-3282"
+    },
+    "i1eSr": {
+     "wCHTlV": "https://braden.com"
+    },
+    "mKJuz": {
+     "1KERtLTP": "ден"
+    },
+    "kNlZ": "2016-05-12T14:48:10.432Z",
+    "IzIywPO": {
+     "bToRi": "ZAR"
+    },
+    "SUy1bwg": {
+     "OlvT": "71.2103"
+    },
+    "Ahfl": {
+     "ZlMsRV": "Sunday"
+    },
+    "sCwX": {
+     "mKmr": "Virtual disintermediate secured line"
+    },
+    "liZWv": {
+     "sTqK": "Monday"
+    },
+    "zVSdRxW": {
+     "HyuYHS": "Rutherford - Stark"
+    },
+    "ZeXh": {
+     "O1iJm": "Welch"
+    },
+    "RVTeeYa": {
+     "YnleBh": "Buckinghamshire"
+    },
+    "w1lAjD": {
+     "h1IO": "Human Creative Orchestrator"
+    },
+    "AqeTB": "Enid Lodge",
+    "xJCUYN": {
+     "BdebhOUx": "Malta"
+    },
+    "cETMcux": "#056168",
+    "VKwrMxA": {
+     "flhIoE": "(027) 511-9725"
+    },
+    "PPvqaph": {
+     "iuOuCGv": "64.208.154.51"
+    },
+    "tBTFD": {
+     "hkisX": "$"
+    },
+    "R1MHbMB": {
+     "GMsXLWI": "Rosalee_Brakus@yahoo.com"
+    },
+    "glaIHLvE": {
+     "ujoOuDa": "XPD"
+    },
+    "YYWuOaUa": {
+     "ibP1": "Arkansas"
+    },
+    "pKFjQWvj": {
+     "wTliDMm": "Amara.Osinski@yahoo.com",
+     "cicjvv": {
+      "cKujUPwH": "Jewell.Gutmann@hotmail.com"
+     },
+     "WgOhn": {
+      "OfzXnR": "Ebert LLC"
+     },
+     "TdIzh": "Kassulke Inc"
+    },
+    "TVJgWN": {
+     "MwnmNTXn": "Decentralized 3rd generation infrastructure"
+    },
+    "ozBi": {
+     "RePGa": "Cambridgeshire"
+    },
+    "pKYIWL": "Kattie Harbor",
+    "Utnl": {
+     "AieBsDB": "165.101.222.86"
+    },
+    "icNIE": "2016-06-14T07:28:39.353Z",
+    "VnumBkCp": {
+     "UIqC": "Polly View"
+    },
+    "rtUi": "Reactive hybrid throughput",
+    "viF1Ua": "Direct",
+    "VqadUM": {
+     "Mp1JytQ": "Padberg and Sons"
+    },
+    "JmhNrX": {
+     "CJpRS": "holistic extend functionalities"
+    },
+    "QqLLj": {
+     "niAnplaT": "Berkshire"
+    },
+    "VsZoK": {
+     "SZ1t": "Chief"
+    },
+    "CMKMa": {
+     "DImBC": "2016-07-04T10:50:22.521Z"
+    },
+    "TqXf": {
+     "KlIhKFj": "35310"
+    },
+    "xgYVMo": {
+     "TRuwu": "unleash"
+    },
+    "dZKlu": "Dynamic",
+    "1DzBv": {
+     "qeoMI": "North Karen burgh"
+    },
+    "lzvdmqD": {
+     "sKYcULI": "TTD"
+    },
+    "gtPWKn": {
+     "QNlLHvb": "Cornell Meadows"
+    },
+    "MKhA1L": {
+     "mxtH": "transparent synthesize communities"
+    },
+    "NXCg": {
+     "Hrsk": "Maryland"
+    },
+    "cGvqa": "919.802.5964 x639",
+    "TzEE": {
+     "gcVIx": "Senior"
+    },
+    "MlZfeYs": "Dulce ton",
+    "vJHges": {
+     "ENvU": "monetize"
+    },
+    "YdCdYnX": {
+     "HYlj": "http"
+    },
+    "pjAb": {
+     "jfqVLFpr": "innovative deploy interfaces"
+    },
+    "ZkQkMq": {
+     "dXxuwn": "Dynamic",
+     "lglLAvb": {
+      "xIjIaS": "662.32"
+     },
+     "BmFsGuj": {
+      "hynD": "Predovic"
+     },
+     "ADcBLOiA": {
+      "YwR1gtfi": "Lek"
+     },
+     "zcayAHji": {
+      "SUEqz": "#341316"
+     },
+     "zVNMrA": {
+      "bVPK": "empower"
+     },
+     "Ar1cVW": "#2d3248"
+    },
+    "PYkdCW": {
+     "yAifnId": "2015-10-25T06:57:57.717Z"
+    },
+    "LrGd": {
+     "emMtTee": "Blick"
+    },
+    "TokkifMg": {
+     "BBrzf": "Forward Group Strategist"
+    },
+    "lbkwSUbb": {
+     "LCJaPeQJ": "Pre-emptive executive adapter"
+    },
+    "iinFNG": {
+     "aphgvc": "https://katlynn.biz"
+    },
+    "WvmUZOR": {
+     "lbgd": "http://boris.com"
+    },
+    "IeVZlcCm": {
+     "awNJefF": "51.5501"
+    },
+    "rGyLWkhT": {
+     "IwKs": "Metrics",
+     "nchIURa": {
+      "UZvE": "Re-contextualized empowering moratorium"
+     },
+     "PwjEfz": "Augustine.Hane@hotmail.com"
+    }
+   }
+  },
+  "env": {
+   "date": "2015-12-16T18:38:57.027Z",
+   "process": {
+    "env": {
+     "NUMBER_OF_PROCESSORS": "4",
+     "OS": "Windows_NT",
+     "PROCESSOR_ARCHITECTURE": "AMD64",
+     "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 69 Stepping 1, GenuineIntel",
+     "PROCESSOR_LEVEL": "6",
+     "PROCESSOR_REVISION": "4501"
+    },
+    "title": "cmd - node  test\\performance\\run-perf-tests.js false",
+    "version": "v0.12.3",
+    "platform": "win32",
+    "arch": "x64",
+    "versions": {
+     "http_parser": "2.3",
+     "node": "0.12.3",
+     "v8": "3.28.71.19",
+     "uv": "1.5.0",
+     "zlib": "1.2.8",
+     "modules": "14",
+     "openssl": "1.0.1m"
+    },
+    "memoryUsage": {
+     "rss": 1350070272,
+     "heapTotal": 1279404544,
+     "heapUsed": 786878080
+    },
+    "uptime": 602.714
+   }
+  },
+  "packageInfo": {
+   "name": "apom",
+   "version": "1.0.0",
+   "description": "Asynchronous Partial Object Match",
+   "main": "lib/index.js",
+   "scripts": {
+    "test": "test/test.js"
+   },
+   "dependencies": {
+    "async": "0.9.0"
+   },
+   "devDependencies": {
+    "mocha": "2.x",
+    "should": "7.x",
+    "jstat": "1.x",
+    "faker": "3.x"
+   },
+   "keywords": [
+    "object",
+    "compare",
+    "regex"
+   ],
+   "author": "Tony Branfort",
+   "license": "MIT"
+  },
+  "results": {
+   "testTime": {
+    "hrtimeDiff": [
+     0,
+     5331987
+    ],
+    "totalMs": 5.331987
+   },
+   "perMatchMsStats": {
+    "q10": 0.012238,
+    "q25": 0.014210999999999998,
+    "q50": 0.02033,
+    "q75": 0.024302625,
+    "q90": 0.047055,
+    "q95": 0.0707753375,
+    "q99": 0.2647783350000006,
+    "max": 0.362387,
+    "min": 0.009079,
+    "stdev": 0.03767191843465768,
+    "mean": 0.027333049999999984
+   },
+   "matchPercent": 55.00000000000001
+  }
+ }
+]

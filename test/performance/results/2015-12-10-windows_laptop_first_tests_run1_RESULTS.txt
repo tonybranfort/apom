@@ -1,0 +1,28 @@
+resultsFileName : 2015-12-10-windows_laptop_first_tests_run1.json
+seq     q50     q95     q99     max     m%       n    testName                                                                
+  2    0.046   0.095   1.071   1.493  49.000     100  matchSimple_k1to100_m50_v100to100                                          
+ 19    0.049   0.108   0.226  14.457  49.140   10000  matchSimple_k1to100_m50_v10kto10k                                          
+  8    0.044   0.085   0.307   6.126  50.600    1000  matchSimple_k1to100_m50_v1kto1k                                            
+ 23    0.034   0.070   0.128  17.134  49.870  100000  matchSimple_k1to1_pWord_tWord_m50_v100kto100k                              
+ 10    0.062   0.078   0.163   0.183  49.000     100  matchSimple_k1to1_pWord_tWord_m50_v100to100                                
+  6    0.030   0.065   0.145   7.621  48.900    1000  matchSimple_k1to1_pWord_tWord_m50_v1kto1k                                  
+ 17    0.023   0.036   0.120   0.139  49.000     100  match_k1to1_pParagraph_tParagraph_m50_v100to100                            
+  5    0.013   0.027   0.067   7.151  49.100    1000  match_k1to1_pParagraph_tParagraph_m50_v1kto1k                              
+  7    0.012   0.024   0.036  18.096  49.753  100000  match_k1to1_pString_tString_m50_v100kto100k                                
+ 14    0.013   0.031   0.087   0.117  45.000     100  match_k1to1_pString_tString_m50_v100to100                                  
+  1    0.012   0.024   0.099   5.816  51.700    1000  match_k1to1_pString_tString_m50_v1kto1k                                    
+ 18    0.012   0.021   0.034  16.709  49.869  100000  match_k1to1_pWord_tWord_m50_v100kto100k                                    
+ 25    0.024   0.032   0.061   0.072  49.000     100  match_k1to1_pWord_tWord_m50_v100to100                                      
+ 22    0.012   0.022   0.049   6.932  48.900    1000  match_k1to1_pWord_tWord_m50_v1kto1k                                        
+ 21    0.019   0.041   0.069  23.793  49.814  100000  regMatch_k1to1_pRegDotStar_tWord_m50_v100kto100k                           
+ 16    0.031   0.064   0.130   0.133  52.000     100  regMatch_k1to1_pRegDotStar_tWord_m50_v100to100                             
+  4    0.020   0.047   0.147   7.724  50.200    1000  regMatch_k1to1_pRegDotStar_tWord_m50_v1kto1k                               
+ 24    0.027   0.049   0.073  29.325  42.479  100000  regMatch_k1to1_pRegDot_tWord_m50_v100kto100k                               
+  9    0.030   0.090   0.146   0.154  39.000     100  regMatch_k1to1_pRegDot_tWord_m50_v100to100                                 
+ 20    0.029   0.064   0.224 725.836  43.800    1000  regMatch_k1to1_pRegDot_tWord_m50_v1kto1k                                   
+ 11    0.016   0.033   0.056  15.983  49.803  100000  regMatch_k1to1_pRegMidStr_tWord_m50_v100kto100k                            
+ 12    0.026   0.036   0.068   0.084  57.000     100  regMatch_k1to1_pRegMidStr_tWord_m50_v100to100                              
+  0    0.015   0.038   0.169   1.942  50.700    1000  regMatch_k1to1_pRegMidStr_tWord_m50_v1kto1k                                
+  3    0.031   0.055   0.088  25.383  47.803  100000  regMatch_k1to1_pRegPhone_tPhone_m50_v100kto100k                            
+ 15    0.018   0.052   0.148   0.154  45.000     100  regMatch_k1to1_pRegPhone_tPhone_m50_v100to100                              
+ 13    0.016   0.031   0.037   0.225  50.900    1000  regMatch_k1to1_pRegPhone_tPhone_m50_v1kto1k                                
