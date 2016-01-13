@@ -860,5 +860,848 @@ body .markdown-body
   float: left;
   margin: 0.3em 0 0.25em -1.6em;
   vertical-align: middle;
-}</style><title>README</title></head><body><article class="markdown-body"><p>here</p>
+}</style><title>README</title></head><body><article class="markdown-body"><p><a href="https://travis-ci.org/tonybranfort/apom"><img src="https://camo.githubusercontent.com/0f225157d20574de513285c2b111fca773d983ec/68747470733a2f2f7472617669732d63692e6f72672f746f6e796272616e666f72742f61706f6d2e7376673f6272616e63683d747261766973" alt="Build Status via Travis CI" data-canonical-src="https://travis-ci.org/tonybranfort/apom.svg?branch=travis" style="max-width:100%;"></a></p>
+
+<h1>
+<a id="user-content-apomjs" class="anchor" href="#apomjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>apom.js</h1>
+
+<p>Asynchronous Partial Object Match provides asynchronous functions to determine if chosen properties between javascript objects are equal or 'match' in defined ways.</p>
+
+<h2>
+<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<p>Determine if properties are equal between 2 objects.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// test if fido's tail color is gray</span>
+<span class="pl-k">var</span> apom <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>apom<span class="pl-pds">'</span></span>);
+
+<span class="pl-k">var</span> fido <span class="pl-k">=</span>{ 
+    paws<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>grey<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">3</span>}, 
+    tail<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>gray<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">1</span>},
+    body<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>black<span class="pl-pds">'</span></span>},
+    housetrained<span class="pl-k">:</span> <span class="pl-c1">true</span>};
+
+<span class="pl-k">var</span> pObj <span class="pl-k">=</span> {tail<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>gray<span class="pl-pds">'</span></span>}};
+
+<span class="pl-smi">apom</span>.<span class="pl-en">matches</span>(pObj, fido, <span class="pl-k">function</span>(<span class="pl-smi">doesMatch</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(doesMatch);  <span class="pl-c">//true</span>
+})</pre></div>
+
+<p>Or build the match function first for options and better performance. </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// test if fido has a gray tail regardless if grey or gray</span>
+<span class="pl-k">var</span> apom <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>apom<span class="pl-pds">'</span></span>);
+
+<span class="pl-k">var</span> fido <span class="pl-k">=</span>{ 
+    paws<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>grey<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">3</span>}, 
+    tail<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>gray<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">1</span>},
+    body<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>black<span class="pl-pds">'</span></span>},
+    housetrained<span class="pl-k">:</span> <span class="pl-c1">true</span>};
+
+<span class="pl-c">// select the properties to be tested and the options</span>
+<span class="pl-k">var</span> propsToTest <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>tail.color<span class="pl-pds">'</span></span>]; 
+<span class="pl-k">var</span> options <span class="pl-k">=</span> {regExpMatch<span class="pl-k">:</span><span class="pl-c1">true</span>}; 
+
+<span class="pl-c">// include the regular expression in the 'pattern object'</span>
+<span class="pl-k">var</span> pObj <span class="pl-k">=</span> {tail<span class="pl-k">:</span>{color<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span>gr<span class="pl-c1">.</span>y<span class="pl-pds">/</span></span>}};  
+
+<span class="pl-c">// create the match function</span>
+<span class="pl-k">var</span> matchFn <span class="pl-k">=</span> <span class="pl-smi">apom</span>.<span class="pl-en">makeMatchFn</span>(propsToTest, options);
+
+<span class="pl-c">// test it</span>
+<span class="pl-en">matchFn</span>(pObj, fido, <span class="pl-k">function</span>(<span class="pl-smi">doesMatch</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(doesMatch);  <span class="pl-c">// true</span>
+})</pre></div>
+
+<p>Filter an array of objects:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// find which pets have 4 paws</span>
+
+<span class="pl-k">var</span> apom <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>apom<span class="pl-pds">'</span></span>);
+
+<span class="pl-k">var</span> pets <span class="pl-k">=</span> [
+  { name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>fido<span class="pl-pds">'</span></span>,
+    paws<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>gray<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">3</span>}, 
+  },
+  { name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>rover<span class="pl-pds">'</span></span>,
+    paws<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>white<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">4</span>}, 
+  },
+  ];
+
+<span class="pl-c">// create the pattern object</span>
+<span class="pl-k">var</span> pObj <span class="pl-k">=</span> {paws<span class="pl-k">:</span>{count<span class="pl-k">:</span> <span class="pl-c1">4</span>}};  
+
+<span class="pl-c">// select properties to test</span>
+<span class="pl-k">var</span> propsToTest <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>paws.count<span class="pl-pds">'</span></span>];
+
+<span class="pl-c">// create the filter function</span>
+<span class="pl-k">var</span> filter <span class="pl-k">=</span> <span class="pl-smi">apom</span>.<span class="pl-en">makeFilterTargetObjectsFn</span>(propsToTest);
+
+<span class="pl-c">// filter</span>
+<span class="pl-en">filter</span>(pObj, pets, <span class="pl-k">function</span>(<span class="pl-smi">matchedPets</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(matchedPets);  <span class="pl-c">//matchedPets = {name: 'rover'...}; </span>
+})</pre></div>
+
+<h2>
+<a id="user-content-documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h2>
+
+<h3>
+<a id="user-content-match-and-filter-functions" class="anchor" href="#match-and-filter-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Match and Filter Functions</h3>
+
+<ul>
+<li>
+<a href="#matches"><code>matches</code></a> </li>
+<li>
+<a href="#makeMatchFn"><code>makeMatchFn</code></a> returns a custom 
+<a href="#matches"><code>matches</code></a> function</li>
+<li>
+<a href="#makeFilterTargetObjectsFn"><code>makeFilterTargetObjectsFn</code></a> returns a custom
+<a href="#filterTargetObjects"><code>filterTargetObjects</code></a> function</li>
+<li>
+<a href="#makeFilterPatternObjectsFn"><code>makeFilterPatternObjectsFn</code></a> returns a custom
+<a href="filterPatternObjects"><code>filterPatternObjects</code></a> function</li>
+</ul>
+
+<h3>
+<a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="#options">Options</a>
+</h3>
+
+<ul>
+<li><a href="#regExpMatch"><code>regExpMatch</code></a></li>
+<li><a href="#matchIfPObjPropMissing"><code>matchIfPObjPropMissing</code></a></li>
+<li><a href="#matchIfPObjPropMissing"><code>matchIfTObjPropMissing</code></a></li>
+<li><a href="#variablesAllowed"><code>variablesAllowed</code></a></li>
+<li><a href="#propMatchFn"><code>propMatchFn</code></a></li>
+</ul>
+
+<p><a name="user-content-matches"></a></p>
+
+<h3>
+<a id="user-content-matchespobj-tobj-callback" class="anchor" href="#matchespobj-tobj-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>matches(pObj, tObj, callback)</h3>
+
+<p>Returns <code>true</code> as result of callback if properties identified to be tested between <code>pObj</code> and <code>tObj</code> match; otherwise returns <code>false</code>.</p>
+
+<p>Which properties are tested and if they match is determined by whether <code>matches</code> is called directly or created via the <a href="#makeMatchFn"><code>makeMatchFn</code></a>. </p>
+
+<p>If <code>matches</code> is created via <code>makeMatchFn</code> then the <a href="#propsToTest"><code>propsToTest</code></a> and <a href="#options"><code>options</code></a> parameters determine which properties are tested for match and how the properties are tested for match.  Calling the resulting <code>matches</code> function created via <code>makeMatchFn</code> also provides better performance than calling <code>matches</code> directly.</p>
+
+<p>If <code>matches</code> function is called directly without creating it via <code>makeMatchFn</code>, every property in the <code>pObj</code> object is tested for a match and all <code>options</code> values are default.  <code>Options</code> cannot be modified if calling <code>matches</code> directly.</p>
+
+<p><strong>Arguments</strong></p>
+
+<ul>
+<li><a href="#pObj"><code>pObj</code></a></li>
+<li><a href="#tObj"><code>tObj</code></a></li>
+<li>
+<code>callback(result)</code> - <code>result</code> is boolean. <code>true</code> if <code>pObj</code> matches <code>tObj</code> otherwise is <code>false</code>. </li>
+</ul>
+
+<p><strong>Examples</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// test if fido's tail color is gray</span>
+<span class="pl-k">var</span> apom <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>apom<span class="pl-pds">'</span></span>);
+
+<span class="pl-k">var</span> fido <span class="pl-k">=</span>{ 
+    tail<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>gray<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">1</span>},
+    body<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>black<span class="pl-pds">'</span></span>},
+    housetrained<span class="pl-k">:</span> <span class="pl-c1">true</span>};
+
+<span class="pl-k">var</span> pObj <span class="pl-k">=</span> {tail<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>gray<span class="pl-pds">'</span></span>}};
+
+<span class="pl-smi">apom</span>.<span class="pl-en">matches</span>(pObj, fido, <span class="pl-k">function</span>(<span class="pl-smi">doesMatch</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(doesMatch);  <span class="pl-c">//true</span>
+});
+
+<span class="pl-c">// Or, create the matches function to include option </span>
+<span class="pl-c">//      such as regular expression matches. </span>
+
+<span class="pl-c">// select the properties to be tested and the options</span>
+<span class="pl-k">var</span> propsToTest <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>tail.color<span class="pl-pds">'</span></span>]; 
+<span class="pl-k">var</span> options <span class="pl-k">=</span> {regExpMatch<span class="pl-k">:</span><span class="pl-c1">true</span>}; 
+
+<span class="pl-c">// create the custom match function</span>
+<span class="pl-k">var</span> matchFn <span class="pl-k">=</span> <span class="pl-smi">apom</span>.<span class="pl-en">makeMatchFn</span>(propsToTest, options);
+
+<span class="pl-c">// include the regular expression in the 'pattern object'</span>
+<span class="pl-k">var</span> pObj <span class="pl-k">=</span> {tail<span class="pl-k">:</span>{color<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span>gr<span class="pl-c1">.</span>y<span class="pl-pds">/</span></span>}};  
+
+<span class="pl-c">// test it</span>
+<span class="pl-en">matchFn</span>(pObj, fido, <span class="pl-k">function</span>(<span class="pl-smi">doesMatch</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(doesMatch);  <span class="pl-c">// true</span>
+})
+
+</pre></div>
+
+<p><a name="user-content-makeMatchFn"></a></p>
+
+<h3>
+<a id="user-content-makematchfnpropstotest-options" class="anchor" href="#makematchfnpropstotest-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>makeMatchFn(propsToTest, options)</h3>
+
+<p>Creates and returns a <a href="#matches"><code>matches</code></a> function that is configured to test the properties included in <code>propsToTest</code> and <code>options</code> to determine how properties are tested for a match.  This created function will run faster than calling the <code>matches</code> function directly and allows for greater control, via <code>propsToTest</code> and <code>options</code>, of which properties are tested and how.  </p>
+
+<p><strong>Arguments</strong></p>
+
+<ul>
+<li><a href="#propsToTest"><code>propsToTest</code></a></li>
+<li>
+<a href="#options"><code>options</code></a> - <em>optional</em> Applies to each property in <code>propsToTest</code> unless <code>options</code> values are included for properties in <code>propsToTest</code>.  <code>options</code> precedence is (1) <code>propsToTest</code> <code>options</code> values if set (2) <code>options</code> as included here as a parameter, otherwise (3) <code>options</code> default values.<br>
+</li>
+</ul>
+
+<p><strong>Examples</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// test if fido has a gray tail regardless if grey or gray</span>
+<span class="pl-k">var</span> apom <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>apom<span class="pl-pds">'</span></span>);
+
+<span class="pl-k">var</span> fido <span class="pl-k">=</span>{ tail<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>gray<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">1</span>}};
+
+<span class="pl-c">// select the properties to be tested and the options</span>
+<span class="pl-k">var</span> propsToTest <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>tail.color<span class="pl-pds">'</span></span>]; 
+<span class="pl-k">var</span> options <span class="pl-k">=</span> {regExpMatch<span class="pl-k">:</span><span class="pl-c1">true</span>}; 
+
+<span class="pl-c">// create the match function</span>
+<span class="pl-k">var</span> matchFn <span class="pl-k">=</span> <span class="pl-smi">apom</span>.<span class="pl-en">makeMatchFn</span>(propsToTest, options);
+
+<span class="pl-c">// include the regular expression in the 'pattern object'</span>
+<span class="pl-k">var</span> pObj <span class="pl-k">=</span> {tail<span class="pl-k">:</span>{color<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span>gr<span class="pl-c1">.</span>y<span class="pl-pds">/</span></span>}};  
+
+<span class="pl-c">// test it</span>
+<span class="pl-en">matchFn</span>(pObj, fido, <span class="pl-k">function</span>(<span class="pl-smi">doesMatch</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(doesMatch);  <span class="pl-c">// true</span>
+});</pre></div>
+
+<p>It would give the same result to set the <code>options</code> in <code>propsToTest</code></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> propsToTest <span class="pl-k">=</span> {<span class="pl-s"><span class="pl-pds">'</span>tail.color<span class="pl-pds">'</span></span><span class="pl-k">:</span>{regExpMatch<span class="pl-k">:</span><span class="pl-c1">true</span>}}; 
+
+<span class="pl-k">var</span> matchFn <span class="pl-k">=</span> <span class="pl-smi">apom</span>.<span class="pl-en">makeMatchFn</span>(propsToTest);  <span class="pl-c">// options not included here</span>
+
+<span class="pl-en">matchFn</span>(pObj, fido, <span class="pl-k">function</span>(<span class="pl-smi">doesMatch</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(doesMatch);  <span class="pl-c">// true</span>
+});
+</pre></div>
+
+<p><a name="user-content-makeFilterTargetObjectsFn"></a></p>
+
+<h3>
+<a id="user-content-makefiltertargetobjectsfnpropstotest-options" class="anchor" href="#makefiltertargetobjectsfnpropstotest-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>makeFilterTargetObjectsFn(propsToTest, options)</h3>
+
+<p>Creates and returns a <a href="#filterTargetObjects"><code>filterTargetObjects</code></a> function that is configured to test the properties included in <code>propsToTest</code> using <code>options</code> to determine how properties are tested for a match between <code>pObj</code> and <code>tObjs</code>.</p>
+
+<p><strong>Arguments</strong></p>
+
+<ul>
+<li><a href="#propsToTest"><code>propsToTest</code></a></li>
+<li>
+<a href="#options"><code>options</code></a> <em>optional</em> Applies to each property in <code>propsToTest</code> unless <code>options</code> values are included for properties in <code>propsToTest</code>.  <code>options</code> precedence is (1) <code>propsToTest</code> <code>options</code> values if set (2) <code>options</code> as included here as a parameter, otherwise (3) <code>options</code> default values. </li>
+</ul>
+
+<p><strong>Examples</strong>
+See <code>filterTargetObjects</code>.</p>
+
+<p><a name="user-content-filterTargetObjects"></a></p>
+
+<h3>
+<a id="user-content-filtertargetobjectspobj-tobjs-callback" class="anchor" href="#filtertargetobjectspobj-tobjs-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>filterTargetObjects(pObj, tObjs, callback)</h3>
+
+<p>Returns an array of <code>tObjs</code> that match the <code>pObj</code>
+ based on the <code>propsToTest</code> and <code>options</code> parameters that were used to create this function with <code>makeFilterTargetObjectsFn</code>. </p>
+
+<p>This function is created by calling <a href="#makeFilterTargetObjectsFn"><code>makeFilterTargetObjectsFn</code></a>. </p>
+
+<p><strong>Arguments</strong></p>
+
+<ul>
+<li><a href="#pObj"><code>pObj</code></a></li>
+<li>
+<code>tObjs</code> - An array of <a href="#tObj"><code>tObj</code></a> objects</li>
+<li>
+<code>callback(result)</code> - <code>result</code> is an array of <code>tObj</code> objects that match <code>pObj</code>. </li>
+</ul>
+
+<p><strong>Examples</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// find which pets have gray paws regardeless if 'gray' or 'grey'</span>
+
+<span class="pl-k">var</span> apom <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>apom<span class="pl-pds">'</span></span>);
+
+<span class="pl-k">var</span> pets <span class="pl-k">=</span> [
+  { name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>fido<span class="pl-pds">'</span></span>,
+    paws<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>gray<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">3</span>}, 
+  },
+  { name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>rover<span class="pl-pds">'</span></span>,
+    paws<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>white<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">4</span>}, 
+  },
+  ];
+
+<span class="pl-c">// create the pattern object</span>
+<span class="pl-k">var</span> pObj <span class="pl-k">=</span> {paws<span class="pl-k">:</span>{color<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span>gr<span class="pl-c1">[a,e]</span>y<span class="pl-pds">/</span></span>}};  
+
+<span class="pl-c">// select properties and options to test</span>
+<span class="pl-k">var</span> propsToTest <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>paws.color<span class="pl-pds">'</span></span>];
+<span class="pl-k">var</span> options <span class="pl-k">=</span> {regExpMatch<span class="pl-k">:</span> <span class="pl-c1">true</span>}; 
+
+<span class="pl-c">// create the filter function</span>
+<span class="pl-k">var</span> filter <span class="pl-k">=</span> <span class="pl-smi">apom</span>.<span class="pl-en">makeFilterTargetObjectsFn</span>(propsToTest, options);
+
+<span class="pl-c">// filter</span>
+<span class="pl-en">filter</span>(pObj, pets, <span class="pl-k">function</span>(<span class="pl-smi">matchedPets</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(matchedPets);  
+  <span class="pl-c">// [ { name: 'fido', paws: { color: 'gray', count: 3 } } ] </span>
+});</pre></div>
+
+<p><a name="user-content-makeFilterPatternObjectsFn"></a></p>
+
+<h3>
+<a id="user-content-makefilterpatternobjectsfnpropstotest-options" class="anchor" href="#makefilterpatternobjectsfnpropstotest-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>makeFilterPatternObjectsFn(propsToTest, options)</h3>
+
+<p>Creates and returns a <a href="#filterPatternObjects"><code>filterPatternObjects</code></a> function that is configured to test the properties included in <code>propsToTest</code> using <code>options</code> to determine how properties are tested for a match between <code>pObjs</code> and <code>tObj</code>.</p>
+
+<p><strong>Arguments</strong></p>
+
+<ul>
+<li><a href="#propsToTest"><code>propsToTest</code></a></li>
+<li>
+<a href="#options"><code>options</code></a> - <em>optional</em> Applies to each property in <code>propsToTest</code> unless <code>options</code> values are included for properties in <code>propsToTest</code>.  <code>options</code> precedence is (1) <code>propsToTest</code> <code>options</code> values if set (2) <code>options</code> as included here as a parameter, otherwise (3) <code>options</code> default values. </li>
+</ul>
+
+<p><strong>Examples</strong>
+See <code>filterPatternObjects</code>.</p>
+
+<p><a name="user-content-filterPatternObjects"></a></p>
+
+<h3>
+<a id="user-content-filterpatternobjectspobjs-tobj-callback" class="anchor" href="#filterpatternobjectspobjs-tobj-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>filterPatternObjects(pObjs, tObj, callback)</h3>
+
+<p>Returns an array of <code>pObjs</code> that match the <code>tObj</code>based on the <code>propsToTest</code> and <code>options</code> parameters that were used to create this function with <code>makeFilterPatternObjectsFn</code>. </p>
+
+<p>This function is created by calling <a href="#makeFilterPatternObjectsFn"><code>makeFilterPatternObjectsFn</code></a>. </p>
+
+<p><code>filterPatternObjects</code> allows an array of objects with regular expressions to be filtered on those regular expressions unlike <code>filterTargetObjects</code>. </p>
+
+<p><strong>Arguments</strong></p>
+
+<ul>
+<li>
+<code>pObjs</code> - An array of <a href="#pObj"><code>pObj</code></a> objects</li>
+<li><a href="#tObj"><code>tObj</code></a></li>
+<li>
+<code>callback(result)</code> - <code>result</code> is an array of <code>pObj</code> objects that match <code>tObj</code>. </li>
+</ul>
+
+<p><strong>Examples</strong></p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// find which pets match a request with a role of guarddog</span>
+
+<span class="pl-k">var</span> apom <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>apom<span class="pl-pds">'</span></span>);
+
+<span class="pl-c">// pets are the `pObjs` in this case to match on their regular expressions</span>
+<span class="pl-k">var</span> pets <span class="pl-k">=</span> [
+  {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>growler<span class="pl-pds">'</span></span>,
+   path<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span><span class="pl-c1">.</span><span class="pl-k">*</span>role=guarddog<span class="pl-c1">.</span><span class="pl-k">*</span><span class="pl-pds">/</span></span>},
+  {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>fido<span class="pl-pds">'</span></span>,
+   path<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span><span class="pl-c1">.</span><span class="pl-k">*</span>role=pet<span class="pl-c1">.</span><span class="pl-k">*</span><span class="pl-pds">/</span></span>},
+]
+
+<span class="pl-c">// request is the tObj </span>
+<span class="pl-k">var</span> request <span class="pl-k">=</span> {path<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>/pets?role=guarddog<span class="pl-pds">'</span></span>}
+
+<span class="pl-c">// select properties and options to test</span>
+<span class="pl-k">var</span> propsToTest <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>path<span class="pl-pds">'</span></span>];
+<span class="pl-k">var</span> options <span class="pl-k">=</span> {regExpMatch<span class="pl-k">:</span> <span class="pl-c1">true</span>}; 
+
+<span class="pl-c">// create the filter function</span>
+<span class="pl-k">var</span> filter <span class="pl-k">=</span> <span class="pl-smi">apom</span>.<span class="pl-en">makeFilterPatternObjectsFn</span>(propsToTest, options);
+
+<span class="pl-c">// filter</span>
+<span class="pl-en">filter</span>(pets, request, <span class="pl-k">function</span>(<span class="pl-smi">matchedPets</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(matchedPets);  
+  <span class="pl-c">// [ { name: 'growler', path: /.*role=guarddog.*/ } ]</span>
+});
+</pre></div>
+
+<p><a name="user-content-pObj"></a></p>
+
+<h3>
+<a id="user-content-pobj" class="anchor" href="#pobj" aria-hidden="true"><span class="octicon octicon-link"></span></a>pObj</h3>
+
+<p><strong>"pattern object"</strong>.  Any object that is passed into a <a href="#matches"><code>matches</code></a>, <a href="#filterPatternObjects"><code>filterPatternObjects</code></a> or <a href="#filterTargetObjects"><code>filterTargetObjects</code></a> function as the first parameter.  It is used to test if it matches the <a href="#tObj">target object</a>(<code>tObj</code>). Considered a 'pattern' object because, unlike the <code>tObj</code>, it has characteristics such as : </p>
+
+<ul>
+<li>If <a href="#regExpMatch"><code>regExpMatch</code></a> is true, property/ies in pObj are tested as regular expressions against respective <code>tObj</code> property/ies.</li>
+<li>If <a href="#variablesAllowed"><code>variablesAllowed</code></a> is true, strings in the pObj property values can be replaced as variable names with variable values.<br>
+</li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> apom <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>apom<span class="pl-pds">'</span></span>);
+
+<span class="pl-c">// the target object here is fido</span>
+<span class="pl-k">var</span> fido <span class="pl-k">=</span>{ 
+    paws<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>grey<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">3</span>}, 
+    tail<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>gray<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">1</span>},
+    body<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>black<span class="pl-pds">'</span></span>},
+    housetrained<span class="pl-k">:</span> <span class="pl-c1">true</span>};
+
+<span class="pl-c">// the pattern object</span>
+<span class="pl-k">var</span> pObj <span class="pl-k">=</span> {tail<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>gray<span class="pl-pds">'</span></span>}};
+
+<span class="pl-smi">apom</span>.<span class="pl-en">matches</span>(pObj, fido, <span class="pl-k">function</span>(<span class="pl-smi">doesMatch</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(doesMatch);  <span class="pl-c">//true</span>
+})</pre></div>
+
+<p><a name="user-content-tObj"></a></p>
+
+<h3>
+<a id="user-content-tobj" class="anchor" href="#tobj" aria-hidden="true"><span class="octicon octicon-link"></span></a>tObj</h3>
+
+<p><strong>"target object"</strong>.  Any object that is passed into a <a href="#matches"><code>matches</code></a>, <a href="#filterPatternObjects"><code>filterPatternObjects</code></a> or <a href="#filterTargetObjects"><code>filterTargetObjects</code></a> function as the second parameter.  The target object is the object that is being tested against the pattern object to determine if it matches.  See notes and example  under <a href="#pObj"><code>pObj</code></a>. </p>
+
+<p><a name="user-content-propsToTest"></a></p>
+
+<h3>
+<a id="user-content-propstotest" class="anchor" href="#propstotest" aria-hidden="true"><span class="octicon octicon-link"></span></a>propsToTest</h3>
+
+<p>An array or object that contains property names and their assigned <a href="#options"><code>options</code></a> values, if any.  Property names are strings and are in dot notation if nested; eg "tail.color" to identify the property in <code>{tail: {color: black}}</code>. </p>
+
+<p>Can take one of the following forms: </p>
+
+<ul>
+<li>
+<p>an array of strings which are the property names to be tested.  <code>options</code> values cannot be specified for individual properties with this form.  Example: </p>
+
+<div class="highlight highlight-source-js"><pre>
+[<span class="pl-s"><span class="pl-pds">'</span>name<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>tail.color<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>housetrained<span class="pl-pds">'</span></span>]</pre></div>
+</li>
+<li>
+<p>an array of objects, one for each property to be tested, each containing a 'name' property assigned to the property name to be tested, and option property key/values (optional). Example: </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// test using default options for housetrained; tail.color using reg exp match</span>
+[{name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>housetrained<span class="pl-pds">'</span></span>}, {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>tail.color<span class="pl-pds">'</span></span>, regExpMatch<span class="pl-k">:</span> <span class="pl-c1">true</span>}]</pre></div>
+</li>
+<li>
+<p>an array of combination of the above 2 (strings and objects). Example: </p>
+
+<div class="highlight highlight-source-js"><pre>[<span class="pl-s"><span class="pl-pds">'</span>housetrained<span class="pl-pds">'</span></span>, {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>tail.color<span class="pl-pds">'</span></span>, regExpMatch<span class="pl-k">:</span> <span class="pl-c1">true</span>}]</pre></div>
+</li>
+<li>
+<p>an object with property names as keys and <code>options</code> objects as the values. Example: </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// test using default options for housetrained; tail.color using reg exp match</span>
+{<span class="pl-s"><span class="pl-pds">'</span>housetrained<span class="pl-pds">'</span></span><span class="pl-k">:</span>{}, <span class="pl-s"><span class="pl-pds">'</span>tail.color<span class="pl-pds">'</span></span><span class="pl-k">:</span> {regExpMatch<span class="pl-k">:</span> <span class="pl-c1">true</span>}}</pre></div>
+</li>
+</ul>
+
+<p><a name="user-content-options"></a></p>
+
+<h3>
+<a id="user-content-options-1" class="anchor" href="#options-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>options</h3>
+
+<p>An object used to set the option values for match and filter functions.  </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">//options properties &amp; their default values</span>
+<span class="pl-k">var</span> options <span class="pl-k">=</span> {
+  regExpMatch<span class="pl-k">:</span> <span class="pl-c1">false</span>,        <span class="pl-c">// match on regular expression in `pObj` </span>
+  regExpIgnoreCase<span class="pl-k">:</span> <span class="pl-c1">false</span>,   <span class="pl-c">// ignore case on reg exp match (str only) </span>
+  regExpAnchorStart<span class="pl-k">:</span> <span class="pl-c1">false</span>,  <span class="pl-c">// append "^" to beg of str for reg exp (str only)</span>
+  regExpAnchorEnd<span class="pl-k">:</span> <span class="pl-c1">false</span>,    <span class="pl-c">// append "$" to end of str for reg exp (str only)</span>
+
+  matchIfPObjPropMissing<span class="pl-k">:</span> <span class="pl-c1">false</span>,  <span class="pl-c">// matches if `pObj` property doesn't exist</span>
+  matchIfTObjPropMissing<span class="pl-k">:</span> <span class="pl-c1">false</span>,  <span class="pl-c">// matches if `tObj` property doesn't exist</span>
+
+  variablesAllowed<span class="pl-k">:</span> <span class="pl-c1">false</span>,  <span class="pl-c">// replace var names with var values in `pObj` props </span>
+  getVariables<span class="pl-k">:</span> <span class="pl-c1">undefined</span>,  <span class="pl-c">// function to call to get object of var names/vals</span>
+  variablesStartStr<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>~<span class="pl-pds">'</span></span>,   <span class="pl-c">// beg str in pObj prop value to find the var name  </span>
+  variablesEndStr<span class="pl-k">:</span> <span class="pl-c1">null</span>,    <span class="pl-c">// end str in pObj prop value to find the var name</span>
+
+  propMatchFn<span class="pl-k">:</span> <span class="pl-c1">null</span>         <span class="pl-c">// function to call instead of std match function</span>
+}; </pre></div>
+
+<h5>
+<a id="user-content-regexpmatch" class="anchor" href="#regexpmatch" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="user-content-regExpMatch"></a>regExpMatch</h5>
+
+<p>Property on the <a href="#options"><code>options</code></a> object that if equal to <code>true</code>, apom filter and matches functions will use the <code>pObj</code> property value as a regular expression to test against the <code>tObj</code> property.  If the pattern object property value is a string, the string will be converted to a javascript regular expression.  </p>
+
+<ul>
+<li>valid values: <code>true</code>,<code>false</code>
+</li>
+<li>default: <code>false</code>
+</li>
+</ul>
+
+<p>Example: </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// test if fido has a gray tail regardless if grey or gray</span>
+<span class="pl-k">var</span> apom <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>apom<span class="pl-pds">'</span></span>);
+
+<span class="pl-k">var</span> fido <span class="pl-k">=</span>{ 
+    paws<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>grey<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">3</span>}, 
+    tail<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>gray<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">1</span>},
+    body<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>black<span class="pl-pds">'</span></span>},
+    housetrained<span class="pl-k">:</span> <span class="pl-c1">true</span>};
+
+<span class="pl-c">// select the properties to be tested and the options</span>
+<span class="pl-k">var</span> propsToTest <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>tail.color<span class="pl-pds">'</span></span>]; 
+<span class="pl-k">var</span> options <span class="pl-k">=</span> {regExpMatch<span class="pl-k">:</span><span class="pl-c1">true</span>}; 
+
+<span class="pl-c">// include the regular expression in the 'pattern object'</span>
+<span class="pl-k">var</span> pObj <span class="pl-k">=</span> {tail<span class="pl-k">:</span>{color<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span>gr<span class="pl-c1">[a,e]</span>y<span class="pl-pds">/</span></span>}};  
+
+<span class="pl-c">// create the match function</span>
+<span class="pl-k">var</span> matchFn <span class="pl-k">=</span> <span class="pl-smi">apom</span>.<span class="pl-en">makeMatchFn</span>(propsToTest, options);
+
+<span class="pl-c">// test it</span>
+<span class="pl-en">matchFn</span>(pObj, fido, <span class="pl-k">function</span>(<span class="pl-smi">doesMatch</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(doesMatch);  <span class="pl-c">// true</span>
+});</pre></div>
+
+<h5>
+<a id="user-content-regexpignorecase" class="anchor" href="#regexpignorecase" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="user-content-regExpIgnoreCase"></a>regExpIgnoreCase</h5>
+
+<p>Property on the <a href="#options"><code>options</code></a> object that if equal to <code>true</code> <strong>and</strong> <a href="#regExpMatch"><code>regExpMatch</code></a>===<code>true</code> <strong>and</strong> the <code>pObj</code> property value is a string, then when the <code>pObj</code> value is converted from a string to a regular expression object in apom matches and filter functions,  the regular expression is included with the 'i' flag to ignore case on the regular expression match.  This option value is only considered where the <code>pObj</code> property value is a string.  If the <code>pObj</code> value is a regular expression object, then the ignore case flag can be included on that object; eg "/gray/i".   </p>
+
+<ul>
+<li>valid values: <code>true</code>,<code>false</code>
+</li>
+<li>default: <code>false</code>
+</li>
+</ul>
+
+<p>Example: </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// test if fido has a gray tail regardless if grey or Gray</span>
+<span class="pl-k">var</span> apom <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>apom<span class="pl-pds">'</span></span>);
+
+<span class="pl-k">var</span> fido <span class="pl-k">=</span>{ 
+    paws<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>grey<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">3</span>}, 
+    tail<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Gray<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">1</span>},
+    body<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>black<span class="pl-pds">'</span></span>},
+    housetrained<span class="pl-k">:</span> <span class="pl-c1">true</span>};
+
+<span class="pl-c">// select the properties to be tested and the options</span>
+<span class="pl-k">var</span> propsToTest <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>tail.color<span class="pl-pds">'</span></span>]; 
+<span class="pl-k">var</span> options <span class="pl-k">=</span> {regExpMatch<span class="pl-k">:</span><span class="pl-c1">true</span>, regExpIgnoreCase<span class="pl-k">:</span> <span class="pl-c1">true</span>}; 
+
+<span class="pl-c">// include the regular expression as a string in the pattern object</span>
+<span class="pl-k">var</span> pObj <span class="pl-k">=</span> {tail<span class="pl-k">:</span>{color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>gr[a,e]y<span class="pl-pds">'</span></span>}};  
+
+<span class="pl-c">// create the match function</span>
+<span class="pl-k">var</span> matchFn <span class="pl-k">=</span> <span class="pl-smi">apom</span>.<span class="pl-en">makeMatchFn</span>(propsToTest, options);
+
+<span class="pl-c">// test it</span>
+<span class="pl-en">matchFn</span>(pObj, fido, <span class="pl-k">function</span>(<span class="pl-smi">doesMatch</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(doesMatch);  <span class="pl-c">// true</span>
+});</pre></div>
+
+<p>// regExpIgnoreCase does not apply if pObj property is a regular expression</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> pObj <span class="pl-k">=</span> {tail<span class="pl-k">:</span>{color<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span>gr<span class="pl-c1">[a,e]</span>y<span class="pl-pds">/</span></span>}};  
+
+<span class="pl-en">matchFn</span>(pObj, fido, <span class="pl-k">function</span>(<span class="pl-smi">doesMatch</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(doesMatch);  <span class="pl-c">// false</span>
+});
+
+<span class="pl-c">// use the 'i' flag on the regular expression object instead </span>
+<span class="pl-k">var</span> pObj <span class="pl-k">=</span> {tail<span class="pl-k">:</span>{color<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span>gr<span class="pl-c1">[a,e]</span>y<span class="pl-pds">/</span>i</span>}};  
+
+<span class="pl-en">matchFn</span>(pObj, fido, <span class="pl-k">function</span>(<span class="pl-smi">doesMatch</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(doesMatch);  <span class="pl-c">// true</span>
+});</pre></div>
+
+<h5>
+<a id="user-content-regexpanchorstart" class="anchor" href="#regexpanchorstart" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="user-content-regExpAnchorStart"></a>regExpAnchorStart</h5>
+
+<p>Property on the <a href="#options"><code>options</code></a> object that if equal to <code>true</code> <strong>and</strong> <a href="#regExpMatch"><code>regExpMatch</code></a>===<code>true</code> <strong>and</strong> the <code>pObj</code> property value is a string, then when the <code>pObj</code> value is converted from a string to a regular expression object in apom matches and filter functions, it includes a '^' prepended to <code>pObj</code> string value.  This option value is only considered where the <code>pObj</code> is a string.  If the <code>pObj</code> property value is a regular expression object, then the ^ can be included in the regular expression; eg, /^gray/.  </p>
+
+<ul>
+<li>valid values: <code>true</code>,<code>false</code>
+</li>
+<li>
+<p>default: <code>false</code></p>
+
+<p>This option will rarely (ever?) be needed as this can also be achieved with a <code>pObj</code> value that is a string by simply including the ^ in the string (without setting <code>regExpAnchorStart</code>=true). </p>
+
+<p>These 3 would yield the same result: </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> pObj <span class="pl-k">=</span> {tail<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>^gray<span class="pl-pds">'</span></span>}}
+<span class="pl-k">var</span> options <span class="pl-k">=</span> {regExpMatch<span class="pl-k">:</span> <span class="pl-c1">true</span>}</pre></div>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> pObj <span class="pl-k">=</span> {tail<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>gray<span class="pl-pds">'</span></span>}}
+<span class="pl-k">var</span> options <span class="pl-k">=</span> {regExpMatch<span class="pl-k">:</span> <span class="pl-c1">true</span>, regExpAnchorStart<span class="pl-k">:</span> <span class="pl-c1">true</span>}</pre></div>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> pObj <span class="pl-k">=</span> {tail<span class="pl-k">:</span> {color<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span><span class="pl-k">^</span>gray<span class="pl-pds">/</span></span>}}
+<span class="pl-k">var</span> options <span class="pl-k">=</span> {regExpMatch<span class="pl-k">:</span> <span class="pl-c1">true</span>}</pre></div>
+</li>
+</ul>
+
+<h5>
+<a id="user-content-regexpanchorend" class="anchor" href="#regexpanchorend" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="user-content-regExpAnchorEnd"></a>regExpAnchorEnd</h5>
+
+<p>Property on the <a href="#options"><code>options</code></a> object that if equal to <code>true</code> <strong>and</strong> <a href="#regExpMatch"><code>regExpMatch</code></a>===<code>true</code> <strong>and</strong> the <code>pObj</code> property value is a string, then when the <code>pObj</code> value is converted from a string to a regular expression object in apom matches and filter functions, it includes a '$' appended to the end of the <code>pObj</code> string value.  This option value is only considered where the <code>pObj</code> is a string.  If the <code>pObj</code> property value is a regular expression object, then the $ can be included in the regular expression; eg, /gray$/.  </p>
+
+<ul>
+<li>valid values: <code>true</code>,<code>false</code>
+</li>
+<li>
+<p>default: <code>false</code></p>
+
+<p>This option will rarely (ever?) be needed as this can also be achieved with a <code>pObj</code> value that is a string by simply including the $ in the string (without setting <code>regExpAnchorEnd</code>=true).  </p>
+
+<p>These 3 would yield the same result: </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> pObj <span class="pl-k">=</span> {tail<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>gray$<span class="pl-pds">'</span></span>}}
+<span class="pl-k">var</span> options <span class="pl-k">=</span> {regExpMatch<span class="pl-k">:</span> <span class="pl-c1">true</span>}</pre></div>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> pObj <span class="pl-k">=</span> {tail<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>gray<span class="pl-pds">'</span></span>}}
+<span class="pl-k">var</span> options <span class="pl-k">=</span> {regExpMatch<span class="pl-k">:</span> <span class="pl-c1">true</span>, regExpAnchorEnd<span class="pl-k">:</span> <span class="pl-c1">true</span>}</pre></div>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> pObj <span class="pl-k">=</span> {tail<span class="pl-k">:</span> {color<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span>gray<span class="pl-k">$</span><span class="pl-pds">/</span></span>}}
+<span class="pl-k">var</span> options <span class="pl-k">=</span> {regExpMatch<span class="pl-k">:</span> <span class="pl-c1">true</span>}</pre></div>
+</li>
+</ul>
+
+<h5>
+<a id="user-content-matchiftobjpropmissing" class="anchor" href="#matchiftobjpropmissing" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="user-content-matchIfTObjPropMissing"></a>matchIfTObjPropMissing</h5>
+
+<p>Property on the <a href="#options"><code>options</code></a> object that if equal to <code>true</code>, apom filter and matches functions will return <code>true</code> for the given property's match test if the property being tested does not exist on <code>tObj</code>. </p>
+
+<ul>
+<li>valid values: <code>true</code>,<code>false</code>
+</li>
+<li>default: <code>false</code>
+</li>
+</ul>
+
+<p>Example: </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// find which pets have a role of guarddog and (the breed is chihuahua or </span>
+<span class="pl-c">//     breed is not defined)  </span>
+
+<span class="pl-k">var</span> apom <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>apom<span class="pl-pds">'</span></span>);
+
+<span class="pl-k">var</span> pets <span class="pl-k">=</span> [
+  {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>growler<span class="pl-pds">'</span></span>,
+   breed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>chihuahua<span class="pl-pds">'</span></span>,
+   role<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>guarddog<span class="pl-pds">'</span></span>},
+  {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>fido<span class="pl-pds">'</span></span>,
+   breed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>lab<span class="pl-pds">'</span></span>,
+   role<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>pet<span class="pl-pds">'</span></span>},
+  {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>duchy<span class="pl-pds">'</span></span>,
+   role<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>guarddog<span class="pl-pds">'</span></span>},
+  {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>bruiser<span class="pl-pds">'</span></span>,
+   breed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>chihuahua<span class="pl-pds">'</span></span>,
+   role<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>cuddler<span class="pl-pds">'</span></span>},
+]
+
+<span class="pl-c">// request is the tObj </span>
+<span class="pl-k">var</span> pObj <span class="pl-k">=</span> {role<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>guarddog<span class="pl-pds">'</span></span>, breed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>chihuahua<span class="pl-pds">'</span></span>};
+
+<span class="pl-c">// select properties to test; role with default options</span>
+<span class="pl-k">var</span> propsToTest <span class="pl-k">=</span> 
+    {role<span class="pl-k">:</span> {}, breed<span class="pl-k">:</span> {matchIfTObjPropMissing<span class="pl-k">:</span> <span class="pl-c1">true</span>}};
+
+<span class="pl-c">// create the filter function</span>
+<span class="pl-k">var</span> filter <span class="pl-k">=</span> <span class="pl-smi">apom</span>.<span class="pl-en">makeFilterTargetObjectsFn</span>(propsToTest);
+
+<span class="pl-c">// filter</span>
+<span class="pl-en">filter</span>(pObj, pets, <span class="pl-k">function</span>(<span class="pl-smi">matchedPets</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(matchedPets);  
+  <span class="pl-c">// [ { name: 'growler'...},{name: 'duchy'...} ]</span>
+});
+</pre></div>
+
+<h5>
+<a id="user-content-matchifpobjpropmissing" class="anchor" href="#matchifpobjpropmissing" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="user-content-matchIfPObjPropMissing"></a>matchIfPObjPropMissing</h5>
+
+<p>Property on the <a href="#options"><code>options</code></a> object that if equal to <code>true</code>, apom filter and matches functions will return <code>true</code>for the given property's match test if the property being tested does not exist on <code>pObj</code>. </p>
+
+<ul>
+<li>valid values: <code>true</code>,<code>false</code>
+</li>
+<li>default: <code>false</code>
+</li>
+</ul>
+
+<p>Example: </p>
+
+<p>This option would typically be used in a <code>makeFilterPatternObjectsFn</code>, like this example, but like all options can also be used in <code>makeFilterPatternObjectsFn</code> and <code>matches</code>.  </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// find which pets match a request with a role of guarddog and </span>
+<span class="pl-c">//     (the breed is chihuahua or breed is not defined)  </span>
+
+<span class="pl-k">var</span> apom <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>apom<span class="pl-pds">'</span></span>);
+
+<span class="pl-c">// pets are the `pObjs` in this case to match on their regular expressions</span>
+<span class="pl-k">var</span> pets <span class="pl-k">=</span> [
+  {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>growler<span class="pl-pds">'</span></span>,
+   breed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>chihuahua<span class="pl-pds">'</span></span>,
+   path<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span><span class="pl-c1">.</span><span class="pl-k">*</span>role=guarddog<span class="pl-c1">.</span><span class="pl-k">*</span><span class="pl-pds">/</span></span>},
+  {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>fido<span class="pl-pds">'</span></span>,
+   breed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>lab<span class="pl-pds">'</span></span>,
+   path<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span><span class="pl-c1">.</span><span class="pl-k">*</span>role=pet<span class="pl-c1">.</span><span class="pl-k">*</span><span class="pl-pds">/</span></span>},
+  {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>duchy<span class="pl-pds">'</span></span>,
+   path<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span><span class="pl-c1">.</span><span class="pl-k">*</span>role=guarddog<span class="pl-c1">.</span><span class="pl-k">*</span><span class="pl-pds">/</span></span>},
+  {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>bruiser<span class="pl-pds">'</span></span>,
+   breed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>chihuahua<span class="pl-pds">'</span></span>,
+   path<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span><span class="pl-c1">.</span><span class="pl-k">*</span>role=cuddler<span class="pl-c1">.</span><span class="pl-k">*</span><span class="pl-pds">/</span></span>},
+]
+
+<span class="pl-c">// request is the tObj </span>
+<span class="pl-k">var</span> request <span class="pl-k">=</span> {path<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>/pets?role=guarddog<span class="pl-pds">'</span></span>, breed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>chihuahua<span class="pl-pds">'</span></span>}
+
+<span class="pl-c">// select properties and options to test</span>
+<span class="pl-k">var</span> propsToTest <span class="pl-k">=</span> 
+    {path<span class="pl-k">:</span> {regExpMatch<span class="pl-k">:</span> <span class="pl-c1">true</span>}, breed<span class="pl-k">:</span> {matchIfPObjPropMissing<span class="pl-k">:</span> <span class="pl-c1">true</span>}};
+
+<span class="pl-c">// create the filter function</span>
+<span class="pl-k">var</span> filter <span class="pl-k">=</span> <span class="pl-smi">apom</span>.<span class="pl-en">makeFilterPatternObjectsFn</span>(propsToTest);
+
+<span class="pl-c">// filter</span>
+<span class="pl-en">filter</span>(pets, request, <span class="pl-k">function</span>(<span class="pl-smi">matchedPets</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(matchedPets);  
+  <span class="pl-c">// [ { name: 'growler'...},{name: 'duchy'...} ]</span>
+});
+</pre></div>
+
+<h5>
+<a id="user-content-variablesallowed" class="anchor" href="#variablesallowed" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="user-content-variablesAllowed"></a>variablesAllowed</h5>
+
+<p>Property on the <a href="#options"><code>options</code></a> object that if equal to <code>true</code>, replaces strings that are recognized as variable names in <code>pObj</code> property values with their respective variable values from <a href="#getVariables"><code>getVariables</code></a>.  The varible names on the <code>pObj</code> property values is matched based on the <a href="#variablesStartStr"><code>variablesStartStr</code></a> and <a href="#variablesStartStr"><code>variablesEndStr</code></a>. </p>
+
+<ul>
+<li>valid values: <code>true</code>,<code>false</code>
+</li>
+<li>default: <code>false</code>
+</li>
+</ul>
+
+<p>Example: </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// match if fido has a grey tail and paws regardless if grey or gray</span>
+
+<span class="pl-k">var</span> apom <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>apom<span class="pl-pds">'</span></span>);
+
+<span class="pl-k">var</span> fido <span class="pl-k">=</span>{ 
+    paws<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>grey<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">3</span>}, 
+    tail<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>gray<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">1</span>},
+    body<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>black<span class="pl-pds">'</span></span>},
+    housetrained<span class="pl-k">:</span> <span class="pl-c1">true</span>};
+
+<span class="pl-k">var</span> options <span class="pl-k">=</span>  
+    {regExpMatch<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+     variablesAllowed<span class="pl-k">:</span><span class="pl-c1">true</span>,
+     variablesStartStr<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>~<span class="pl-pds">"</span></span>,
+     variablesEndStr<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span>,
+     <span class="pl-en">getVariables</span><span class="pl-k">:</span>  <span class="pl-k">function</span>(<span class="pl-smi">cb</span>) {
+       <span class="pl-k">return</span> <span class="pl-en">cb</span>(<span class="pl-c1">null</span>, {grayColor<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span>gr<span class="pl-c1">[a,e]</span>y<span class="pl-pds">/</span></span>}); 
+    }};
+
+<span class="pl-c">// variable name is identified between variablesStartStr(~) and variablesEndStr(#)</span>
+<span class="pl-c">//   and replaced with that name from getVariables (grayColor =&gt; /gr[a,e]y/)</span>
+<span class="pl-k">var</span> pObj <span class="pl-k">=</span> {paws<span class="pl-k">:</span>{color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>~grayColor#<span class="pl-pds">'</span></span>},tail<span class="pl-k">:</span>{color<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>~grayColor#<span class="pl-pds">'</span></span>}};  
+
+<span class="pl-k">var</span> propsToTest <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>paws.color<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>tail.color<span class="pl-pds">'</span></span>];
+
+<span class="pl-k">var</span> matchFn <span class="pl-k">=</span> <span class="pl-smi">apom</span>.<span class="pl-en">makeMatchFn</span>(propsToTest, options);
+
+<span class="pl-en">matchFn</span>(pObj, fido, <span class="pl-k">function</span>(<span class="pl-smi">matches</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(matches); <span class="pl-c">//true </span>
+  <span class="pl-k">return</span>; 
+});</pre></div>
+
+<h5>
+<a id="user-content-getvariables" class="anchor" href="#getvariables" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="user-content-getVariables"></a>getVariables</h5>
+
+<p>Property on the <a href="#options"><code>options</code></a> object that defines a function which, if <a href="#variablesAllowed"><code>variablesAllowed</code></a> is <code>true</code>, takes a callback which is called with an error (null if no error) and an object of the form : </p>
+
+<div class="highlight highlight-source-js"><pre>{variable1Name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">`</span>variable1Value<span class="pl-pds">`</span></span>,
+  variable2Name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">`</span>variable2Value<span class="pl-pds">`</span></span>}</pre></div>
+
+<p>See <a href="#variablesAllowed"><code>variablesAllowed</code></a> for an example.</p>
+
+<h5>
+<a id="user-content-variablesstartstr" class="anchor" href="#variablesstartstr" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="user-content-variablesStartStr"></a>variablesStartStr</h5>
+
+<p>Property on the <a href="#options"><code>options</code></a> object that defines a string which, if <a href="#variablesAllowed"><code>variablesAllowed</code></a> === <code>true</code>, determines the starting position of a variable name string in a <code>pObj</code> property value that will be replaced with the variable value string of the respective variable name obtained from <a href="#getVariables"><code>getVariables</code></a>. </p>
+
+<p>See <a href="#variablesAllowed"><code>variablesAllowed</code></a> for an example.</p>
+
+<h5>
+<a id="user-content-variablesendstr" class="anchor" href="#variablesendstr" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="user-content-variablesEndStr"></a>variablesEndStr</h5>
+
+<p>Property on the <a href="#options"><code>options</code></a> object that defines a string which, if <a href="#variablesAllowed"><code>variablesAllowed</code></a> === <code>true</code>, determines the ending position of a variable name string in a <code>pObj</code> property value that will be replaced with the variable value string of the respective variable name obtained from <a href="#getVariables"><code>getVariables</code></a>. </p>
+
+<p>See <a href="#variablesAllowed"><code>variablesAllowed</code></a> for an example.</p>
+
+<h5>
+<a id="user-content-propmatchfn" class="anchor" href="#propmatchfn" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="user-content-propMatchFn"></a>propMatchFn</h5>
+
+<p>Property on the <a href="#options"><code>options</code></a> object that defines a function to replace the match function between <code>pObj</code> and <code>tObj</code> properties.   </p>
+
+<ul>
+<li>default: <code>null</code>
+</li>
+</ul>
+
+<p>Function is called with 3 parameters for each property being tested: </p>
+
+<ul>
+<li>
+<code>pObjProp</code> - an object-literal with these 2 properties: 
+
+<ul>
+<li>
+<code>value</code>: the value of the <a href="#pObj"><code>pObj</code></a> property value</li>
+<li>
+<code>exists</code>: <code>true</code> or <code>false</code> depending on whether the property exists on <code>pObj</code> </li>
+</ul>
+</li>
+<li>
+<code>tObjProp</code> - an object-literal with these 2 properties: 
+
+<ul>
+<li>
+<code>value</code>: the value of the <a href="#tObj"><code>tObj</code></a> property value</li>
+<li>
+<code>exists</code>: <code>true</code> or <code>false</code> depending on whether the property exists on <code>tObj</code> </li>
+</ul>
+</li>
+<li>callback(<code>true</code>|<code>false</code>) - The callback that contains your defined expression to return <code>true</code> or <code>false</code>.<br>
+</li>
+</ul>
+
+<p>Example: </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// find pets with 3 or more paws</span>
+
+<span class="pl-k">var</span> apom <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>apom<span class="pl-pds">'</span></span>);
+
+<span class="pl-k">var</span> pets <span class="pl-k">=</span> [
+  { name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>fido<span class="pl-pds">'</span></span>,
+    paws<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>gray<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">3</span>}},
+  { name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>rover<span class="pl-pds">'</span></span>,
+    paws<span class="pl-k">:</span> {color<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>white<span class="pl-pds">'</span></span>, count<span class="pl-k">:</span> <span class="pl-c1">4</span>}},
+  { name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>slither<span class="pl-pds">'</span></span>,
+    paws<span class="pl-k">:</span> {count<span class="pl-k">:</span> <span class="pl-c1">0</span>}},
+  ];
+
+<span class="pl-k">var</span> pObj <span class="pl-k">=</span> {paws<span class="pl-k">:</span>{count<span class="pl-k">:</span> <span class="pl-c1">3</span>}};  
+
+<span class="pl-c">//   propMatchFn is called for each property with the </span>
+<span class="pl-c">//      pattern object property value and the target object property value </span>
+<span class="pl-k">var</span> <span class="pl-en">matchFn</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">pObjProp</span>, <span class="pl-smi">tObjProp</span>, <span class="pl-smi">cb</span>) {
+  <span class="pl-k">var</span> hasAtLeast3Paws <span class="pl-k">=</span> <span class="pl-smi">tObjProp</span>.<span class="pl-smi">exists</span> <span class="pl-k">===</span> <span class="pl-c1">true</span> <span class="pl-k">&amp;&amp;</span> 
+      <span class="pl-smi">pObjProp</span>.<span class="pl-smi">exists</span> <span class="pl-k">===</span> <span class="pl-c1">true</span> <span class="pl-k">&amp;&amp;</span> 
+      <span class="pl-smi">tObjProp</span>.<span class="pl-c1">value</span> <span class="pl-k">&gt;=</span> <span class="pl-smi">pObjProp</span>.<span class="pl-c1">value</span>;
+  <span class="pl-k">return</span> <span class="pl-en">cb</span>(hasAtLeast3Paws);  
+}; 
+
+<span class="pl-k">var</span> propsToTest <span class="pl-k">=</span> {<span class="pl-s"><span class="pl-pds">'</span>paws.count<span class="pl-pds">'</span></span><span class="pl-k">:</span> {propMatchFn<span class="pl-k">:</span> matchFn}}; 
+
+<span class="pl-k">var</span> filter <span class="pl-k">=</span> <span class="pl-smi">apom</span>.<span class="pl-en">makeFilterTargetObjectsFn</span>(propsToTest);
+
+<span class="pl-en">filter</span>(pObj, pets, <span class="pl-k">function</span>(<span class="pl-smi">matchedPets</span>){
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(matchedPets);
+  <span class="pl-c">//matchedPets = {name: 'fido'..., name:'rover'...}; </span>
+});
+</pre></div>
 </article></body></html>
