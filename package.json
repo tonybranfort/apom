@@ -4,7 +4,7 @@
   "description": "Asynchronous Partial Object Match for object comparisons and filters",
   "main": "lib/index.js",
   "scripts": {
-    "test": "test/test.js"
+    "test": "make test"
   }, 
   "repository" :
     { "type" : "git"
