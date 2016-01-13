@@ -1,3 +1,5 @@
+[![Build Status via Travis CI](https://travis-ci.org/tonybranfort/apom.svg?branch=travis)](https://travis-ci.org/tonybranfort/apom)
+
 # apom.js
 
 Asynchronous Partial Object Match provides asynchronous functions to determine if chosen properties between javascript objects are equal or 'match' in defined ways.
