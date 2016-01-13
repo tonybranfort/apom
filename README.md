@@ -1,8 +1,10 @@
 [![Build Status via Travis CI](https://travis-ci.org/tonybranfort/apom.svg?branch=master)](https://travis-ci.org/tonybranfort/apom)
-
+[![NPM version](http://img.shields.io/npm/v/apom.svg)](https://www.npmjs.org/package/apom)
 # apom.js
 
-Asynchronous Partial Object Match provides asynchronous functions to determine if chosen properties between javascript objects are equal or 'match' in defined ways.
+Asynchronous Partial Object Match provides asynchronous functions to determine if chosen properties between javascript objects are equal or 'match' in defined ways. 
+
+Installable with ```npm install apom```
 
 ## Examples
 
