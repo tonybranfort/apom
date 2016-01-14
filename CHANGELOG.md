@@ -1,6 +1,6 @@
 
 # v1.0.3
-- Docs update only.
+- Update .travis.yml to include node versions 0.10, 4, 5
 - Update README
 
 # v1.0.2
