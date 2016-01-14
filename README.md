@@ -309,8 +309,7 @@ filter(pets, request, function(matchedPets){
 
 ```
 
-<a name="pObj" />
-### pObj 
+### <a name="pObj" />pObj 
 __"pattern object"__.  Any object that is passed into a [`matches`](#matches), [`filterPatternObjects`](#filterPatternObjects) or [`filterTargetObjects`](#filterTargetObjects) function as the first parameter.  It is used to test if it matches the [target object](#tObj)(`tObj`). Considered a 'pattern' object because, unlike the `tObj`, it has characteristics such as : 
 * If [`regExpMatch`](#regExpMatch) is true, property/ies in pObj are tested as regular expressions against respective `tObj` property/ies.
 * If [`variablesAllowed`](#variablesAllowed) is true, strings in the pObj property values can be replaced as variable names with variable values.  
@@ -334,12 +333,10 @@ apom.matches(pObj, fido, function(doesMatch){
 })
 ```
 
-<a name="tObj" />
-### tObj 
+### <a name="tObj" />tObj 
 __"target object"__.  Any object that is passed into a [`matches`](#matches), [`filterPatternObjects`](#filterPatternObjects) or [`filterTargetObjects`](#filterTargetObjects) function as the second parameter.  The target object is the object that is being tested against the pattern object to determine if it matches.  See notes and example  under [`pObj`](#pObj). 
 
-<a name="propsToTest" />
-### propsToTest 
+### <a name="propsToTest" />propsToTest 
 An array or object that contains property names and their assigned [`options`](#options) values, if any.  Property names are strings and are in dot notation if nested; eg "tail.color" to identify the property in `{tail: {color: black}}`. 
 
 Can take one of the following forms: 
@@ -366,8 +363,7 @@ Can take one of the following forms:
   {'housetrained':{}, 'tail.color': {regExpMatch: true}}
   ```
 
-<a name="options" />
-### options
+### <a name="options" />options
 An object used to set the option values for match and filter functions.  
 
 ```javascript
