@@ -1,12 +1,14 @@
-[![Build Status via Travis CI](https://travis-ci.org/tonybranfort/apom.svg?branch=travis)](https://travis-ci.org/tonybranfort/apom)
-
+[![Build Status via Travis CI](https://travis-ci.org/tonybranfort/apom.svg?branch=master)](https://travis-ci.org/tonybranfort/apom)
+[![NPM version](http://img.shields.io/npm/v/apom.svg)](https://www.npmjs.org/package/apom)
 # apom.js
 
-Asynchronous Partial Object Match provides asynchronous functions to determine if chosen properties between javascript objects are equal or 'match' in defined ways.
+Asynchronous Partial Object Match provides asynchronous functions to determine if chosen properties between javascript object literals match.  A match between properties can be equal value and type (default), a regular expression test, a missing property, a custom match function or a combination of those between properties.  
+
+Installable with ```npm install apom```
 
 ## Examples
 
-Determine if properties are equal between 2 objects.
+Determine if properties are equal value and type between 2 objects.
 ```javascript
 // test if fido's tail color is gray
 var apom = require('apom');
@@ -24,7 +26,7 @@ apom.matches(pObj, fido, function(doesMatch){
 })
 ```
 
-Or build the match function first for options and better performance. 
+Or build the match function first to include match options and for better performance. 
 
 ```javascript
 // test if fido has a gray tail regardless if grey or gray
