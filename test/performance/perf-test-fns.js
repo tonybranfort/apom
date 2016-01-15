@@ -1,7 +1,7 @@
 var getEnv = require('./get-env.js'); 
 var fs = require('fs'); 
 var apom = require('../../lib/index.js');
-var jStat = require('jStat').jStat;
+var jStat = require('jstat').jStat;
 
 var PERF_RESULTS_FILE = './test/performance/perf-test-results.json'; 
 var DATA_FOLDER = './test/performance/data/'; 

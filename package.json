@@ -1,6 +1,6 @@
 {
   "name": "apom",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Asynchronous Partial Object Match for object comparisons and filters",
   "main": "lib/index.js",
   "scripts": {
@@ -27,7 +27,8 @@
   "keywords": [
     "object",
     "compare",
-    "regex"
+    "regex",
+    "apom"
   ],
   "author": "Tony Branfort",
   "license": "MIT"
