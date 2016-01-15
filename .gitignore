@@ -2,3 +2,4 @@ node_modules
 test/performance/data
 coverage
 *.log
+README.html
