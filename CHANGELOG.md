@@ -1,7 +1,12 @@
 
+# v1.0.4
+- Update README only to correct links 
+
 # v1.0.3
-- Update .travis.yml to include node versions 0.10, 4, 5
-- Update README
+- No code changes.
+- Add coveralls reporting and badge to README
+- Update .travis.yml to add node versions 0.10, 4, 5
+- Minor updates to README
 
 # v1.0.2
 - No code changes.  
