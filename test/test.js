@@ -5,7 +5,7 @@ describe('Create Compare function',function(){
 
   it('should return property definitions with an object literal',function(done){
       apom.getPropDefns({"prop1":{}, "prop2":{regExpMatch:false}})
-      .length.should.equal(1);
+      .length.should.equal(2);
       done(); 
   }); 
 
