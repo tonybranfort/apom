@@ -254,7 +254,7 @@ function writeSummarizedTestResult(resultsFileName) {
   var fileOut = 
       PERF_RESULTS_FOLDER + 
       resultsFileName.replace('.json', '') +  
-      '_RESULTS.txt';
+      '_SUMMARY.txt';
 
   fs.writeFileSync(fileOut,summary); 
 

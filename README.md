@@ -3,13 +3,11 @@
 [![NPM version](http://img.shields.io/npm/v/apom.svg)](https://www.npmjs.org/package/apom)
 [![Coverage Status](https://coveralls.io/repos/tonybranfort/apom/badge.svg?branch=travis&service=github)](https://coveralls.io/github/tonybranfort/apom?branch=travis)
 
-Asynchronous Partial Object Match provides asynchronous functions to determine if chosen properties between javascript object literals match.  Uses [`async`](https://github.com/caolan/async).
-
-A match between properties can be equal value and type (default), a regular expression test, a missing property, a custom match function or a combination of those for different properties.  
+Asynchronous Partial Object Match provides asynchronous functions to determine if chosen properties between javascript object literals match.  A match between properties can be equal value and type (default), a regular expression test, a missing property, a custom match function or a combination for different properties.  
 
 Install with ```npm install apom```.  
 
-Tested with latest node versions of 4, 5, 0.10, 0.12. 
+[Tested with](https://travis-ci.org/tonybranfort/apom) node versions 4.2, 5.5, 0.10, 0.12. 
 
 ## Examples
 
