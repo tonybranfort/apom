@@ -1,3 +1,11 @@
+# v1.0.6
+- Fix memory leak 
+- Add [performance test results](https://github.com/tonybranfort/apom/tree/master/performance/results) including Node 4 & 5
+
+# v1.0.5
+- No code changes
+- Fix Makefile for Travis CI
+- Update README
 
 # v1.0.4
 - Update README only to correct links 
