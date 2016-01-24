@@ -2,11 +2,7 @@
 'use strict'; 
 
 var faker = require('faker'); 
-var apom = require('../../../lib/index.js'); 
-
-var constants = {
-  PKG_NAME: "rog",
-}; 
+var apom = require('../../lib/index.js'); 
 
 var _ = apom._;
 

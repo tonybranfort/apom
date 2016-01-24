@@ -1,7 +1,7 @@
 var perfTestFns = require('./perf-test-fns.js'); 
 var makePerfData = require('./make-data/make-perf-data.js');
 var getEnv = require('./get-env.js'); 
-var apom = require('../../lib/index.js'); 
+var apom = require('../lib/index.js'); 
 var resultsFileName; 
 
 var makePerfDataFirst = 

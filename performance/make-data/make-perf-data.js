@@ -4,9 +4,9 @@
 var rog = require('./make-data-fns.js');
 var fs = require('fs'); 
 var faker = require('faker');
-var apom = require('../../../lib/index.js');
+var apom = require('../../lib/index.js');
 
-var OUT_DIR = "./test/performance/data/";
+var OUT_DIR = "./performance/data/";
 
 var fixed = {
  dotKeysObjectK100D10 : apom.getObjectProperties(rog.makeRandomObject(100,10)) 

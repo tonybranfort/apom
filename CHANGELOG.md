@@ -1,3 +1,8 @@
+# v1.0.7
+- Performance test updates
+  - Move performance test results files to their own git branch 'pref-results'
+  - Fix broken paths in performance tests 
+
 # v1.0.6
 - Fix memory leak 
 - Add [performance test results](https://github.com/tonybranfort/apom/tree/master/performance/results) including Node 4 & 5

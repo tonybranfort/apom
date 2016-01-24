@@ -1,6 +1,6 @@
 {
   "name": "apom",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Asynchronous Partial Object Match for object comparisons and filters",
   "main": "lib/index.js",
   "scripts": {
