@@ -2,6 +2,7 @@
 - Performance test updates
   - Move performance test results files to their own git branch 'pref-results'
   - Fix broken paths in performance tests 
+  - Make it easier to run perf tests by volume: 100-1k, 10k, 100k
 
 # v1.0.6
 - Fix memory leak 
