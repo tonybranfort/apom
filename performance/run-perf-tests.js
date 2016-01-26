@@ -7,9 +7,9 @@ var resultsFileName;
 
 var testToRun = process.argv[2] ? process.argv[2] : 'v100to1k'; 
 var makePerfDataFirst = process.argv[3] === 'true' ? true : false;
-var recordResults = 
-    ((!process.argv[4] && testToRun) || process.argv[4] === 'false') ? 
-    false : true;
+
+var recordSummary = true; 
+
 var testGroupName = 
   getDateAsYyyymmdd() + 
   "_" + getEnv.getPlatform() +
@@ -23,7 +23,7 @@ console.log('Parameters ');
 console.log('  makePerfDataFirst : ' + makePerfDataFirst); 
 console.log('  testToRun :' + testToRun); 
 console.log('  testGroupName: ' + testGroupName); 
-console.log('  recordResults : ' + recordResults); 
+console.log('  recordSummary : ' + recordSummary); 
 
 // run just the one test if this parameter was passed in
 var tests = testToRun && apom._.isString(testToRun) && testToRun.length > 0 ? 
@@ -33,8 +33,6 @@ var tests = testToRun && apom._.isString(testToRun) && testToRun.length > 0 ?
 if(makePerfDataFirst === true) {
   makePerfData.makePerfData();
 } 
-
-console.log(tests);
 
 runPerfTests(testGroupName, tests); 
 
@@ -55,7 +53,7 @@ function runPerfTests(testGroupName, tests) {
     perfTestFns.runTest(testConfig, resultsFileName); 
   });
 
-  if(recordResults === true) {
+  if(recordSummary === true) {
     summarizedResults = perfTestFns.writeSummarizedTestResult(resultsFileName); 
   } else {
     summarizedResults= perfTestFns.getSummarizedTestResult(resultsFileName);

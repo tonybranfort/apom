@@ -5,7 +5,7 @@ var jStat = require('jstat').jStat;
 
 var PERF_RESULTS_FILE = './performance/perf-test-results.json'; 
 var DATA_FOLDER = './performance/data/'; 
-var PERF_RESULTS_FOLDER = './performance/results/';
+var PERF_RESULTS_DIR = './performance/results/';
 var package_file = './package.json';
 
 var testFns = {
@@ -153,7 +153,8 @@ var testFns = {
 };
 
 function runTest(testConfig, resultsFileName) {
-  resultsFileName = PERF_RESULTS_FOLDER + resultsFileName; 
+  // resultsFileName = PERF_RESULTS_DIR + resultsFileName; 
+  // resultsFileName = resultsFileName; 
   var test = initTestObject(testConfig); 
   console.log('  ' + test.testName); 
   console.log('   > Reading data files...');
@@ -236,14 +237,14 @@ function getTestTime(time) {
 
 function writeTestResult(test, fileName) {
   var perfResults = []; 
-  if(fs.existsSync(fileName)) {
+  if(fs.existsSync(PERF_RESULTS_DIR + fileName)) {
     perfResults = getPerfTestResults(fileName);
   } else {
     initializeResultsFile(fileName); 
   }
   perfResults.push(test);  
   fs.writeFileSync(
-      fileName, 
+      PERF_RESULTS_DIR + fileName, 
       JSON.stringify(perfResults, null, ' ') 
   ); 
 }
@@ -252,7 +253,7 @@ function writeSummarizedTestResult(resultsFileName) {
   var summary = getSummarizedTestResult(resultsFileName); 
 
   var fileOut = 
-      PERF_RESULTS_FOLDER + 
+      PERF_RESULTS_DIR + 
       resultsFileName.replace('.json', '') +  
       '_SUMMARY.txt';
 
@@ -273,7 +274,7 @@ function sortByTestName(a,b) {
 }
 
 function getSummarizedTestResult(resultsFileName) {
-  var fileName = PERF_RESULTS_FOLDER + resultsFileName; 
+  var fileName = PERF_RESULTS_DIR + resultsFileName; 
   var outStr = '';
   outStr = 'resultsFileName : ' + resultsFileName + '\n';
   var header = 
@@ -399,15 +400,56 @@ function getJsonFileAsObj(fileName) {
 
 function getPerfTestResults(fileName) {
   var perfResults = []; 
-  var pf = fs.readFileSync(fileName);
+  var pf = fs.readFileSync(PERF_RESULTS_DIR + fileName);
+  console.log(PERF_RESULTS_DIR + fileName); 
   perfResults = JSON.parse(pf); 
   return perfResults; 
+}
+
+function getResultsFilenames() {
+  // returns an array of the file names in results directory
+  var filenames = fs.readdirSync(PERF_RESULTS_DIR)
+  .filter(function(filename) {
+    return /.*\.json$/.test(filename);
+  });
+  return filenames;
+}
+
+function getAllPerfResults(sortByField, sortAsc) {
+  // returns an array of all test result objects sorted by date desc
+  sortByField = sortByField ? sortByField : 'date'; 
+  sortAsc = sortAsc ? sortAsc : false; 
+
+  var allResults = []; 
+
+  getResultsFilenames() 
+  .forEach(function(filename) {
+    var testResults = getPerfTestResults(filename);
+    testResults.forEach(function(testObj) {
+      testObj.filename = filename;
+    } ); 
+    Array.prototype.push.apply(allResults, testResults);
+  }); 
+
+  allResults.sort(function(a,b) {
+    var ad = sortByField === 'date' ? new Date(a.date) : a[sortByField]; 
+    var bd = sortByField === 'date' ? new Date(b.date) : b[sortByField]; 
+    if(ad < bd) {
+      return sortAsc ? -1 : 1;
+    } else if (ad > bd) {
+      return sortAsc ? 1 : -1; 
+    } else {
+      return 0; 
+    }
+  });
+
+  return allResults; 
 }
 
 function initializeResultsFile(fileName) {
   var emptyArray = [];
   fs.writeFileSync(
-      PERF_RESULTS_FOLDER + fileName, 
+      PERF_RESULTS_DIR + fileName, 
       JSON.stringify(emptyArray) 
   );
 }
@@ -428,5 +470,8 @@ module.exports = {
   getSummarizedTestResult: getSummarizedTestResult,
   writeSummarizedTestResult: writeSummarizedTestResult,
   getPackageInfo : getPackageInfo,
-  getPackageVersion : getPackageVersion
+  getPackageVersion : getPackageVersion, 
+  getResultsFilenames: getResultsFilenames,
+  getAllPerfResults : getAllPerfResults,
+  writeTestResult: writeTestResult
 };
