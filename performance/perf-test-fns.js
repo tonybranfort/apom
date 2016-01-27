@@ -360,21 +360,30 @@ function getSummarizedTestResult(resultsFileName) {
     //   then P-q95 = 0.100 / (100*10) = 0.0001ms
     //   because each test was actually executing 100 * 10 property comparisons
     //   (note that nObjs is the TOTAL nObjs across all tests)  
+}
 
-  function padLeft(str, totalLen) {
-    // pad string to left to reach totalLen
-    return (getSpaces(totalLen) + str).slice(-totalLen); 
-  }
 
-  function padRight(str, totalLen) {
-    // pad string with spaces to right to reach totalLen
-    return (str + getSpaces(totalLen)).slice(0, totalLen); 
-  }
+function padLeft(str, totalLen, padStr) {
+  // pad string to left to reach totalLen
+  return (getSpaces(totalLen, padStr) + str).slice(-totalLen); 
+}
 
-  function getSpaces(nbr) {
-    //http://stackoverflow.com/questions/1877475/repeat-character-n-times
-    return Array(nbr+1).join(' ');
-  }
+function padRight(str, totalLen, padStr) {
+  // pad string with spaces to right to reach totalLen
+  return (str + getSpaces(totalLen, padStr)).slice(0, totalLen); 
+}
+
+function padCenter(str, totalLen, padStr) {
+  // pad string such that the str input is in the center
+  return getSpaces(Math.round((totalLen-str.length)/2-0.1),padStr) +  // shift to left 1 space if odd #
+            str +
+            getSpaces(Math.round((totalLen-str.length)/2+0.1),padStr);
+}
+
+function getSpaces(nbr, padStr) {
+  //http://stackoverflow.com/questions/1877475/repeat-character-n-times
+  padStr = padStr ? padStr : ' '; 
+  return Array(nbr+1).join(padStr);
 }
 
 function getPackageInfo() {
@@ -401,7 +410,6 @@ function getJsonFileAsObj(fileName) {
 function getPerfTestResults(fileName) {
   var perfResults = []; 
   var pf = fs.readFileSync(PERF_RESULTS_DIR + fileName);
-  console.log(PERF_RESULTS_DIR + fileName); 
   perfResults = JSON.parse(pf); 
   return perfResults; 
 }
@@ -415,10 +423,8 @@ function getResultsFilenames() {
   return filenames;
 }
 
-function getAllPerfResults(sortByField, sortAsc) {
-  // returns an array of all test result objects sorted by date desc
-  sortByField = sortByField ? sortByField : 'date'; 
-  sortAsc = sortAsc ? sortAsc : false; 
+function getAllPerfResults() {
+  // returns an array of all test result objects 
 
   var allResults = []; 
 
@@ -427,23 +433,29 @@ function getAllPerfResults(sortByField, sortAsc) {
     var testResults = getPerfTestResults(filename);
     testResults.forEach(function(testObj) {
       testObj.filename = filename;
+      //append platform from filename if not in object
+      testObj.platform = testObj.hasOwnProperty('platform') ? 
+        testObj.platform : getPlatformFromFilename(filename);
+      testObj.testType = testObj.hasOwnProperty('testType') ? 
+        testObj.testType : getTestTypeFromFilename(filename); 
     } ); 
     Array.prototype.push.apply(allResults, testResults);
   }); 
 
-  allResults.sort(function(a,b) {
-    var ad = sortByField === 'date' ? new Date(a.date) : a[sortByField]; 
-    var bd = sortByField === 'date' ? new Date(b.date) : b[sortByField]; 
-    if(ad < bd) {
-      return sortAsc ? -1 : 1;
-    } else if (ad > bd) {
-      return sortAsc ? 1 : -1; 
-    } else {
-      return 0; 
-    }
-  });
-
   return allResults; 
+}
+
+function getPlatformFromFilename(filename) {
+  var platform = /\_([aws,win].+?)\_/.exec(filename); 
+  // returns null if not found otherwise array with result w/o '_'s at [1]
+  platform = platform ? platform[1] : null; 
+  return platform;
+}
+
+function getTestTypeFromFilename(filename) {
+  var testType = /^(.+?)\_/.exec(filename); 
+  testType = testType ? testType[1] : null; 
+  return testType;
 }
 
 function initializeResultsFile(fileName) {
@@ -464,6 +476,261 @@ function stringify(obj) {
   });
 }
 
+function writeOverallSummary(tests) {
+  //create a markdown table of summary results of tests 
+  //  where tests is an array of the test results objects such as getAllPerfResults()
+  // 
+  //                                 P-q50 (µs - .001 ms, .000001 sec)
+  // apom v | platform   | node v |  f1 |  f2 | ms1 | ... |  Test / file name
+  // -------|------------|--------|-----|-----|-----|-----|-----------------------
+  //  1.0.6 |aws t2.micro| 0.12.7 |  4.3|  5.4| 14.6|  8.7| 2016-01-25_win32_v1.0.7_node-v0.12.3_v100to1k_1453732424103.json
+  // ...etc
+  // a=filter_k100to100_m100_v100to100
+  // b=filter_k10to100_m50_v100to100
+  // ..etc
+  // f=filter
+  // ms = matchSimple
+  // m=match
+  // rm=regMatch
+  // 
+  // a text file was decided over : 
+  //    - markdown because 'keyhole' to view table in generated html means 
+  //      being only able to see a few columns - lots of horiz scrolling
+  //    - html in mardown: same problem as # 1
+  //    - html - generally only viewable as raw html in github
+
+  var testNames = []; // array of testNames across all tests will be sorted & deduped
+  var testNamesRefs = {};  // key/value of testName to its reference; eg 'f1' = 'filter_k1to1_...'
+  var rowObjs = []; 
+
+  var padStr = ' ';  // character to pad columns to reach desired widths 
+  var colSeperator = '|'; // characater to seperate columns 
+  var ALIGN_CENTER = 'c'; 
+  var ALIGN_LEFT = 'l';
+  var ALIGN_RIGHT = 'r';
+
+  var colWidths = {
+    apomv: 8,
+    platform: 14,
+    nodev: 8,
+    t: 5,          //all test result time cols
+    filename: 80  
+  };
+
+  getAllTestNames(); // go through all tests to get test names
+  doTheNeedfulForTestNames(); // sort, dedup, create ref strings   
+
+  tests.sort(overallSummarySort); 
+
+  // tests.forEach(createRowObj); 
+
+  var prevFileName = ''; 
+  var rowStr = '';
+  createReportHeader();
+  tests.forEach(createPrintRows);
+
+  console.log(rowStr);
+
+
+  function getAllTestNames() {
+    tests.forEach(function(test) {
+      testNames.push(getTestTestname(test)); 
+    });
+  }
+
+  
+  function overallSummarySort(testA, testB) {
+    // sort order 
+    //   1. by apom version
+    //   2. by platform
+    //   3. by node version
+    //   4. by filename
+    //   5. by testName
+
+    // bp to enclose in braces...but so much easier to read here. 
+    if (getTestApomVersion(testA) < getTestApomVersion(testB)) return -1; 
+    if (getTestApomVersion(testA) > getTestApomVersion(testB)) return 1; 
+
+    if (getTestPlatform(testA) < getTestPlatform(testB)) return -1; 
+    if (getTestPlatform(testA) > getTestPlatform(testB)) return 1; 
+
+    if (getTestNodeV(testA) < getTestNodeV(testB)) return -1; 
+    if (getTestNodeV(testA) > getTestNodeV(testB)) return 1;
+
+    if (getTestFilename(testA) < getTestFilename(testB)) return -1;
+    if (getTestFilename(testA) > getTestFilename(testB)) return 1;
+
+    if (getTestTestname(testA) < getTestTestname(testB)) return -1;
+    if (getTestTestname(testA) > getTestTestname(testB)) return 1;
+
+    return 0; 
+
+  }
+
+  function createReportHeader() {
+    rowStr = '|';
+    addCol('apom v', colWidths.apomv, ALIGN_CENTER);
+    addCol('platform', colWidths.platform, ALIGN_CENTER);
+    addCol('node v', colWidths.nodev, ALIGN_CENTER);
+    testNames.forEach(function(testName) {
+      addCol(testNamesRefs[testName],colWidths.t, ALIGN_CENTER);
+    }); 
+    addCol('Filename (test grouping)', colWidths.filename, ALIGN_LEFT);
+    addCol('\n');
+
+    addCol(getSpaces(colWidths.apomv,'-'));  //apom v
+    addCol(getSpaces(colWidths.platform,'-'));  //platform
+    addCol(getSpaces(colWidths.nodev,'-'));  //node v
+    testNames.forEach(function(testName) {
+      addCol(getSpaces(colWidths.t,'-'));
+    }); 
+    addCol(getSpaces(colWidths.filename,'-'));  //filename
+    addCol('\n');
+
+  }
+
+  function createPrintRows(test, index, array) {
+    if(getTestFilename(test) === prevFileName) {
+      // simply append p value
+      // NEED TO TEST TO MAKE SURE test.testName aligns with current col in testNames[]
+      ///   ie - if this test group didn't have a given test that's in other test groups
+      addCol(getTestPq95MillS(test).toFixed(2), colWidths.t, ALIGN_RIGHT);
+    } else {
+      // new row
+      // end the last row 
+      if (prevFileName !== '' ) {
+        addCol(prevFileName, colWidths.filename, ALIGN_LEFT);
+        addCol('\n');
+      } 
+      prevFileName = getTestFilename(test); 
+      // start new row
+      addCol(getTestApomVersion(test),colWidths.apomv, ALIGN_CENTER);
+      addCol(getTestPlatform(test), colWidths.platform, ALIGN_CENTER);
+      addCol(getTestNodeV(test), colWidths.nodev, ALIGN_CENTER);
+      addCol(getTestPq95MillS(test).toFixed(1), colWidths.t, ALIGN_RIGHT);
+    }
+    //wrap up the last row
+    if (index === array.length-1) {
+      addCol(getTestFilename(test), colWidths.filename, ALIGN_LEFT);
+
+    }
+  }
+
+  function addCol(addStr, width, align) {
+    width = width ? width : addStr.length; 
+    align = align ? align : 'c';    // l, c, r 
+    var newStr;
+
+    if(align === 'c') {
+      newStr = padCenter(addStr, width, padStr);
+    }
+    if(align === 'l') {
+      newStr = padRight(addStr, width, padStr);
+    }
+    if(align === 'r') {
+      newStr = padLeft(addStr, width, padStr);
+    }
+
+    rowStr = rowStr + newStr + colSeperator ; 
+    return; 
+
+}
+
+
+  function doTheNeedfulForTestNames() {
+    var fn = 1;
+    var mn = 1; 
+    var msn = 1; 
+    var rmn = 1; 
+
+    testNames = sortAndDedup(testNames); 
+
+    testNames.forEach(assignTestNameRef); 
+
+    function assignTestNameRef(testName) {
+      // filter_ : f...
+      // match_  : m...
+      // matchSimple_ : ms...
+      // regMatch_ : rm...
+      // eg; f1, f2, f3, ms1, ms2, etc...
+
+      var getRefFns = {
+        filter: function() {
+          var ref = 'f' + fn; 
+          fn++; 
+          return ref; 
+        }, 
+        match: function() {
+          var ref = 'm' + mn; 
+          mn++; 
+          return ref; 
+        },
+        matchSimple: function() {
+          var ref = 'ms' + msn; 
+          msn++; 
+          return ref; 
+        },
+        regMatch: function() {
+          var ref = 'rm' + rmn; 
+          rmn++; 
+          return ref; 
+        },
+      };
+
+      var testType = getTestTypeFromFilename(testName);  //testName same as filename (w/o json)
+      var ref = getRefFns[testType](); 
+
+      testNamesRefs[testName] = ref; 
+
+      return; 
+    }
+
+  }
+
+}
+
+function sortAndDedup(a) {
+  //http://stackoverflow.com/questions/9229645/remove-duplicates-from-javascript-array
+  // for arrays of non-objects
+  return a.sort().filter(function(item, pos, ary) {
+    return !pos || item != ary[pos - 1];
+  });
+}
+
+function getTestApomVersion(test) {
+  return test.packageInfo.version;
+}
+
+function getTestPlatform(test) {
+  return test.hasOwnProperty('platform') ? test.platform : '';
+}
+
+function getTestNodeV(test) {
+  return test.env.process.versions.node; 
+}
+
+function getTestFilename(test) {
+  return test.hasOwnProperty('filename') ? test.filename : ''; 
+}
+
+function getTestTestname(test) {
+  return test.testName; 
+}
+
+function getTestTestType(test) {
+  return test.hasOwnProperty('testType') ? test.testType : '';
+}
+
+function getTestPq95(test) {
+  return test.results.perMatchMsStats.q95 /
+      (test.results.nProps * test.results.nObjs);
+}
+
+function getTestPq95MillS(test) {
+  // result in millisecond
+  return getTestPq95(test)*1000; 
+}
+
 module.exports = {
   runTest : runTest,
   initializeResultsFile: initializeResultsFile,
@@ -473,5 +740,6 @@ module.exports = {
   getPackageVersion : getPackageVersion, 
   getResultsFilenames: getResultsFilenames,
   getAllPerfResults : getAllPerfResults,
-  writeTestResult: writeTestResult
+  writeTestResult: writeTestResult,
+  writeOverallSummary : writeOverallSummary
 };
