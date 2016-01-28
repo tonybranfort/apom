@@ -3,3 +3,4 @@ performance/data
 coverage
 *.log
 README.html
+*temp*
