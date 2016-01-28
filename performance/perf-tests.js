@@ -389,17 +389,6 @@ var perfTests =
     },
     testFn: 'testFilter',
     options: {regExpMatch: true}
-  },
-  {
-    testName: 'filter_k1to100_charDotStar_v1kto10k',
-    tObj: {
-      fileName:'k100_fixedKey_v10k.json'
-    },
-    pObj: {
-      fileName:'k100_fixedKey_k1_charDotStar_v1k.json' 
-    },
-    testFn: 'testFilter',
-    options: {regExpMatch: true}
   }
 ], 
 
@@ -530,6 +519,17 @@ v10k : [
       fileName:'k100_randObj_v10k_k100_m100.json' 
     },
     testFn: 'testMatch' 
+  },
+  {
+    testName: 'filter_k1to100_charDotStar_v1kto10k',
+    tObj: {
+      fileName:'k100_fixedKey_v10k.json'
+    },
+    pObj: {
+      fileName:'k100_fixedKey_k1_charDotStar_v1k.json' 
+    },
+    testFn: 'testFilter',
+    options: {regExpMatch: true}
   }
 ],
 
