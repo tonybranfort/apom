@@ -1,3 +1,33 @@
+var reference = {
+  // for descriptions only
+  filter: "filter test using makeFilterTargetObjectsFn()",
+  match: "match test using match from create makeMatchFn()",
+  regMatch: "regular expression match test",
+  matchSimple: "match test calling matches() directly withou creating makeMatchFn()",
+  k1to1: "1 pObj property matched to tObj with 1 property",
+  k1to100: "1 pObj property matched against 1 tObj prop in tObj of 100 properties",
+  k10to100: "10 pObj property matched against 10 tObj props in tObj of 100 properties",
+  k100to100: "100 pObj property matched against 100 tObj props in tObj of 100 properties",
+  pWord: "3 to 10 random characters in pObj value",
+  tWord: "3 to 10 random characters in tObj value",
+  pString: "pObj is a string of 30 to 150 random characters",
+  tString: "tObj is a string of 30 to 150 random characters",
+  tPhone: "tObj is a phone number of various possible accepted formats",
+  pParagraph: "pObj is a string of of 5-200 \'words\' of random 3-10 chars seperated by spaces",
+  tParagraph: "pObj is a string of of 5-200 \'words\' of random 3-10 chars seperated by spaces",
+  charDotStar: "reg exp=>1 rand char followed by .* by 1 rand char eg /B.*l/",
+  pRegDotStar: "pObj has reg exp 1 rand char followed by .* by rand char eg /B.*l/",
+  pRegDot: "pObj has one character replaced with \.\ for reg exp test",
+  pRegMidStr: "pObj has a random number of consecutive characters from tObj string; eg /anke/",
+  pRegPhone: "pObj is a regular expression that tests for phone format",
+  m50: "~50% match between pObjs & tObjs",
+  m100: "100% match between pObjs & tObjs",
+  v100to100: "volume 100: 100 unique pObj objects, 100 unique tObj objects; filter tests filter each pObj to 100 tObjs; match tests go 1:1",
+  v1kto1k: "volume 1,00: 1,00 unique pObj objects against 1,000 unique tObj objects; filter tests filter each pObj to 1000 tObjs; match tests go 1:1",
+  v10kto10k: "volume 10,000: 10k unique pObj objects against 10k unique tObj objects; filter tests filter each pObj to 10k tObjs; match tests go 1:1",
+  v100kto100k: "volume 100,000: 100k unique pObj objects against 100k unique tObj objects; filter tests filter each pObj to 10pk tObjs; match tests go 1:1",
+};
+
 var perfTests = 
 { v100to1k : [
   // MATCH  1 Word to 1 Word
@@ -640,7 +670,8 @@ v100k : [
 
 
 module.exports = {
-  perfTests: perfTests
+  perfTests: perfTests,
+  reference: reference
 };
 
 

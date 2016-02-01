@@ -2,6 +2,7 @@ var getEnv = require('./get-env.js');
 var fs = require('fs'); 
 var apom = require('../lib/index.js');
 var jStat = require('jstat').jStat;
+var perfTests = require('./perf-tests.js');
 
 var PERF_RESULTS_FILE = './performance/perf-test-results.json'; 
 var DATA_FOLDER = './performance/data/'; 
@@ -512,7 +513,7 @@ function writeOverallSummary(tests) {
   var colWidths = {
     apomv: 8,
     platform: 14,
-    nodev: 8,
+    nodev: 9,
     t: 5,          //all test result time cols
     filename: 80  
   };
@@ -614,6 +615,16 @@ function writeOverallSummary(tests) {
 
     testNames.forEach(function(testName) {
       rowStr = rowStr + testNamesRefs[testName] + ' : ' + testName + '\n';
+    });
+
+    rowStr = rowStr + '\n\n';
+
+    testNames.forEach(function(testName) {
+      var refs = testName.split('_');
+      rowStr = rowStr + testNamesRefs[testName] + ' : ' + testName + '\n';
+      refs.forEach(function(ref) {
+        rowStr = rowStr + "   " + padRight(ref,11) + ' => ' + testNameRefDescription(ref) + '\n';
+      });
     });
   }
 
@@ -728,6 +739,12 @@ function writeOverallSummary(tests) {
 
   }
 
+}
+
+function testNameRefDescription(testNameRef) {
+  //testNameRef is a portion of test name between '_' eg; k100to100
+  return perfTests.reference.hasOwnProperty(testNameRef) ? 
+    perfTests.reference[testNameRef] : null; 
 }
 
 function sortAndDedup(a) {
