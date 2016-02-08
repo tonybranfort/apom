@@ -3,6 +3,7 @@ var fs = require('fs');
 var apom = require('../lib/index.js');
 var jStat = require('jstat').jStat;
 var perfTests = require('./perf-tests.js');
+var async = require('async');
 
 var PERF_RESULTS_FILE = './performance/perf-test-results.json'; 
 var DATA_FOLDER = './performance/data/'; 
@@ -149,7 +150,81 @@ var testFns = {
 
       return; 
     }
+  },
+  testAsyncFilter : function(pObjs, tObjs, props, options) {
+    var nTests = 0;   // number of tests executed
+    var nObjs = tObjs.length;  // nObjs tested in each test 
+    var nMatchTest = 0;    // count of how many tests had at least one filtered object
+    var nMatchObjs = 0;      // total number of filtered objects matched (returned) across all tests
+
+    var nProps = 1; 
+
+    var results = {}; 
+    testTimes = []; 
+    console.log('   > Testing...');
+    var begTime = process.hrtime();
+    for (var i = pObjs.length - 1; i >= 0; i--) {
+      var f;
+      if(props[0] === 'xCIyyA.NUeUFIa.YwYa.boVGzmWj') {
+        f = getK4dFilter(pObjs[i]);
+      } else if (props[0] === 'ABpwoNN') {
+        f = getK1dFilter(pObjs[i]);
+      }
+
+      var t = process.hrtime();
+      async.filter(
+          tObjs,
+          f,
+          onTest
+      );
+    }
+
+    results.testTime = getTestTime(begTime); 
+    results.perMatchMsStats = getStats(testTimes, nProps); 
+    results.nMatchTest = nMatchTest; 
+    results.nMatchObjs = nMatchObjs; 
+
+    results.nTests = nTests; 
+    results.nProps = nProps; 
+    results.nObjs  = nObjs; 
+
+    results.matchPercent = nMatchTest / testTimes.length * 100; 
+    results.nMatchObjsPercent = 
+        nMatchObjs / (testTimes.length * tObjs.length) * 100;
+
+    console.log('   < Done.  Match ' + results.matchPercent + '%'); 
+
+
+    return results; 
+
+    function getK4dFilter(pObj) {
+      return function ftr(tObj, cb) {
+        var matches = pObj.xCIyyA.NUeUFIa.YwYa.boVGzmWj === 
+          tObj.xCIyyA.NUeUFIa.YwYa.boVGzmWj;
+        return cb(matches); 
+      };
+    }
+
+    function getK1dFilter(pObj) {
+      return function ftr(tObj, cb) {
+        var matches = pObj.ABpwoNN === 
+          tObj.ABpwoNN;
+        return cb(matches); 
+      };
+    }
+
+    function onTest(filteredObjs) {
+      var testTime = getTestTime(t);
+      nTests++; 
+      testTimes.push(testTime.totalMs); 
+      nMatchTest = filteredObjs && filteredObjs.length > 0  ? 
+          nMatchTest +1 : nMatchTest; 
+      nMatchObjs = filteredObjs ? nMatchObjs + filteredObjs.length : nMatchObjs;
+
+      return; 
+    }
   }
+
 
 };
 
@@ -694,6 +769,7 @@ function writeOverallSummary(tests) {
     var mn = 1; 
     var msn = 1; 
     var rmn = 1; 
+    var afn = 1; 
 
     testNames = sortAndDedup(testNames); 
 
@@ -727,6 +803,11 @@ function writeOverallSummary(tests) {
           rmn++; 
           return ref; 
         },
+        filterAsync: function() {
+          var ref = 'af' + afn;
+          afn++; 
+          return ref; 
+        }
       };
 
       var testType = getTestTypeFromFilename(testName);  //testName same as filename (w/o json)
