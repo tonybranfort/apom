@@ -30,12 +30,12 @@ Or said another way,
 
 In [basic benchmark performance tests](https://github.com/tonybranfort/apom/blob/master/performance/perf-overall-summary.txt) on an aws t2.micro server filtering 1,000 objects with 100 properties each: 
 
- | x | response time (95th percentile; 95% of reponses faster than time shown |
- | -- | ----------------------------------------------------------------------------------------------------------- |
- | async.filter | 1.4 milliseconds (.014 microseconds, .000014 seconds)  |
- | apom.filter | 6.9 milliseconds (.069 microseconds, .000069 seconds)  |
+| filtered with  | response time (95th percentile; 95% of reponses faster than time shown |
+| ------------- | ------------- |
+| async.filter  | 1.4 milliseconds (.014 microseconds, .000014 seconds)  |
+| apom.filter  | 6.9 milliseconds (.069 microseconds, .000069 seconds)  |
 
-So, you can see a performance trade-off but the absolute response time may still be adaquate for your implementation.  Also, apom.filter is at least an order of magnitude faster than coding logic within the async.filter to handle custom properties without abstracting that logic out into a 'create filter' function like apom does (see the 'matchSimple' tests in perf tests link above). 
+You can see the performance trade-off but the absolute response time may still be adequate for your implementation.  Also, apom.filter is at least an order of magnitude faster than coding logic within the async.filter to handle custom properties without abstracting that logic out into a 'create filter' function like apom does (see the 'matchSimple' tests in perf tests link above). 
 
 Install with ```npm install apom```.  
 
