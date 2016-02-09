@@ -2,6 +2,8 @@ var getEnv = require('./get-env.js');
 var fs = require('fs'); 
 var apom = require('../lib/index.js');
 var jStat = require('jstat').jStat;
+var perfTests = require('./perf-tests.js');
+var async = require('async');
 
 var PERF_RESULTS_FILE = './performance/perf-test-results.json'; 
 var DATA_FOLDER = './performance/data/'; 
@@ -148,7 +150,81 @@ var testFns = {
 
       return; 
     }
+  },
+  testAsyncFilter : function(pObjs, tObjs, props, options) {
+    var nTests = 0;   // number of tests executed
+    var nObjs = tObjs.length;  // nObjs tested in each test 
+    var nMatchTest = 0;    // count of how many tests had at least one filtered object
+    var nMatchObjs = 0;      // total number of filtered objects matched (returned) across all tests
+
+    var nProps = 1; 
+
+    var results = {}; 
+    testTimes = []; 
+    console.log('   > Testing...');
+    var begTime = process.hrtime();
+    for (var i = pObjs.length - 1; i >= 0; i--) {
+      var f;
+      if(props[0] === 'xCIyyA.NUeUFIa.YwYa.boVGzmWj') {
+        f = getK4dFilter(pObjs[i]);
+      } else if (props[0] === 'ABpwoNN') {
+        f = getK1dFilter(pObjs[i]);
+      }
+
+      var t = process.hrtime();
+      async.filter(
+          tObjs,
+          f,
+          onTest
+      );
+    }
+
+    results.testTime = getTestTime(begTime); 
+    results.perMatchMsStats = getStats(testTimes, nProps); 
+    results.nMatchTest = nMatchTest; 
+    results.nMatchObjs = nMatchObjs; 
+
+    results.nTests = nTests; 
+    results.nProps = nProps; 
+    results.nObjs  = nObjs; 
+
+    results.matchPercent = nMatchTest / testTimes.length * 100; 
+    results.nMatchObjsPercent = 
+        nMatchObjs / (testTimes.length * tObjs.length) * 100;
+
+    console.log('   < Done.  Match ' + results.matchPercent + '%'); 
+
+
+    return results; 
+
+    function getK4dFilter(pObj) {
+      return function ftr(tObj, cb) {
+        var matches = pObj.xCIyyA.NUeUFIa.YwYa.boVGzmWj === 
+          tObj.xCIyyA.NUeUFIa.YwYa.boVGzmWj;
+        return cb(matches); 
+      };
+    }
+
+    function getK1dFilter(pObj) {
+      return function ftr(tObj, cb) {
+        var matches = pObj.ABpwoNN === 
+          tObj.ABpwoNN;
+        return cb(matches); 
+      };
+    }
+
+    function onTest(filteredObjs) {
+      var testTime = getTestTime(t);
+      nTests++; 
+      testTimes.push(testTime.totalMs); 
+      nMatchTest = filteredObjs && filteredObjs.length > 0  ? 
+          nMatchTest +1 : nMatchTest; 
+      nMatchObjs = filteredObjs ? nMatchObjs + filteredObjs.length : nMatchObjs;
+
+      return; 
+    }
   }
+
 
 };
 
@@ -512,7 +588,7 @@ function writeOverallSummary(tests) {
   var colWidths = {
     apomv: 8,
     platform: 14,
-    nodev: 8,
+    nodev: 9,
     t: 5,          //all test result time cols
     filename: 80  
   };
@@ -526,8 +602,10 @@ function writeOverallSummary(tests) {
 
   var prevFileName = ''; 
   var rowStr = '';
+  var namesIndex = 0; 
   createReportHeader();
   tests.forEach(createPrintRows);
+  createReportFooter(); 
 
   console.log(rowStr);
 
@@ -548,8 +626,9 @@ function writeOverallSummary(tests) {
     //   5. by testName
 
     // bp to enclose in braces...but so much easier to read here. 
-    if (getTestApomVersion(testA) < getTestApomVersion(testB)) return -1; 
-    if (getTestApomVersion(testA) > getTestApomVersion(testB)) return 1; 
+    // desc sort on apom version
+    if (getTestApomVersion(testA) > getTestApomVersion(testB)) return -1; 
+    if (getTestApomVersion(testA) < getTestApomVersion(testB)) return 1; 
 
     if (getTestPlatform(testA) < getTestPlatform(testB)) return -1; 
     if (getTestPlatform(testA) > getTestPlatform(testB)) return 1; 
@@ -569,6 +648,11 @@ function writeOverallSummary(tests) {
 
   function createReportHeader() {
     rowStr = '|';
+    addCol(' ', colWidths.apomv);
+    addCol(' ', colWidths.platform, ALIGN_CENTER);
+    addCol(' ', colWidths.nodev, ALIGN_CENTER);
+    addCol(' RESPONSE TIMES: 95th Percentile per property* (milliseconds; .001 microsecond) =>',200,ALIGN_LEFT);
+    addCol('\n');
     addCol('apom v', colWidths.apomv, ALIGN_CENTER);
     addCol('platform', colWidths.platform, ALIGN_CENTER);
     addCol('node v', colWidths.nodev, ALIGN_CENTER);
@@ -589,14 +673,46 @@ function writeOverallSummary(tests) {
 
   }
 
+  function createReportFooter() {
+    rowStr = rowStr + '\n';
+    rowStr = rowStr + '\n';
+    rowStr = rowStr + 'Response times are the 95th percentile ' + 
+      '(95% of responses are faster) for all matches or filters \n' + 
+      'performed for each test shown divided by the number of properties ' +
+      'being checked for a match. \n' + 
+      'This allows a consistent way of looking at response times ' + 
+      'across all tests regardless if a match was for one property or 1000.\n\n' +
+      'For example a match test of 5 properties tested 100 times: \n' + 
+      '  If 95 of the tests responded in 20.0 milliseconds or faster, ' +
+      '(regardless of whether match was true or false)\n' + 
+      '  then the number displayed here would be 4.0 (20.0 / 5 properties.)'; 
+    rowStr = rowStr + '\n\n';
+
+    testNames.forEach(function(testName) {
+      rowStr = rowStr + testNamesRefs[testName] + ' : ' + testName + '\n';
+    });
+
+    rowStr = rowStr + '\n\n';
+
+    testNames.forEach(function(testName) {
+      var refs = testName.split('_');
+      rowStr = rowStr + testNamesRefs[testName] + ' : ' + testName + '\n';
+      refs.forEach(function(ref) {
+        rowStr = rowStr + "   " + padRight(ref,11) + ' => ' + testNameRefDescription(ref) + '\n';
+      });
+    });
+  }
+
   function createPrintRows(test, index, array) {
-    if(getTestFilename(test) === prevFileName) {
+    // if(getTestFilename(test) === prevFileName) {
       // simply append p value
       // NEED TO TEST TO MAKE SURE test.testName aligns with current col in testNames[]
       ///   ie - if this test group didn't have a given test that's in other test groups
-      addCol(getTestPq95MillS(test).toFixed(2), colWidths.t, ALIGN_RIGHT);
-    } else {
+    //   addCol(getTestPq95MillS(test).toFixed(2), colWidths.t, ALIGN_RIGHT);
+    // } else {
+    if(getTestFilename(test) !== prevFileName) {
       // new row
+      namesIndex = 0;
       // end the last row 
       if (prevFileName !== '' ) {
         addCol(prevFileName, colWidths.filename, ALIGN_LEFT);
@@ -607,9 +723,20 @@ function writeOverallSummary(tests) {
       addCol(getTestApomVersion(test),colWidths.apomv, ALIGN_CENTER);
       addCol(getTestPlatform(test), colWidths.platform, ALIGN_CENTER);
       addCol(getTestNodeV(test), colWidths.nodev, ALIGN_CENTER);
-      addCol(getTestPq95MillS(test).toFixed(1), colWidths.t, ALIGN_RIGHT);
     }
-    //wrap up the last row
+
+    // print the test time if it's next in the testNames list, 
+    //   otherwise, this test wasn't performed in this test group, 
+    //   so print an empty col
+    while(testNames[namesIndex] !== getTestTestname(test)) {
+      addCol(' ',colWidths.t);
+      namesIndex++;
+    }
+    addCol(getTestPq95MillS(test).toFixed(1), colWidths.t, ALIGN_RIGHT);
+
+    // increment namesIndex unless we've cycled through all, then reset 
+    namesIndex = namesIndex === testNames.length -1 ? 0 : namesIndex + 1;
+    //wrap up the very last row
     if (index === array.length-1) {
       addCol(getTestFilename(test), colWidths.filename, ALIGN_LEFT);
 
@@ -642,6 +769,7 @@ function writeOverallSummary(tests) {
     var mn = 1; 
     var msn = 1; 
     var rmn = 1; 
+    var afn = 1; 
 
     testNames = sortAndDedup(testNames); 
 
@@ -675,6 +803,11 @@ function writeOverallSummary(tests) {
           rmn++; 
           return ref; 
         },
+        filterAsync: function() {
+          var ref = 'af' + afn;
+          afn++; 
+          return ref; 
+        }
       };
 
       var testType = getTestTypeFromFilename(testName);  //testName same as filename (w/o json)
@@ -687,6 +820,12 @@ function writeOverallSummary(tests) {
 
   }
 
+}
+
+function testNameRefDescription(testNameRef) {
+  //testNameRef is a portion of test name between '_' eg; k100to100
+  return perfTests.reference.hasOwnProperty(testNameRef) ? 
+    perfTests.reference[testNameRef] : null; 
 }
 
 function sortAndDedup(a) {
