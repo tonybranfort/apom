@@ -1,13 +1,45 @@
 # apom.js
 [![Build Status via Travis CI](https://travis-ci.org/tonybranfort/apom.svg?branch=master)](https://travis-ci.org/tonybranfort/apom)
 [![NPM version](http://img.shields.io/npm/v/apom.svg)](https://www.npmjs.org/package/apom)
-[![Coverage Status](https://coveralls.io/repos/tonybranfort/apom/badge.svg?branch=travis&service=github)](https://coveralls.io/github/tonybranfort/apom?branch=travis)
+[![Coverage Status](https://coveralls.io/repos/tonybranfort/apom/badge.svg?branch=master&service=github)](https://coveralls.io/github/tonybranfort/apom?branch=master)
 
-Asynchronous Partial Object Match provides asynchronous functions to determine if chosen properties between javascript object literals match.  A match between properties can be equal value and type (default), a regular expression test, a missing property, a custom match function or a combination for different properties.  
+Asynchronous Partial Object Match provides asynchronous functions to compare ('match') and filter objects.  Object properties comparison can be equal value and type ('==='; default), a regular expression test, a missing property, a custom match function or a combination for different properties.  
+
+The primary target of this module are other modules in which the properties being used for the filter/match are determined by the end implementer of their module.  That is, those match/filter properties are not known by the module developers. The intent is to perform those matches and filters with as little performance overhead as possible; ie, match/filter with as close to the same reponse time as if the match/filter was coded directly with those properties.  
+
+Or said another way, 
+
+  This: 
+  ```javascript
+  var filter = apom.makeFilterTargetObjectsFn(['paws.count']);
+
+  filter({paws:{count: 4}}, pets, callback)
+
+  ```
+
+  Should ideally be as fast as this :  
+  ```javascript
+   async.filter(pets, 
+    function(pet, cb) {
+      return cb(pet.paws.count === 4);
+    }, 
+    callback
+   );
+
+  ```
+
+In [basic benchmark performance tests](https://github.com/tonybranfort/apom/blob/master/performance/perf-overall-summary.txt) on an aws t2.micro server filtering 1,000 objects with 100 properties each: 
+
+| filtered with  | response time (95th percentile; 95% of reponses faster than time shown |
+| ------------- | ------------- |
+| async.filter  | 1.4 milliseconds (.014 microseconds, .000014 seconds)  |
+| apom.filter  | 6.9 milliseconds (.069 microseconds, .000069 seconds)  |
+
+You can see the performance trade-off but the absolute response time may still be adequate for your implementation.  Also, apom.filter is at least an order of magnitude faster than coding logic within the async.filter to handle custom properties without pulling that logic out, as much as possible, into a 'create filter' pre-function like apom does (see the 'matchSimple' tests in perf tests link above).  See the perf-results branch in the github repository for all performance results.  
 
 Install with ```npm install apom```.  
 
-[Tested with](https://travis-ci.org/tonybranfort/apom) node versions 4.2, 5.5, 0.10, 0.12. 
+apom has been [tested with](https://travis-ci.org/tonybranfort/apom) node versions 4.2, 5.5, 0.10, 0.12. 
 
 ## Examples
 
@@ -22,14 +54,22 @@ var fido ={
     body: {color: 'black'},
     housetrained: true};
 
+// select the properties to be tested 
+var propsToTest = ['tail.color']; 
+
+// create the match function
+var matchFn = apom.makeMatchFn(propsToTest);
+
+// create the 'pattern object' for the comparison
 var pObj = {tail: {color: 'gray'}};
 
+// perform the match 
 apom.matches(pObj, fido, function(doesMatch){
   console.log(doesMatch);  //true
 })
 ```
 
-Or build the match function first to include match options and for better performance. 
+Use a regular expression for the match. 
 
 ```javascript
 // test if fido has a gray tail regardless if grey or gray
@@ -46,7 +86,7 @@ var propsToTest = ['tail.color'];
 var options = {regExpMatch:true}; 
 
 // include the regular expression in the 'pattern object'
-var pObj = {tail:{color: /gr.y/}};  
+var pObj = {tail:{color: /gr[e,a]y/}};  
 
 // create the match function
 var matchFn = apom.makeMatchFn(propsToTest, options);

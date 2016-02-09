@@ -1,3 +1,12 @@
+# v1.0.7 Performance Testing Updates
+- Performance test updates
+  - Move performance test results files to their own git branch 'pref-results'
+  - Fix broken paths in performance tests 
+  - Make it easier to run perf tests by volume: 100-1k, 10k, 100k
+  - Add async.filter performance tests for comparison
+  - Add report perf-overall-summary.txt for tabular view of all perf tests to date
+  - Update README documentation
+
 # v1.0.6
 - Fix memory leak 
 - Add [performance test results](https://github.com/tonybranfort/apom/tree/master/performance/results) including Node 4 & 5
