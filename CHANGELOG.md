@@ -1,3 +1,5 @@
+# v1.0.8 APOM DEPRECATED.  Moved to filter-objects. 
+
 # v1.0.7 Performance Testing Updates
 - Performance test updates
   - Move performance test results files to their own git branch 'pref-results'
